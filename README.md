@@ -2,13 +2,13 @@
 
 This is the README file for our project idea for the course TDDD27 - 2024.
 
-Participants:
+Participants: <br>
 
-Filip Hamrelius - Filha243
-Anna Granberg - Anngr950 
+Filip Hamrelius - Filha243 <br>
+Anna Granberg - Anngr950 <br>
 
-filha243@student.liu.se
-anngr950@student.liu.se 
+filha243@student.liu.se<br>
+anngr950@student.liu.se <br>
 
 ## Project idea
 
@@ -24,15 +24,15 @@ Our idea is to map Swedish authorities, fundamentally it's a search engine with 
 - Authority editing page
 - Preview of adding an authority
 
-Authority = Myndighet
-Department = Departement (Svenska)
+Authority = Myndighet<br>
+Department = Departement (Svenska)<br>
 
 ## Tech stack
 
-Programming language: Javascript & Typescript 
-Framework: Next.js (Typescript)
-Autentication backend: 
-Database backend: 
+Programming language: Javascript & Typescript <br>
+Framework: Next.js (Typescript)<br>
+Autentication backend: <br>
+Database backend: <br>
 
 ## Data
 
