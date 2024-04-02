@@ -40,6 +40,26 @@ The data will be collected by ourselfs from "Regerings Kansliet" and "statskonto
 
 ## Project idea - Design mockup
 
+![Landing page](Design Mockups/startsida.png)
+
+![Search and filter page](Design Mockups/Myndigheter.png)
+
+![Info page](Design Mockups/myndighet.png)
+
+![Info page 2](Design Mockups/Myndigheter2.png)
+
+![Info page 3](Design Mockups/Myndigheter.png)
+
+![Departement page](Design Mockups/Departement.png)
+
+![Info 4](Design Mockups/Info2.png)
+
+![Info 4](Design Mockups/Info.png)
+
+![Admin log in page](Design Mockups/Admin_login.png)
+
+![Admin edit page](Design Mockups/Edit_.png)
+
 
 
 
