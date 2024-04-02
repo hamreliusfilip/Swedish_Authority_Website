@@ -42,13 +42,11 @@ The data will be collected by ourselfs from "Regerings Kansliet" and "statskonto
 
 ![Landing page](Design Mockups/startsida.png)
 
-![Search and filter page](Design Mockups/Myndigheter.png)
+![Search and filter page](Design Mockups/Myndighter.png)
 
 ![Info page](Design Mockups/myndighet.png)
 
 ![Info page 2](Design Mockups/Myndigheter2.png)
-
-![Info page 3](Design Mockups/Myndigheter.png)
 
 ![Departement page](Design Mockups/Departement.png)
 
