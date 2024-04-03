@@ -6,8 +6,6 @@ import {
     CommandEmpty,
     CommandGroup,
     CommandItem,
-    CommandSeparator,
-    CommandShortcut,
 } from "@/components/ui/command";
 
 export default function SearchBar() {

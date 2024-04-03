@@ -1,11 +1,9 @@
 import React from 'react';
+import Link from 'next/link';
 
 import {
   Menubar,
-  MenubarContent,
-  MenubarItem,
   MenubarMenu,
-  MenubarSeparator,
   MenubarTrigger,
 } from "@/components/ui/menubar";
 
@@ -13,30 +11,37 @@ export default function CompleteMenu() {
   return (
     <div className="flex justify-center mt-2">
       <Menubar>
-        <MenubarMenu>
-          <MenubarTrigger>Hem</MenubarTrigger>
-        </MenubarMenu>
 
-        <MenubarMenu>
-          <MenubarTrigger>Myndigheter</MenubarTrigger>
-          <MenubarContent>
-            <MenubarItem>Filtera & Sök</MenubarItem>
-            <MenubarSeparator />
-            <MenubarItem>Generisk lista</MenubarItem>
-          </MenubarContent>
-        </MenubarMenu>
+        <Link href="/">
+          <MenubarMenu>
+            <MenubarTrigger>Hem</MenubarTrigger>
+          </MenubarMenu>
+        </Link>
 
-        <MenubarMenu>
-          <MenubarTrigger>Departement</MenubarTrigger>
-        </MenubarMenu>
+        <Link href="/myndighet">
+          <MenubarMenu>
+            <MenubarTrigger>Myndigheter</MenubarTrigger>
+          </MenubarMenu>
+        </Link>
 
-        <MenubarMenu>
-          <MenubarTrigger>Svenska Staten</MenubarTrigger>
-        </MenubarMenu>
+        <Link href="/departement">
+          <MenubarMenu>
+            <MenubarTrigger>Departement</MenubarTrigger>
+          </MenubarMenu>
+        </Link>
 
-        <MenubarMenu>
-          <MenubarTrigger>Om Hemsidan</MenubarTrigger>
-        </MenubarMenu>
+        <Link href="/staten">
+          <MenubarMenu>
+            <MenubarTrigger>Svenska Staten</MenubarTrigger>
+          </MenubarMenu>
+        </Link>
+
+        <Link href="/om">
+          <MenubarMenu>
+            <MenubarTrigger>Om Hemsidan</MenubarTrigger>
+          </MenubarMenu>
+        </Link>
+
       </Menubar>
     </div>
   );
