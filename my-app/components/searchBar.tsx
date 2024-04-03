@@ -12,7 +12,7 @@ export default function SearchBar() {
     return (
         <div className="flex justify-center">
             <div className="w-7/12">
-                <div className="flex items-center pl-4 pt-32">
+                <div className="flex items-center pl-2 pt-12">
                     <Command>
                         <CommandInput placeholder="Sök efter något kul..." />
                         <CommandList>

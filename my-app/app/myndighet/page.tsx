@@ -7,7 +7,7 @@ export default function Page() {
         <div>
             <Logo />
             <CompleteMenu />
-            
+            <h1>Myndighet</h1>
         </div>
     );
 }
