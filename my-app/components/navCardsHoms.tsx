@@ -5,7 +5,6 @@ import {
     Card,
     CardContent,
     CardDescription,
-    CardFooter,
     CardHeader,
     CardTitle,
 } from "@/components/ui/card"
@@ -21,7 +20,7 @@ export default function NavCardsHoms() {
                         <CardDescription className="text-sm">Gå till myndighetsida</CardDescription>
                     </CardHeader>
                     <CardContent>
-                        <p>Sök, filtrera, läs om, kommentera, gilla & hitta myndigheter.</p>
+                        <p>Filterera, sök och forska bland de svenska myndigheterna</p>
                     </CardContent>
                 </Card>
             </Link>
@@ -33,7 +32,7 @@ export default function NavCardsHoms() {
                         <CardDescription>Gå till departementsida</CardDescription>
                     </CardHeader>
                     <CardContent>
-                        <p>Utforska departementen och hur allt sitter ihop.</p>
+                        <p>Utforska departementen och hur allt sitter ihop genom en intuituv graf och filterings funktion.</p>
                     </CardContent>
                 </Card>
             </Link>
@@ -45,7 +44,7 @@ export default function NavCardsHoms() {
                         <CardDescription>Gå till sidan staten</CardDescription>
                     </CardHeader>
                     <CardContent>
-                        <p>Hur fungerar egentligen den svenska staten?</p>
+                        <p>Läs om hur det svenska staten faktiskt fungerar.</p>
                     </CardContent>
                 </Card>
             </Link>
@@ -57,7 +56,7 @@ export default function NavCardsHoms() {
                         <CardDescription>Gå till sidan om oss</CardDescription>
                     </CardHeader>
                     <CardContent>
-                        <p>Vad är detta och varför finns den?</p>
+                        <p>Vad är det här för hemsida? Vart kommer informationen ifrån?</p>
                     </CardContent>
                 </Card>
             </Link>
