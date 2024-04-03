@@ -31,8 +31,8 @@ Department = Departement (Svenska)<br>
 
 Programming language: Javascript & Typescript <br>
 Framework: Next.js (Typescript)<br>
-Autentication backend: <br>
-Database backend: <br>
+Autentication backend: nextAuth.js<br>
+Database backend: MongoDB <br>
 
 ## Data
 
