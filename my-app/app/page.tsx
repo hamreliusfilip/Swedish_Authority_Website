@@ -5,6 +5,7 @@ import Logo from '../components/logo';
 import Info from '../components/infoText';
 import SearchBar from '../components/searchBar';
 import NavCardsHoms from '../components/navCardsHoms';
+import Footer from '../components/footer';
 
 export default function Home() {
 
@@ -15,6 +16,7 @@ export default function Home() {
       <Info /> 
       <SearchBar /> 
       <NavCardsHoms />
+      <Footer />
     </div>
   );
 }

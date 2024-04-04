@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-import logo from '../Assets/logo.png';
+import logo from '../Assets/book.svg';
 
 export default function Logo() {
     return (

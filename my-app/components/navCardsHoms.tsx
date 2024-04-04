@@ -11,7 +11,7 @@ import {
 
 export default function NavCardsHoms() {
     return (
-        <div className="flex flex-wrap justify-center pt-16">
+        <div className="flex flex-wrap justify-center">
 
             <Link href="/myndighet">
                 <Card className="m-4 p+2 w-64 h-64">

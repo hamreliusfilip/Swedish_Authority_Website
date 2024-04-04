@@ -1,6 +1,7 @@
 import React from 'react'
 import CompleteMenu from '../../../components/completeMenu';
 import Logo from '../../../components/logo';
+import Footer from '../../../components/footer';
 
 export default function Page() {
     return (
@@ -8,6 +9,7 @@ export default function Page() {
             <Logo />
             <CompleteMenu />
             <h1>Lista för myndigheter</h1>
+            <Footer />
         </div>
     );
 }

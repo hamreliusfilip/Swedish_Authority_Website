@@ -1,30 +1,12 @@
 import React from 'react';
-import {
-    Command,
-    CommandInput,
-    CommandList,
-    CommandEmpty,
-    CommandGroup,
-    CommandItem,
-} from "@/components/ui/command";
+import { Input } from "@/components/ui/input"
+
 
 export default function SearchBar() {
     return (
-        <div className="flex justify-center">
+        <div className="flex justify-center p-20">
             <div className="w-7/12">
-                <div className="flex items-center pl-2 pt-12">
-                    <Command>
-                        <CommandInput placeholder="Sök efter något kul..." />
-                        <CommandList>
-                            <CommandEmpty>Inga resultat.</CommandEmpty>
-                            <CommandGroup heading="Suggestions">
-                                <CommandItem>Systembolaget</CommandItem>
-                                <CommandItem>Finansdepartementet</CommandItem>
-                                <CommandItem>Landsting</CommandItem>
-                            </CommandGroup>
-                        </CommandList>
-                    </Command>
-                </div>
+                <Input />
             </div>
         </div>
     );
