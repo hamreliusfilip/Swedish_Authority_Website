@@ -1,44 +1,22 @@
 //CONNECTING TO OUR DATABASE
-
 import mongoose from "mongoose";
-declare global {
-  var mongoose: any;
-}
 
-const MONGODB_URI = process.env.MONGODB_URI!; 
+let isConnected = false; 
 
-if (!MONGODB_URI) {
-  throw new Error(
-    "Please define the MONGODB_URI environment variable inside .env.local",
-  );
-}
+export const dbConnect = async () =>{
+  mongoose.set('strictQuery', true);
 
-let cached = global.mongoose;
-
-if (!cached) {
-  cached = global.mongoose = { conn: null, promise: null };
-}
-
-async function dbConnect() {
-  if (cached.conn) {
-    return cached.conn;
+  if(!process.env.MONGODB_URI) {
+    return (console.log("MONGODB_URI is not defined"));
   }
-  if (!cached.promise) {
-    const opts = {
-      bufferCommands: false,
-    };
-    cached.promise = mongoose.connect(MONGODB_URI, opts).then((mongoose) => {
-      return mongoose;
-    });
+  if(isConnected) {
+    return console.log("Already connected to database");
   }
+
   try {
-    cached.conn = await cached.promise;
-  } catch (e) {
-    cached.promise = null;
-    throw e;
+    await mongoose.connect(process.env.MONGODB_URI);
+    isConnected = true;
+  } catch (error) {
+    console.log("Error connecting to database: ", error);
   }
-
-  return cached.conn;
 }
-
-export default dbConnect;

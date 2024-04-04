@@ -1,23 +1,16 @@
-import mongoose from "mongoose";
+import mongoose, { Document, Model } from "mongoose";
 
-export interface Movie extends mongoose.Document {
-  _id: string;
+export interface MovieDocument extends Document {
+  id: number;
   title: string;
+  // Define other properties here if needed
 }
 
-/* correspond to a collection in your MongoDB database. */
-const MovieSchema = new mongoose.Schema<Movie>({
-  title: {
-    type: String,
-    required: [true, "Please provide a name for this pet."],
-    maxlength: [60, "Name cannot be more than 60 characters"],
-  },
+const movieSchema = new mongoose.Schema({
+  id: { type: Number, required: true },
+  title: { type: String, required: true },
+  // Define other schema properties here if needed
 });
 
-const MovieModel = mongoose.models.Movie || mongoose.model<Movie>("Movie", MovieSchema);
-
-export default MovieModel
-
-
-
-
+const Movie = mongoose.models.Movie || mongoose.model<MovieDocument>("Movie", movieSchema);
+export default Movie;
