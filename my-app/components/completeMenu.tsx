@@ -32,13 +32,13 @@ export default function CompleteMenu() {
 
         <Link href="/staten">
           <MenubarMenu>
-            <MenubarTrigger>Svenska Staten</MenubarTrigger>
+            <MenubarTrigger>Svenska staten</MenubarTrigger>
           </MenubarMenu>
         </Link>
 
         <Link href="/om">
           <MenubarMenu>
-            <MenubarTrigger>Om Hemsidan</MenubarTrigger>
+            <MenubarTrigger>Om hemsidan</MenubarTrigger>
           </MenubarMenu>
         </Link>
 

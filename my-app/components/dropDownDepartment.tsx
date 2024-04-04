@@ -9,7 +9,7 @@ import {
 
 export default function DropDownDepartment() {
     return (
-        <div className="flex justify-end mr-20 mt-10">
+        <div className="flex justify-end mr-20 mt-10 mb-10">
             <Select>
                 <SelectTrigger className="w-[180px]">
                     <SelectValue placeholder="Välj departement" />
