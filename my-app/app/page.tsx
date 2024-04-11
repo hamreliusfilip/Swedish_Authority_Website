@@ -14,7 +14,9 @@ export default function Home() {
       <Logo />
       <CompleteMenu /> 
       <Info /> 
-      <SearchBar /> 
+      <div className="ml-20 mr-20 mt-10">
+        <SearchBar /> 
+      </div>
       <NavCardsHoms />
       <Footer />
     </div>
