@@ -5,7 +5,7 @@ import CompleteMenu from './completeMenu';
 
 export default function Footer() {
     return (
-        <div className="flex flex-col items-center justify-end h-10% mt-64 bg-darkGreyBackgroundCustomColor pt-12 wit-auto">
+        <div className="flex flex-col items-center justify-end h-10% mt-24 bg-darkGreyBackgroundCustomColor pt-12 wit-auto">
             <div className="flex justify-center items-center">
                 <div className="mr-2">
                     <Image src={logo} alt="Logo" width={100} height={100} />

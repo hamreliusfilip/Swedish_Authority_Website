@@ -3,6 +3,7 @@ import Logo from '../../components/logo';
 import Footer from '../../components/footer';
 import DropDownDepartment from '../../components/dropDownDepartment';
 import Flow from '../../components/FlowCo';
+import DisclaimerCard from '../../components/discInfoCard';
 
 import {
   Card,
@@ -17,6 +18,7 @@ export default function Page() {
       <Card>
         <Flow />
       </Card>
+      <DisclaimerCard />
       <Footer />
     </div>
   );
