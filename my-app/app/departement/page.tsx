@@ -1,9 +1,7 @@
 import CompleteMenu from '../../components/completeMenu';
 import Logo from '../../components/logo';
 import Footer from '../../components/footer';
-import DropDownDepartment from '../../components/dropDownDepartment';
 import Flow from '../../components/FlowCo';
-import DisclaimerCard from '../../components/discInfoCard';
 
 import {
   Card,
@@ -14,11 +12,9 @@ export default function Page() {
     <div>
       <Logo />
       <CompleteMenu />
-      <DropDownDepartment /> 
-      <Card>
+      <Card className='mt-8 mx-20'>
         <Flow />
       </Card>
-      <DisclaimerCard />
       <Footer />
     </div>
   );

@@ -1,82 +1,155 @@
 "use client";
-
-import React, { useCallback } from 'react';
+import React, { useCallback, useState, useEffect } from 'react';
+import { Button } from "@/components/ui/button"
+import Link from 'next/link';
+import DisclaimerCard from './discInfoCard';
 import ReactFlow, {
   MiniMap,
   Controls,
   Background,
   useNodesState,
   useEdgesState,
-  addEdge,
+  BackgroundVariant,
 } from 'reactflow';
- 
 import 'reactflow/dist/style.css';
- 
-const initialNodes = [
-  { id: '1', position: { x: 700, y: 200 }, data: { label: 'Arbetsmarknads departementet' } },
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select"
 
-  { id: '2', position: { x: 100, y: 300 }, data: { label: 'Arbetsdomstolen' } },
-  { id: '3', position: { x: 400, y: 300 }, data: { label: 'Arbetsförmedlingen' } },
-  { id: '4', position: { x: 700, y: 300 }, data: { label: 'Arbetsmiljöverket' } },
-  { id: '5', position: { x: 1000, y: 300 }, data: { label: 'Diskrimineringsombudsmannen' } },
-  { id: '6', position: { x: 1300, y: 300 }, data: { label: 'Inspektionen för arbetslöshetsförsäkringen' } },
+const App: React.FC = () => {
+  const [selectedDepartment, setSelectedDepartment] = useState<string>("");
+  const [myndigheter, setMyndigheter] = useState<any[]>([]);
 
-  { id: '2', position: { x: 100, y: 300 }, data: { label: 'Institutet för arbetsmarknads- och utbildningspolitisk utvärdering' } },
-  { id: '3', position: { x: 400, y: 300 }, data: { label: 'Institutet för mänskliga rättigheter' } },
-  { id: '4', position: { x: 700, y: 300 }, data: { label: 'Jämställdhets myndigheten' } },
-  { id: '5', position: { x: 1000, y: 300 }, data: { label: 'Medlingsinstitutet' } },
-  { id: '6', position: { x: 1300, y: 300 }, data: { label: 'Myndigheten för arbetsmiljökunskap' } },
+  const fetchMyndigheter = async () => {
+    try {
+      const res = await fetch("http://localhost:3000/api/myndigheter");
+      const data = await res.json();
+      setMyndigheter(data.myndighet);
+    } catch (error) {
+      console.error("Error fetching myndigheter:", error);
+    }
+  }
 
-  { id: '7', position: { x: 100, y: 570 }, data: { label: 'Nämnden för styrelserepresentations frågor' } },
-  { id: '8', position: { x: 400, y: 570 }, data: { label: 'Nämnden mot diskriminering' } },
-  { id: '9', position: { x: 700, y: 570 }, data: { label: 'Rådet för europeiska socialfonden i Sverige' } },
-  { id: '10', position: { x: 1000, y: 570 }, data: { label: 'Statens nämnd för arbetstagares uppfinningar' } },
-  { id: '11', position: { x: 1300, y: 570 }, data: { label: 'Svenska ILO-kommittén' } },
-];
-const initialEdges = [
-  { id: 'e1-2', source: '1', target: '2' },
-  { id: 'e1-3', source: '1', target: '3' },
-  { id: 'e1-4', source: '1', target: '4' },
-  { id: 'e1-5', source: '1', target: '5' },
-  { id: 'e1-6', source: '1', target: '6' },
+  useEffect(() => {
+    fetchMyndigheter().catch((error) => {
+      console.error("Error setting myndigheter:", error);
+    });
+  }, []);
 
-  { id: 'e1-7', source: '1', target: '7' },
-  { id: 'e1-8', source: '1', target: '8' },
-  { id: 'e1-9', source: '1', target: '9' },
-  { id: 'e1-10', source: '1', target: '10' },
-  { id: 'e1-11', source: '1', target: '11' },
-];
- 
-export default function App() {
-  const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
-  const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
- 
-  const onConnect = useCallback(
-    (params: any) => setEdges((eds) => addEdge(params, eds)),
-    [setEdges],
-  );
+  const changeSorting = useCallback((value: string) => {
+    if (!value) return;
+
+    const initialNodes = [
+      { id: '1', position: { x: 700, y: 300 }, data: { label: value } },
+      ...myndigheter
+        .filter(myndighet => myndighet.relation === value)
+        .map((myndighet, index) => ({
+          id: (index + 2).toString(),
+          position: {
+            x: 100 + (index % 7 * 200),
+            y: index < 7 ? 150 : 450,
+          },
+          data: { label: myndighet.name },
+        })),
+    ];
+    setNodes(initialNodes);
+  }, [myndigheter]);
+
+  const [nodes, setNodes, onNodesChange] = useNodesState([
+    { id: '1', position: { x: 750, y: 300 }, data: { label: 'Välj ett departement att visualisera' } },
+  ]);
+
+  let [edges, setEdges, onEdgesChange] = useEdgesState([{ id: 'e1-2', source: '1', target: '2' }]);
+
+  const generateEdges = useCallback(() => {
+    const newEdges = myndigheter.map((myndighet, index) => ({
+      id: `e${index + 2}-1`,
+      source: (index + 2).toString(),
+      target: '1',
+    }));
+    return newEdges;
+  }, [myndigheter]);
+
+  useEffect(() => {
+    setEdges(generateEdges());
+  }, [myndigheter, generateEdges]);
 
   const defaultEdgeOptions = {
     animated: true,
     type: 'smoothstep',
   };
- 
+
   return (
-    <div style={{ width: '100vw', height: '60vh' }}>
-      <ReactFlow
-        nodes={nodes}
-        edges={edges}
-        onNodesChange={onNodesChange}
-        onEdgesChange={onEdgesChange}
-        onConnect={onConnect}
-        defaultEdgeOptions={defaultEdgeOptions}
-      >
-        <Controls />
-        <MiniMap />
-        <Background gap={12} size={1} />
-      </ReactFlow>
+    <div className=''>
+      <div className='flex justify-between'>
+        <div>
+          <Link href="/myndighet">
+            <Button variant="outline" className='ml-3 mt-3 mb-3'>Tillbaka</Button>
+          </Link>
+        </div>
+        <div className='mr-auto ml-3 mt-3 mb-3'>
+          <Select onValueChange={changeSorting} >
+            <SelectTrigger className="w-auto">
+              <SelectValue placeholder="Departament" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectGroup>
+                <SelectLabel>Departementkarta som visas</SelectLabel>
+                <SelectItem value="Arbetsmarknadsdepartementet">Arbetsmarknadsdepartementet</SelectItem>
+                <SelectItem value="Finansdepartementet">Finansdepartementet</SelectItem>
+                <SelectItem value="Försvarsdepartementet">Försvarsdepartementet</SelectItem>
+                <SelectItem value="Justitiedepartementet">Justitiedepartementet</SelectItem>
+                <SelectItem value="Klimat- och näringslivsdepartementet">Klimat- och näringslivsdepartementet</SelectItem>
+                <SelectItem value="Kulturdepartementet">Kulturdepartementet</SelectItem>
+                <SelectItem value="Landsbygds- och infrastrukturdepartementet">Landsbygds- och infrastrukturdepartementet</SelectItem>
+                <SelectItem value="Socialdepartementet">Socialdepartementet</SelectItem>
+                <SelectItem value="Statsrådsberedningen">Statsrådsberedningen</SelectItem>
+                <SelectItem value="Utbildningsdepartementet">Utbildningsdepartementet</SelectItem>
+                <SelectItem value="Utrikesdepartementet">Utrikesdepartementet</SelectItem>
+              </SelectGroup>
+            </SelectContent>
+          </Select>
+        </div>
+        <div>
+          <Link href="/om">
+            <Button variant="outline" className='ml-3 mt-3 mb-3 mr-3 bg-amber-200'>Källa: Statsförvaltning i korthet 2023 - Läs mer</Button>
+          </Link>
+        </div>
+      </div>
+      <div style={{ height: "700px" }} className="w-auto border-solid">
+        <ReactFlow
+          nodes={nodes}
+          edges={edges}
+          onNodesChange={onNodesChange}
+          onEdgesChange={onEdgesChange}
+          defaultEdgeOptions={defaultEdgeOptions}
+          panOnScroll
+          selectionOnDrag
+        >
+          <Controls />
+          <MiniMap />
+          <Background
+            id="1"
+            gap={10}
+            color="#f1f1f1"
+            variant={BackgroundVariant.Lines}
+          />
+          <Background
+            id="2"
+            gap={100}
+            color="#ccc"
+            variant={BackgroundVariant.Lines}
+          />
+        </ReactFlow>
+      </div>
     </div>
   );
 }
 
-
+export default App;
