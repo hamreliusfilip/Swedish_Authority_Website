@@ -1,11 +1,11 @@
 import mongoose from "mongoose";
 
 export interface Myndigheter extends mongoose.Document {
-  name: String;
-  relation: String;
-  created: Number;
-  rule: String;
-  info: String;
+  name: string;
+  relation: string;
+  created: number;
+  rule: string;
+  info: string;
   logo_url: Buffer;
 }
 
