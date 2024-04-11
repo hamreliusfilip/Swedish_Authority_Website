@@ -8,7 +8,11 @@ export default function Page() {
         <div>
             <Logo />
             <CompleteMenu />
-            <h1>Lista för myndigheter</h1>
+
+
+
+
+
             <Footer />
         </div>
     );

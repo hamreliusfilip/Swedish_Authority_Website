@@ -1,5 +1,3 @@
-import { NextApiRequest, NextApiResponse } from "next";
-import { NextDataPathnameNormalizer } from "next/dist/server/future/normalizers/request/next-data";
 import { NextResponse } from 'next/server';
 import dbConnect from "../../../lib/dbConnect";
 import Myndighet from "../../../lib/models/myndighet";
@@ -12,11 +10,7 @@ export async function GET() {
   } catch (error) {
       return NextResponse.json({status:500, message: 'Error finding myndigheter'});
   }
-}
-
-
-  
-  
+}  
 
   // switch (method) {
   //   case "GET":
