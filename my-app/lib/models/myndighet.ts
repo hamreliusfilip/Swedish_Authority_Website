@@ -1,7 +1,6 @@
 import mongoose from "mongoose";
 
 export interface Myndigheter extends mongoose.Document {
-  _id: Object;
   name: String;
   relation: String;
   created: Number;
@@ -12,11 +11,6 @@ export interface Myndigheter extends mongoose.Document {
 
 /* MyndighetSchema will correspond to a collection in your MongoDB database. */
 const Myndigheter = new mongoose.Schema<Myndigheter>({
-    _id: {
-      /* Name of myndighet */
-      type: Object,
-      required: [true, "Please provide a name for this pet."],
-    },
     name: {
       /* Name of myndighet */
       type: String,
