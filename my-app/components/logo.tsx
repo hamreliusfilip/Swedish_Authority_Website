@@ -1,18 +1,15 @@
 import React from 'react';
 import Image from 'next/image';
-import logo from '../Assets/book.svg';
 import Link from 'next/link';
+
+import logo from '../Assets/logga.svg';
 
 export default function Logo() {
     return (
         <Link href="/">
-            <div className="flex items-center pl-4 pt-4">
-                <div className="mr-2">
-                    <Image src={logo} alt="Logo" width={50} height={50} />
-                </div>
-
-                <div>
-                    <h3 className="text-lg font-semibold">Svenska Myndigheter</h3>
+            <div className="flex items-center ml-5 mt-5">
+                <div className="mr-2 size-1/6">
+                    <Image src={logo} alt="Svenska Myndigheter"/>
                 </div>
             </div>
         </Link>

@@ -24,7 +24,7 @@ export default function Page() {
       <div className="px-4 pt-16">
       <div className="flex flex-wrap justify-center">
 
-          <Card className="m-4 p+2 w-full sm:w-1/2 md:w-1/3 lg:w-2/4 xl:w-1/5">
+          <Card className="m-4 p+2 w-full sm:w-1/2 md:w-1/2 lg:w-1/3 xl:w-1/3">
             <CardHeader>
               <CardTitle>Sverige</CardTitle>
               <CardDescription className="text-sm">Svenska hirarkin och system i stort.</CardDescription>
@@ -34,7 +34,7 @@ export default function Page() {
             </CardContent>
           </Card>
 
-          <Card className="m-4 p+2 w-full sm:w-1/2 md:w-1/3 lg:w-2/4 xl:w-1/5">
+          <Card className="m-4 p+2 w-full sm:w-1/2 md:w-1/2 lg:w-1/3 xl:w-1/3">
             <CardHeader>
               <CardTitle>Vad är ett departement?</CardTitle>
               <CardDescription>Hur fungerar ett departement och vad är det?</CardDescription>
@@ -44,7 +44,7 @@ export default function Page() {
             </CardContent>
           </Card>
 
-          <Card className="m-4 p+2 w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5">
+          <Card className="m-4 p+2 w-full sm:w-1/2 md:w-1/2 lg:w-1/3 xl:w-1/3">
             <CardHeader>
               <CardTitle>Vad är en myndighet?</CardTitle>
               <CardDescription>Hur fungerar en myndighet och vad är det?</CardDescription>
@@ -59,7 +59,7 @@ export default function Page() {
       <div>
       <div className="flex flex-wrap justify-center">
 
-        <Card className="m-4 p+2 w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5">
+      <Card className="m-4 p+2 w-full sm:w-1/2 md:w-1/2 lg:w-1/3 xl:w-1/3">
             <CardHeader>
               <CardTitle>Riksdagen</CardTitle>
               <CardDescription className="text-sm">Vad gör riksdagen i korrelation till alla andra delar?</CardDescription>
@@ -69,7 +69,7 @@ export default function Page() {
             </CardContent>
           </Card>
 
-          <Card className="m-4 p+2 w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5">
+          <Card className="m-4 p+2 w-full sm:w-1/2 md:w-1/2 lg:w-1/3 xl:w-1/3">
             <CardHeader>
               <CardTitle>Regeringen</CardTitle>
               <CardDescription>Vad gör regeringen i korrelation till alla andra delar?</CardDescription>
@@ -79,7 +79,7 @@ export default function Page() {
             </CardContent>
           </Card>
 
-          <Card className="m-4 p+2 w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5">
+          <Card className="m-4 p+2 w-full sm:w-1/2 md:w-1/2 lg:w-1/3 xl:w-1/3">
             <CardHeader>
               <CardTitle>Hur många och varför?</CardTitle>
               <CardDescription>Varför finns det så många olika delar?</CardDescription>

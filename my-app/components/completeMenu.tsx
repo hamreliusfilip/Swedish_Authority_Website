@@ -9,7 +9,7 @@ import {
 
 export default function CompleteMenu() {
   return (
-    <div className="flex justify-center mt-2">
+    <div className="flex justify-center mt-[-20]">
       <Menubar>
 
         <Link href="/">

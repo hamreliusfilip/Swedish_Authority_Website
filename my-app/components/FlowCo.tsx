@@ -2,7 +2,6 @@
 import React, { useCallback, useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button"
 import Link from 'next/link';
-import DisclaimerCard from './discInfoCard';
 import ReactFlow, {
   MiniMap,
   Controls,
@@ -96,7 +95,7 @@ const App: React.FC = () => {
         <div className='mr-auto ml-3 mt-3 mb-3'>
           <Select onValueChange={changeSorting} >
             <SelectTrigger className="w-auto">
-              <SelectValue placeholder="Departament" />
+              <SelectValue placeholder="Välj ett departement" />
             </SelectTrigger>
             <SelectContent>
               <SelectGroup>
