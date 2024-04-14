@@ -2,9 +2,9 @@ import React from 'react';
 
 export default function Info() {
     return (
-        <div className="flex justify-center pt-20 lg:px-64 sm:px-16 xs:px-12" >
-            <h1 className="2xl:text-4xl xl:text-3xl lg:text-2xl md:text-xl font-extrabold text-center">
-                    Utforska Sveriges byråkratiska landskap, knäck koden till myndigheterna och upptäck klarhet i förvaltningens snårskog.
+        <div className="flex justify-center pt-20 lg:px-64 sm:px-16 xs:px-12 mt-8" >
+            <h1 className="2xl:text-4xl xl:text-3xl lg:text-2xl md:text-xl font-bold text-center">
+                    Utforska Sveriges byråkratiska <span className='bg-gradient-to-r from-cyan-500 to-blue-500 inline-block text-transparent bg-clip-text'>landskap, </span> knäck koden till <span className='bg-gradient-to-r from-cyan-500 to-blue-500 inline-block text-transparent bg-clip-text'> myndigheterna </span> och upptäck klarhet i vår förvaltning.
             </h1>
         </div>
     );

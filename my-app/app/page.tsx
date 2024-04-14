@@ -3,9 +3,12 @@ import React from "react";
 import CompleteMenu from '../components/completeMenu';
 import Logo from '../components/logo';
 import Info from '../components/infoText';
-import SearchBar from '../components/searchBar';
 import NavCardsHoms from '../components/navCardsHoms';
 import Footer from '../components/footer';
+import LandingFiller from '../components/landingFiller';
+import LandingFiller2 from "@/components/landingFiller2";
+import Facts from "@/components/facts";
+
 
 export default function Home() {
 
@@ -14,10 +17,10 @@ export default function Home() {
       <Logo />
       <CompleteMenu /> 
       <Info /> 
-      <div className="ml-20 mr-20 mt-10">
-        <SearchBar /> 
-      </div>
       <NavCardsHoms />
+      <Facts />
+      <LandingFiller2 />
+      <LandingFiller />
       <Footer />
     </div>
   );

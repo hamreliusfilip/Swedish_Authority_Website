@@ -89,12 +89,12 @@ const App: React.FC = () => {
       <div className='flex justify-between'>
         <div>
           <Link href="/myndighet">
-            <Button variant="outline" className='ml-3 mt-3 mb-3'>Tillbaka</Button>
+            <Button variant="outline" className='ml-3 mt-3 mb-3 '>Tillbaka</Button>
           </Link>
         </div>
         <div className='mr-auto ml-3 mt-3 mb-3'>
           <Select onValueChange={changeSorting} >
-            <SelectTrigger className="w-auto">
+            <SelectTrigger className="w-auto bg-gradient-to-r from-cyan-500 to-blue-500 text-white">
               <SelectValue placeholder="Välj ett departement" />
             </SelectTrigger>
             <SelectContent>
@@ -117,7 +117,7 @@ const App: React.FC = () => {
         </div>
         <div>
           <Link href="/om">
-            <Button variant="outline" className='ml-3 mt-3 mb-3 mr-3 bg-amber-200'>Källa: Statsförvaltning i korthet 2023 - Läs mer</Button>
+            <Button variant="outline" className='ml-3 mt-3 mb-3 mr-3'>Källa: Statsförvaltning i korthet 2023 - Läs mer</Button>
           </Link>
         </div>
       </div>

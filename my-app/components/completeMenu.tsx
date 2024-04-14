@@ -9,7 +9,7 @@ import {
 
 export default function CompleteMenu() {
   return (
-    <div className="flex justify-center mt-[-20]">
+    <div className="flex justify-center ">
       <Menubar>
 
         <Link href="/">
@@ -27,6 +27,12 @@ export default function CompleteMenu() {
         <Link href="/departement">
           <MenubarMenu>
             <MenubarTrigger>Departement</MenubarTrigger>
+          </MenubarMenu>
+        </Link>
+
+        <Link href="/Statistik">
+          <MenubarMenu>
+            <MenubarTrigger>Statistik</MenubarTrigger>
           </MenubarMenu>
         </Link>
 

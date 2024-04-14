@@ -2,14 +2,15 @@ import React from "react";
 import CompleteMenu from '../../components/completeMenu';
 import Logo from '../../components/logo';
 import Footer from '../../components/footer';
-import AboutState from '../../components/aboutState';
+import Graph from "../../components/graph";
 
-export default function Page() {
+export default function Home() {
+
   return (
     <div>
       <Logo />
-      <CompleteMenu />
-      <AboutState />
+      <CompleteMenu /> 
+      <Graph />
       <Footer />
     </div>
   );
