@@ -26,10 +26,10 @@ export default function LandingFiller2() {
     return (
         <div className='mt-72 mb-72 bg-white h-96 flex justify-center items-center '>
             <div className='mt-20'>
-                <h1 className='text-left ml-20 font-bold text-4xl text-black mb-5'>
-                    All <span className='bg-gradient-to-r from-cyan-500 to-blue-500 inline-block text-transparent bg-clip-text'>data</span> på ett och samma ställe<span className='bg-gradient-to-r from-cyan-500 to-blue-500 inline-block text-transparent bg-clip-text font-extrabold'>.</span>
+                <h1 className='text-center font-bold text-4xl text-black mb-5'>
+                    All <span className='bg-gradient-to-r from-cyan-500 to-blue-500 inline-block text-transparent bg-clip-text'>data</span> på ett och <span className='bg-gradient-to-r from-cyan-500 to-blue-500 inline-block text-transparent bg-clip-text font-extrabold'>samma ställe</span>
                 </h1>
-                <h1 className='text-left ml-20 font-normal text-l text-black mb-10 '>
+                <h1 className='text-center  font-normal text-l text-black mb-10 '>
                     Ska man verkligen behöva växla mellan Riksarkivet, Regeringskansliet, SCB och Wikipedia <br></br>för att förstå hur vår stat fungerar? Nej, här har vi allt samlat på ett ställe.
                 </h1>
                 <div className=' mb-10 '>
@@ -43,6 +43,11 @@ export default function LandingFiller2() {
                         <Image src={img7} alt="Image not found - Error" width={75} height={75} className='ml-10 ' />
                         <Image src={img8} alt="Image not found - Error" width={75} height={75} className='ml-10 ' />
                         <Image src={img9} alt="Image not found - Error" width={75} height={75} className='ml-10 ' />
+                        <Image src={img1} alt="Image not found - Error" width={75} height={75} className='ml-10 ' />
+                        <Image src={img2} alt="Image not found - Error" width={75} height={75} className='ml-10 ' />
+                        <Image src={img3} alt="Image not found - Error" width={75} height={75} className='ml-10 ' />
+                        <Image src={img4} alt="Image not found - Error" width={75} height={75} className='ml-10 ' />
+                        <Image src={img5} alt="Image not found - Error" width={75} height={75} className='ml-10 ' />
                         <Image src={img10} alt="Image not found - Error" width={75} height={75} className='ml-10 ' />
                         <Image src={img11} alt="Image not found - Error" width={75} height={75} className='ml-10 ' />
                         <Image src={img12} alt="Image not found - Error" width={75} height={75} className='ml-10 ' />

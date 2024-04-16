@@ -39,10 +39,6 @@ export default function AboutState() {
                             <p>En myndighet är en offentlig institution eller organisation som har tilldelats specifika befogenheter och ansvar av regeringen för att utföra en viss funktion eller uppgift inom samhället. Dessa uppgifter kan vara mycket varierande och kan omfatta allt från att reglera specifika branscher och sektorer, till att tillhandahålla tjänster inom områden som hälsa, utbildning eller transport. Myndigheter finns på olika nivåer av den offentliga sektorn, från nationell till regional och lokal nivå, beroende på deras ansvarsområde och geografiska räckvidd. De är oftast underställda en regering, en minister eller ett departement, och arbetar enligt lagar, förordningar och riktlinjer som fastställts av lagstiftaren. Myndigheterna spelar en viktig roll i att säkerställa att samhället fungerar smidigt och att medborgarnas behov och rättigheter tillgodoses genom att tillhandahålla olika tjänster, reglera verksamheter och främja samhällsutveckling.</p>
                         </CardContent>
                     </Card>
-                </div>
-            </div>
-            <div>
-                <div className="flex flex-wrap justify-center">
                     <Card className="m-4 p+2 w-full sm:w-1/2 md:w-1/2 lg:w-1/3 xl:w-1/3">
                         <CardHeader>
                             <CardTitle>Riksdagen</CardTitle>
@@ -63,15 +59,34 @@ export default function AboutState() {
                     </Card>
                     <Card className="m-4 p+2 w-full sm:w-1/2 md:w-1/2 lg:w-1/3 xl:w-1/3">
                         <CardHeader>
-                            <CardTitle>Hur många och varför?</CardTitle>
-                            <CardDescription><span className='bg-gradient-to-r from-cyan-500 to-blue-500 inline-block text-transparent bg-clip-text'>Varför finns det så många olika delar?</span></CardDescription>
+                            <CardTitle>Antal?</CardTitle>
+                            <CardDescription><span className='bg-gradient-to-r from-cyan-500 to-blue-500 inline-block text-transparent bg-clip-text'>Varför finns det så många myndigheter?</span></CardDescription>
                         </CardHeader>
                         <CardContent>
                             <p>Det finns flera skäl till varför det finns många myndigheter inom en stat som Sverige: 1. Specialisering och effektivitet: Genom att dela upp ansvarsområden och skapa specialiserade myndigheter kan regeringen och den offentliga sektorn effektivt hantera olika delar av samhället. Varje myndighet kan fokusera på sitt specifika område av expertis och därigenom arbeta mer effektivt för att uppnå sina mål. 2. Mångfald av uppgifter: Samhället har många olika behov och utmaningar som kräver olika åtgärder och expertis för att hantera. Genom att ha många myndigheter kan regeringen tillhandahålla en mångfald av tjänster och insatser för att möta dessa behov, från hälsovård till utbildning, miljöskydd till infrastruktur. 3. Lokal närvaro: Genom att sprida myndigheterna över olika delar av landet kan regeringen säkerställa en lokal närvaro och anpassning till specifika regionala behov och förhållanden. Detta kan hjälpa till att främja jämlikhet och tillgänglighet till offentliga tjänster över hela landet. 4. Oberoende och ansvarsskyldighet: Att ha flera separata myndigheter kan bidra till att upprätthålla en viss grad av oberoende och ansvarsskyldighet inom den offentliga sektorn. Genom att ha separata enheter för olika ansvarsområden kan man undvika att all makt koncentreras på ett ställe och därigenom minska risken för missbruk eller korruption. Sammanfattningsvis finns det så många myndigheter för att möta samhällets komplexa behov och för att upprätthålla effektivitet, specialisering, lokal närvaro och ansvarsskyldighet inom den offentliga sektorn.</p>
                         </CardContent>
                     </Card>
+                    <Card className="m-4 p+2 w-full sm:w-1/2 md:w-1/2 lg:w-1/3 xl:w-1/3">
+                        <CardHeader>
+                            <CardTitle>Statens budget</CardTitle>
+                            <CardDescription className="text-sm"><span className='bg-gradient-to-r from-cyan-500 to-blue-500 inline-block text-transparent bg-clip-text'>En kort beskrivning om statens budget</span></CardDescription>
+                        </CardHeader>
+                        <CardContent>
+                            <p>Svenska statens budget är en plan som anger regeringens uppskattade inkomster och utgifter för det kommande året. Budgeten är ett verktyg för att styra statens ekonomi och prioritera resurser till olika områden som utbildning, hälsovård, infrastruktur och försvar. I Sverige presenteras budgeten vanligtvis av regeringen på hösten och behandlas sedan av Riksdagen. Budgetprocessen involverar olika steg, inklusive beredning, debatt och antagande. Regeringen förhandlar också ofta med olika partier i Riksdagen för att få stöd för sin budget. Svenska statens budget består av flera delar, inklusive den allmänna budgeten och den statliga myndighetsbudgeten. Den allmänna budgeten omfattar de flesta statliga inkomster och utgifter, medan myndighetsbudgeten omfattar särskilda myndigheters budgetar. Inkomsterna till staten kan komma från olika källor, som skatter, avgifter och intäkter från statliga företag. Utgifterna omfattar bland annat bidrag till kommuner och regioner, pensioner, löner till statliga anställda, samt investeringar i olika projekt och verksamheter. Budgeten är ett viktigt verktyg för att säkerställa att staten kan finansiera viktiga samhällsfunktioner och uppfylla sina åtaganden gentemot medborgarna. Den är också en viktig politisk fråga och används ofta som ett sätt för regeringen att visa upp sina prioriteringar och politiska mål. Statens utgifter 2024 är uppskattade till 1 331 miljarder kr och inkomster 1324 miljarder kr.</p>
+                        </CardContent>
+                    </Card>
+                    <Card className="m-4 p+2 w-full sm:w-1/2 md:w-1/2 lg:w-1/3 xl:w-1/3">
+                        <CardHeader>
+                            <CardTitle>Regioner & kommuner</CardTitle>
+                            <CardDescription><span className='bg-gradient-to-r from-cyan-500 to-blue-500 inline-block text-transparent bg-clip-text'>Vad är kommuner och regioner?</span></CardDescription>
+                        </CardHeader>
+                        <CardContent>
+                            <p>I Sverige är regioner och kommuner två nivåer av lokal självstyre som spelar en viktig roll i att tillhandahålla offentliga tjänster och hantera samhällsfrågor på lokal nivå. Regioner (landsting): Regionerna ansvarar främst för hälso- och sjukvård samt tandvård. Deras huvudsakliga uppgift är att säkerställa att invånarna har tillgång till en god vård på lika villkor. Regionerna finansieras genom skatter och statsbidrag. Det finns 21 regioner i Sverige, och deras geografiska omfång matchar vanligtvis länens gränser. Kommuner: Kommunerna är den närmaste nivån av lokalt självstyre och ansvarar för en mängd olika samhällstjänster och funktioner. Det inkluderar utbildning, äldreomsorg, barnomsorg, kultur, fysisk planering, renhållning, vattenförsörjning och mycket mer. Kommunerna finansieras genom skatter och avgifter. I Sverige finns det 290 kommuner. Kommunerna och regionerna styrs av politiskt valda församlingar (kommunfullmäktige och landstingsfullmäktige), där politiker väljs av invånarna. Dessa församlingar väljer också ledamöter till olika nämnder och styrelser som ansvarar för olika områden av kommunal och regional verksamhet. Den svenska modellen med decentraliserat självstyre ger kommuner och regioner en stor grad av autonomi och ansvar för att anpassa tjänster och beslut efter lokala behov och förhållanden. Detta möjliggör lokal anpassning och innovation samtidigt som det upprätthåller en nationell standard för service och samhällsstruktur.</p>
+                        </CardContent>
+                    </Card>
                 </div>
             </div>
         </div>
+ 
     );
 }
