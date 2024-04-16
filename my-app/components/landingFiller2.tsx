@@ -30,7 +30,7 @@ export default function LandingFiller2() {
                     All <span className='bg-gradient-to-r from-cyan-500 to-blue-500 inline-block text-transparent bg-clip-text'>data</span> på ett och <span className='bg-gradient-to-r from-cyan-500 to-blue-500 inline-block text-transparent bg-clip-text font-extrabold'>samma ställe</span>
                 </h1>
                 <h1 className='text-center  font-normal text-l text-black mb-10 '>
-                    Ska man verkligen behöva växla mellan Riksarkivet, Regeringskansliet, SCB och Wikipedia <br></br>för att förstå hur vår stat fungerar? Nej, här har vi allt samlat på ett ställe.
+                Behöver man verkligen söka igenom flera olika källor för att förstå vår statsapparat? <br></br> Nej, all information finns samlad här.
                 </h1>
                 <div className=' mb-10 '>
                     <Marquee>

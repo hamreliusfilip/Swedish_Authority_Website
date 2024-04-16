@@ -21,8 +21,13 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 
+
 const App: React.FC = () => {
-  const [selectedDepartment, setSelectedDepartment] = useState<string>("");
+
+
+  const nodeClasses = "";
+  const firstNodeClass = "bg-gradient-to-r from-cyan-500 to-blue-500";
+
   const [myndigheter, setMyndigheter] = useState<any[]>([]);
 
   const fetchMyndigheter = async () => {
@@ -43,22 +48,40 @@ const App: React.FC = () => {
 
   const changeSorting = useCallback((value: string) => {
     if (!value) return;
-
+  
+    const labelWidth = value.length * 10; 
+  
     const initialNodes = [
-      { id: '1', position: { x: 700, y: 300 }, data: { label: value } },
+      { 
+        id: '1', 
+        position: { x: 700, y: 300 }, 
+        data: { label: value }, 
+        style: { width: `${labelWidth}px` }, 
+        className: firstNodeClass
+      },
       ...myndigheter
         .filter(myndighet => myndighet.relation === value)
-        .map((myndighet, index) => ({
-          id: (index + 2).toString(),
-          position: {
-            x: 100 + (index % 7 * 200),
-            y: index < 7 ? 150 : 450,
-          },
-          data: { label: myndighet.name },
-        })),
+        .map((myndighet, index) => {
+  
+          const label = myndighet.name;
+          const labelWidth = label.length * 10; 
+  
+          return {
+            id: (index + 2).toString(),
+            position: {
+              x: 100 + (index % 7 * 290),
+              y: index < 7 ? 150 : 450,
+            },
+            data: { label: label },
+            style: { width: `${labelWidth}px` }, 
+            className: nodeClasses,
+          };
+        }),
     ];
     setNodes(initialNodes);
   }, [myndigheter]);
+  
+  
 
   const [nodes, setNodes, onNodesChange] = useNodesState([
     { id: '1', position: { x: 750, y: 300 }, data: { label: 'Välj ett departement att visualisera' } },
@@ -87,11 +110,6 @@ const App: React.FC = () => {
   return (
     <div className=''>
       <div className='flex justify-between'>
-        <div>
-          <Link href="/myndighet">
-            <Button variant="outline" className='ml-3 mt-3 mb-3 '>Tillbaka</Button>
-          </Link>
-        </div>
         <div className='mr-auto ml-3 mt-3 mb-3'>
           <Select onValueChange={changeSorting} >
             <SelectTrigger className="w-auto bg-gradient-to-r from-cyan-500 to-blue-500 text-white">

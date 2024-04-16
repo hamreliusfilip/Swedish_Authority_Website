@@ -5,6 +5,7 @@ import Link from 'next/link';
 import bild1 from '../Assets/Images/1.svg';
 import bild2 from '../Assets/Images/2.svg';
 import bild3 from '../Assets/Images/3.svg';
+import bild4 from '../Assets/Images/4.svg';
 
 export default function LandingFiller() {
     return (
@@ -20,26 +21,25 @@ export default function LandingFiller() {
             </div>
 
             <div className='text-center'>
-                <div className="inline-block ml-5 mt-1">
+                <div className="flex flex-wrap justify-center items-center">
                     <Link href="/myndighet">
-                        <div>
-                            <Image src={bild1} alt="Svenska Myndigheter" className="w-full" />
+                        <div className='m-5'>
+                            <Image src={bild1} alt="Svenska Myndigheter" className="w-96 mx-auto" />
                         </div>
                     </Link>
-                </div>
-
-                <div className="inline-block ml-5 mt-1">
                     <Link href="/departement">
-                        <div>
-                            <Image src={bild2} alt="Svenska Myndigheter"className="w-full" />
+                        <div className='m-5'>
+                            <Image src={bild2} alt="Svenska Myndigheter" className="w-96 mx-auto" />
                         </div>
                     </Link>
-                </div>
-
-                <div className="inline-block ml-5 mt-1">
-                    <Link href="/Statistik">
-                        <div>
-                            <Image src={bild3} alt="Svenska Myndigheter"  className="w-full" />
+                    <Link href="/faktaover/statistik">
+                        <div className='m-5'>
+                            <Image src={bild3} alt="Svenska Myndigheter" className="w-96 mx-auto" />
+                        </div>
+                    </Link>
+                    <Link href="/faktaover/statsbudget">
+                        <div className='m-5'>
+                            <Image src={bild4} alt="Svenska Myndigheter" className="w-96 mx-auto" />
                         </div>
                     </Link>
                 </div>

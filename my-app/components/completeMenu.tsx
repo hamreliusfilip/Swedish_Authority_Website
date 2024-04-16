@@ -46,7 +46,7 @@ export default function CompleteMenu() {
             </Link>
             <MenubarSeparator />
             <Link href="/faktaover/staten">
-              <MenubarItem>Statsbudgeten</MenubarItem>
+              <MenubarItem>Generell Fakta</MenubarItem>
             </Link>
           </MenubarContent>
         </MenubarMenu>
