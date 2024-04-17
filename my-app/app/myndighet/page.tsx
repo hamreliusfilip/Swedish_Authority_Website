@@ -1,4 +1,5 @@
 "use client"
+
 import React, { useEffect, useState } from 'react';
 import CompleteMenu from '../../components/completeMenu';
 import Logo from '../../components/logo';
@@ -95,7 +96,9 @@ export default function Page() {
                         </SelectContent>
                     </Select>
                     <Link href="/myndighet/listaMyndighet"> Klicka för sida för myndigheter lista </Link> <br />
-                    <Link href="/myndighet/specifikMyndighet"> Klicka för sida för specifik myndighet </Link>
+                    <Link href="/myndighet/[id]" as="/myndighet/661684b9b200e65c1c6447c5">
+                        View Myndighet
+                    </Link>
                 </div>
             </div>
             <Footer />
