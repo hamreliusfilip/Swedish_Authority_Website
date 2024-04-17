@@ -100,6 +100,7 @@ export default function Graph() {
         </div>
 
       </div>
+
       <div className="flex justify-center pt-16">
         <div className="w-full sm:w-3/4 lg:w-1/2">
           <Card className="m-4 p+2 text-left">
@@ -121,6 +122,7 @@ export default function Graph() {
           </Card>
         </div>
       </div>
+
     </div>
   );
 }

@@ -22,51 +22,59 @@ export default function NavCardsHoms() {
 
             <div className="flex flex-wrap justify-center">
                 <Link href="/myndighet">
-                    <Card className="m-4 p+2 w-64 h-64">
-                        <CardHeader>
-                            <CardTitle>Myndigheter</CardTitle>
-                            <CardDescription> <span className='bg-gradient-to-r from-cyan-500 to-blue-500 inline-block text-transparent bg-clip-text'>Gå till myndighetssida</span></CardDescription>
-                        </CardHeader>
-                        <CardContent>
-                            <p>Filterera, sök och forska bland de svenska myndigheterna</p>
-                        </CardContent>
-                    </Card>
+                    <div className='transition-all duration-300 hover:scale-105'>
+                        <Card className="m-4 p+2 w-64 h-64">
+                            <CardHeader>
+                                <CardTitle>Myndigheter</CardTitle>
+                                <CardDescription> <span className='bg-gradient-to-r from-cyan-500 to-blue-500 inline-block text-transparent bg-clip-text'>Gå till myndighetssida</span></CardDescription>
+                            </CardHeader>
+                            <CardContent>
+                                <p>Filterera, sök och forska bland de svenska myndigheterna</p>
+                            </CardContent>
+                        </Card>
+                    </div>
                 </Link>
 
                 <Link href="/departement">
-                    <Card className="m-4 p+2 w-64 h-64">
-                        <CardHeader>
-                            <CardTitle>Departement</CardTitle>
-                            <CardDescription> <span className='bg-gradient-to-r from-cyan-500 to-blue-500 inline-block text-transparent bg-clip-text'>Gå till departementsida</span></CardDescription>
-                        </CardHeader>
-                        <CardContent>
-                            <p>Utforska departementen och hur allt sitter ihop genom en intuituv graf och filterings funktion.</p>
-                        </CardContent>
-                    </Card>
+                    <div className='transition-all duration-300 hover:scale-105'>
+                        <Card className="m-4 p+2 w-64 h-64">
+                            <CardHeader>
+                                <CardTitle>Departement</CardTitle>
+                                <CardDescription> <span className='bg-gradient-to-r from-cyan-500 to-blue-500 inline-block text-transparent bg-clip-text'>Gå till departementsida</span></CardDescription>
+                            </CardHeader>
+                            <CardContent>
+                                <p>Utforska departementen och hur allt sitter ihop genom en intuituv graf och filterings funktion.</p>
+                            </CardContent>
+                        </Card>
+                    </div>
                 </Link>
 
                 <Link href="/faktaover/statistik">
-                    <Card className="m-4 p+2 w-64 h-64">
-                        <CardHeader>
-                            <CardTitle>Statistik</CardTitle>
-                            <CardDescription> <span className='bg-gradient-to-r from-cyan-500 to-blue-500 inline-block text-transparent bg-clip-text'>Gå till statistiksida</span></CardDescription>
-                        </CardHeader>
-                        <CardContent>
-                            <p>Utforska grafer och siffror för att undersöka jämställdhet, anställningar och tillfredsställelse.</p>
-                        </CardContent>
-                    </Card>
+                    <div className='transition-all duration-300 hover:scale-105'>
+                        <Card className="m-4 p+2 w-64 h-64">
+                            <CardHeader>
+                                <CardTitle>Statistik</CardTitle>
+                                <CardDescription> <span className='bg-gradient-to-r from-cyan-500 to-blue-500 inline-block text-transparent bg-clip-text'>Gå till statistiksida</span></CardDescription>
+                            </CardHeader>
+                            <CardContent>
+                                <p>Utforska grafer och siffror för att undersöka jämställdhet, anställningar och tillfredsställelse.</p>
+                            </CardContent>
+                        </Card>
+                    </div>
                 </Link>
 
                 <Link href="/faktaover/statsbudget">
-                    <Card className="m-4 p+2 w-64 h-64">
-                        <CardHeader>
-                            <CardTitle>Statsbudgeten</CardTitle>
-                            <CardDescription> <span className='bg-gradient-to-r from-cyan-500 to-blue-500 inline-block text-transparent bg-clip-text'>Gå till sidan för statsbudget</span></CardDescription>
-                        </CardHeader>
-                        <CardContent>
-                            <p>Dyk djupare in i statsbudgeten för en utforskning av olika aspekter. Hur ser fördelningen ut?</p>
-                        </CardContent>
-                    </Card>
+                    <div className='transition-all duration-300 hover:scale-105'>
+                        <Card className="m-4 p+2 w-64 h-64">
+                            <CardHeader>
+                                <CardTitle>Statsbudgeten</CardTitle>
+                                <CardDescription> <span className='bg-gradient-to-r from-cyan-500 to-blue-500 inline-block text-transparent bg-clip-text'>Gå till sidan för statsbudget</span></CardDescription>
+                            </CardHeader>
+                            <CardContent>
+                                <p>Dyk djupare in i statsbudgeten för en utforskning av olika aspekter. Hur ser fördelningen ut?</p>
+                            </CardContent>
+                        </Card>
+                    </div>
                 </Link>
             </div>
         </div>
