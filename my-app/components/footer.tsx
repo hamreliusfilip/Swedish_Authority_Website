@@ -3,9 +3,9 @@ import Image from 'next/image';
 import CompleteMenu from './completeMenu';
 import Link from 'next/link';
 
-import github from '../Assets/mail.svg';
-import gitlab from '../Assets/gitlab.svg';
-import logo from '../Assets/logga_vit.svg';
+import github from '../Assets/Icons/mail.svg';
+import gitlab from '../Assets/Icons/gitlab.svg';
+import logo from '../Assets/Icons/logga_vit.svg';
 
 export default function Footer() {
     return (

@@ -19,7 +19,7 @@ export default function Facts() {
             </div>
 
             <div className="flex flex-wrap justify-center mt-5">
-                <Link href="/Statistik">
+                <Link href="/faktaover/statistik">
                     <Card className="m-4 p+2 w-64 h-32 flex flex-col justify-center items-center bg-white">
                         <CardHeader>
                             <CardTitle className='text-center text-darkGreyBackgroundCustomColor'>342 Myndigheter</CardTitle>
@@ -27,7 +27,7 @@ export default function Facts() {
                     </Card>
                 </Link>
 
-                <Link href="/Statistik">
+                <Link href="/faktaover/statistik">
                     <Card className="m-4 p+2 w-64 h-32 flex flex-col justify-center items-center bg-white">
                         <CardHeader>
                             <CardTitle className='text-center text-darkGreyBackgroundCustomColor'>11 Departement</CardTitle>
@@ -35,10 +35,10 @@ export default function Facts() {
                     </Card>
                 </Link>
 
-                <Link href="/Statistik">
+                <Link href="/faktaover/statistik">
                     <Card className="m-4 p+2 w-64 h-32 flex flex-col justify-center items-center bg-white">
                         <CardHeader>
-                            <CardTitle className='text-center text-darkGreyBackgroundCustomColor'>1747 miljarder kr</CardTitle>
+                            <CardTitle className='text-center text-darkGreyBackgroundCustomColor'>1331 miljarder kr</CardTitle>
                         </CardHeader>
                     </Card>
                 </Link>
