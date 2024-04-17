@@ -9,18 +9,17 @@ import LandingFiller from '../components/landingFiller';
 import LandingFiller2 from "@/components/landingFiller2";
 import Facts from "@/components/facts";
 
-
 export default function Home() {
 
   return (
     <div>
       <Logo />
-      <CompleteMenu /> 
-      <Info /> 
+      <CompleteMenu />
+      <Info />
       <NavCardsHoms />
       <Facts />
-      <LandingFiller2 />
       <LandingFiller />
+      <LandingFiller2 />
       <Footer />
     </div>
   );
