@@ -12,9 +12,7 @@ export default function Page() {
     <div>
       <Logo />
       <CompleteMenu />
-      <Card className='mt-8 mx-20'>
-        <Flow />
-      </Card>
+      <Flow />
       <Footer />
     </div>
   );

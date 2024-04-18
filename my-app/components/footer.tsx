@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { RegisterLink, LoginLink } from "@kinde-oss/kinde-auth-nextjs/components";
+import { LoginLink } from "@kinde-oss/kinde-auth-nextjs/components";
 import { Button } from "@/components/ui/button"
 
 import github from '../Assets/Icons/mail.svg';
