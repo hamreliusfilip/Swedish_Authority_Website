@@ -49,13 +49,13 @@ export default function Footer() {
                     </Button>
                 </LoginLink>
 
-                <RegisterLink>
+                <Link href={"https://myndighetshandboken.kinde.com/knock-knock"}>
                     <Button variant="outline" className="bg-black text-white ml-5">
                         Begär att bli administratör
                     </Button>
-                </RegisterLink>
+                </Link>
             </div>
 
-        </div>
+        </div >
     );
 }
