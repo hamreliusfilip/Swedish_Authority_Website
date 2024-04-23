@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { RegisterLink, LoginLink } from "@kinde-oss/kinde-auth-nextjs/components";
+import { LoginLink } from "@kinde-oss/kinde-auth-nextjs/components";
 import { Button } from "@/components/ui/button"
 
 import github from '../Assets/Icons/mail.svg';
@@ -49,13 +49,13 @@ export default function Footer() {
                     </Button>
                 </LoginLink>
 
-                <RegisterLink>
+                <Link href={"https://myndighetshandboken.kinde.com/knock-knock"}>
                     <Button variant="outline" className="bg-black text-white ml-5">
                         Begär att bli administratör
                     </Button>
-                </RegisterLink>
+                </Link>
             </div>
 
-        </div>
+        </div >
     );
 }
