@@ -16,7 +16,7 @@ export default async function Protected() {
           <Button variant="outline" className="bg-black text-white ml-5">Alla Myndigheter</Button>
         </Link>
         <Link href="/admin/adminAddMyn" className="flex justify-center m-3">
-          <Button variant="outline" className="bg-black text-white ml-5">Alla Myndigheter</Button>
+          <Button variant="outline" className="bg-black text-white ml-5">Lägg till myndighet</Button>
         </Link>
         <Link href="/" className="flex justify-center m-3">
           <Button variant="outline" className="bg-black text-white ml-5">Tillbaka till startsidan</Button>
