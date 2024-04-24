@@ -1,5 +1,5 @@
-import CompleteMenu from "@/components/completeMenu";
-import Logo from "@/components/logo";
+import CompleteMenu from "@/components/Main/completeMenu";
+import Logo from "@/components/Main/logo";
 import { Card, CardDescription, CardTitle } from "@/components/ui/card";
 import { stringify } from "querystring";
 
