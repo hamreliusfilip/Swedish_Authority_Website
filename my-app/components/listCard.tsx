@@ -20,6 +20,7 @@ export default function ListCard({ myndighet }: { myndighet: any }) {
                     <div className='grid grid-cols-2' style={{ gridTemplateColumns: '3fr 1fr' }}>
                         <div className='flex-1'>
                             <CardTitle>{myndighet.name}</CardTitle>
+                            <CardTitle>{myndighet._id}</CardTitle>
                             <CardDescription>{myndighet.created}</CardDescription>
                             {isOpen ? (
                                 <CollapsibleContent className="space-y-2">
