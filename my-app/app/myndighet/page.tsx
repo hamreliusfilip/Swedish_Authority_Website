@@ -1,7 +1,15 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
+import Link from 'next/link';
 import { Card, CardContent, CardTitle } from '@/components/ui/card';
+import { navigationMenuTriggerStyle } from "@/components/ui/navigation-menu"
+import {
+    HoverCard,
+    HoverCardContent,
+    HoverCardTrigger,
+} from "@/components/ui/hover-card"
+
 import {
     Select,
     SelectContent,
@@ -18,7 +26,16 @@ import {
     AccordionTrigger,
 } from "@/components/ui/accordion"
 import { Button } from '@/components/ui/button';
-import { Slider } from '@/components/ui/slider';
+import {
+    NavigationMenu,
+    NavigationMenuContent,
+    NavigationMenuIndicator,
+    NavigationMenuItem,
+    NavigationMenuLink,
+    NavigationMenuList,
+    NavigationMenuTrigger,
+    NavigationMenuViewport,
+} from "@/components/ui/navigation-menu"
 
 import { Myndigheter } from '@/lib/models/myndighet';
 import CompleteMenu from '../../components/Main/completeMenu';
@@ -100,7 +117,6 @@ export default function Page() {
         }, 0);
     };
 
-    // Slider 
     const handleInput1Change = (event: React.ChangeEvent<HTMLInputElement>) => {
         setSlider1Value(event.target.value);
     };
@@ -117,6 +133,7 @@ export default function Page() {
             </div>
             <div className='flex flex-column m-4 gap-5 justify-items-center h-30'>
                 <div className='basis-1/3 ml-10'>
+
                     <Card className='p-5'>
                         <CardTitle className='mb-5'>Filtreringsalternativ</CardTitle>
                         <CardContent className='grid grid-cols-1'>
@@ -178,6 +195,27 @@ export default function Page() {
                         </CardContent>
                         <Button className='bg-red-600 mt-5' onClick={handleClearFilters}>Rensa filter</Button>
                     </Card>
+                    <div className='flex justify-start mt-5'>
+                        <NavigationMenu>
+                            <NavigationMenuList className="border border-bg-slate-300 rounded-md">
+                                <NavigationMenuItem>
+                                    <NavigationMenuTrigger>Hjälp</NavigationMenuTrigger>
+                                    <NavigationMenuContent>
+                                        <div className='w-96 h-68 p-7'>
+                                            Detta är en sökmotor för svenska myndigheter. Du kan söka på samtliga myndigheter i Sverige och filtrera på olika kriterier. Det finns tio datapunkter för varje myndighet, till exempel generell fakta, mailadress och logotyp. Använd Filtreringsalternativen till vänster eller sökrutan för att hitta en specifik myndighet Klickar du på knappen högst upp i högra hörnet på varje myndighet kommer du till den specifka sidan för just den myndigheten.
+                                        </div>
+                                    </NavigationMenuContent>
+                                </NavigationMenuItem>
+                                <NavigationMenuItem>
+                                    <Link href="myndighet/listaMyndighet" legacyBehavior passHref>
+                                        <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                                            Generisk lista
+                                        </NavigationMenuLink>
+                                    </Link>
+                                </NavigationMenuItem>
+                            </NavigationMenuList>
+                        </NavigationMenu>
+                    </div>
                 </div>
                 <div className='basis-1/2'>
                     <input
@@ -199,19 +237,21 @@ export default function Page() {
                     </div>
                 </div>
                 <div className='basis-1/6 pr-10'>
-                    <Select>
-                        <SelectTrigger className="w-[180px]">
-                            <SelectValue placeholder="Sorterings alternativ" />
-                        </SelectTrigger>
-                        <SelectContent>
-                            <SelectGroup>
-                                <SelectLabel>Sortering</SelectLabel>
-                                <SelectItem value="alfa">Alfabetisk ordning</SelectItem>
-                                <SelectItem value="yearDec">Nyast till äldst</SelectItem>
-                                <SelectItem value="yearInc">Äldst till nyast</SelectItem>
-                            </SelectGroup>
-                        </SelectContent>
-                    </Select>
+                    <div className=''>
+                        <Select>
+                            <SelectTrigger className="w-[180px]">
+                                <SelectValue placeholder="Sorterings alternativ" />
+                            </SelectTrigger>
+                            <SelectContent>
+                                <SelectGroup>
+                                    <SelectLabel>Sortering</SelectLabel>
+                                    <SelectItem value="alfa">Alfabetisk ordning</SelectItem>
+                                    <SelectItem value="yearDec">Nyast till äldst</SelectItem>
+                                    <SelectItem value="yearInc">Äldst till nyast</SelectItem>
+                                </SelectGroup>
+                            </SelectContent>
+                        </Select>
+                    </div>
                 </div>
             </div >
             <Footer />
