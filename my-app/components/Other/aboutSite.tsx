@@ -33,11 +33,37 @@ export default function AboutSite() {
                 </Card>
                 <Card className="m-4 p+2">
                     <CardHeader>
+                        <CardTitle>Om databasen</CardTitle>
+                        <CardDescription className="text-sm"><span className='bg-gradient-to-r from-cyan-500 to-blue-500 inline-block text-transparent bg-clip-text'>Vart databasen om myndigheter ifrån?</span></CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                        <p>Databasen har konstruerats av oss själva och består av 342 myndigheter med 10 datapunkter för varje myndighet. Databasen saknar motstycke och har konstruerats med information från Riksarkivet, SCB:s myndighetsregister, Regeringskansliets hemsida, Statskontorets rapport 'Statsförvaltningen i korthet' - 2023 och Wikipedia. Logotyperna har hämtats från respektive myndighets hemsida. </p>
+                    </CardContent>
+                    <CardContent>
+                        <Link href="https://riksarkivet.se/start" target="_blank">
+                            <Button variant="outline" className='m-1 bg-gradient-to-r from-cyan-500 to-blue-500 text-white'>Riksarkivet</Button>
+                        </Link>
+                        <Link href="https://myndighetsregistret.scb.se/Myndighet" target="_blank">
+                            <Button variant="outline" className='m-1 bg-gradient-to-r from-cyan-500 to-blue-500 text-white'>SCB - Myndighetsregistret</Button>
+                        </Link>
+                        <Link href="https://www.regeringen.se/regeringskansliet/" target="_blank">
+                            <Button variant="outline" className='m-1 bg-gradient-to-r from-cyan-500 to-blue-500 text-white'>Regeringskansliet</Button>
+                        </Link>
+                        <Link href="https://www.statskontoret.se/publicerat/publikationer/publikationer-2023/statsforvaltningen-i-korthet-2023/" target="_blank">
+                            <Button variant="outline" className='m-1 bg-gradient-to-r from-cyan-500 to-blue-500 text-white'>Statskontoret - Statsförvaltning i korthet</Button>
+                        </Link>
+                        <Link href="https://sv.wikipedia.org/wiki/Portal:Huvudsida" target="_blank">
+                            <Button variant="outline" className='m-1 bg-gradient-to-r from-cyan-500 to-blue-500 text-white'>Wikipedia</Button>
+                        </Link>
+                    </CardContent>
+                </Card>
+                <Card className="m-4 p+2">
+                    <CardHeader>
                         <CardTitle>Om informationen</CardTitle>
                         <CardDescription className="text-sm"><span className='bg-gradient-to-r from-cyan-500 to-blue-500 inline-block text-transparent bg-clip-text'>Vart kommer informationen ifrån?</span></CardDescription>
                     </CardHeader>
                     <CardContent>
-                        <p>Informationen som finns tillgänglig på denna hemsida har samlats in från flera olika källor. All data gällande myndigheternas namn, beskrivning och relaterad information har hämtats från regeringskansliets hemsida, regeringen.se. Har regeringen hemsida saknat informationen har wikipedia.org eller riksarkivet använts. Antalet och vilka myndigheter som finns baseras på Statskontorets rapport 'Statsförvaltningen i korthet' från 2023. Logotyper och bilder har samlats in antingen från respektive myndighets hemsida eller från Wikipedia.org. All statistik har hämtats från Statskonterts hemsida, delar av fakta kring statsbudgeten är hämtad från Wikipedia.org.<span className='bg-gradient-to-r from-cyan-500 to-blue-500 inline-block text-transparent bg-clip-text'>Vi tar inget ansvar kring trovärdigheten av faktan som presenteras på denna sida, huvudsyftet för oss är utvecklingen och strukturen bakom applikationen.</span> </p>
+                        <p>Informationen som finns tillgänglig på denna hemsida har samlats in från ett flertal källor. Vi tar inget ansvar kring trovärdigheten av faktan som presenteras på denna sida, huvudsyftet för oss är utvecklingen och strukturen bakom applikationen.</p>
                     </CardContent>
                     <CardContent>
                         <Link href="https://riksarkivet.se/start" target="_blank">
@@ -51,6 +77,12 @@ export default function AboutSite() {
                         </Link>
                         <Link href="https://sv.wikipedia.org/wiki/Portal:Huvudsida" target="_blank">
                             <Button variant="outline" className='m-1 bg-gradient-to-r from-cyan-500 to-blue-500 text-white'>Wikipedia</Button>
+                        </Link>
+                        <Link href="https://myndighetsregistret.scb.se/Myndighet" target="_blank">
+                            <Button variant="outline" className='m-1 bg-gradient-to-r from-cyan-500 to-blue-500 text-white'>SCB - Myndighetsregistret</Button>
+                        </Link>
+                        <Link href="https://chat.openai.com" target="_blank">
+                            <Button variant="outline" className="bg-gradient-to-r from-cyan-500 to-blue-500 text-white">ChatGPT - OpenAI</Button>
                         </Link>
                     </CardContent>
                 </Card>

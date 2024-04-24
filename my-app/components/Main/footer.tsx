@@ -4,9 +4,9 @@ import Link from 'next/link';
 import { LoginLink } from "@kinde-oss/kinde-auth-nextjs/components";
 import { Button } from "@/components/ui/button"
 
-import github from '../Assets/Icons/mail.svg';
-import gitlab from '../Assets/Icons/gitlab.svg';
-import logo from '../Assets/Icons/logga_vit.svg';
+import github from '@/Assets/Icons/mail.svg';
+import gitlab from '@/Assets/Icons/gitlab.svg';
+import logo from '@/Assets/Icons/logga_vit.svg';
 
 export default function Footer() {
     return (

@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button"
 import Link from 'next/link';
 
 import AdminList from "@/components/adminComponents/adminList";
-import Logo from '@/components/logo';
+import Logo from '@/components/Main/logo';
 import AdminInfo from "@/components/adminComponents/adminInfo";
 
 export default async function Protected() {

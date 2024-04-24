@@ -1,7 +1,7 @@
 import React from 'react'
-import CompleteMenu from '../../../components/completeMenu';
-import Logo from '../../../components/logo';
-import Footer from '../../../components/footer';
+import CompleteMenu from '../../../components/Main/completeMenu';
+import Logo from '../../../components/Main/logo';
+import Footer from '../../../components/Main/footer';
 
 export default function Page() {
     return (

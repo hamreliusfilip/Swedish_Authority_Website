@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-import img99 from '../Assets/Karta/1.svg';
+import img99 from '@/Assets/Karta/1.svg';
 
 export default function LandingFiller2() {
     return (

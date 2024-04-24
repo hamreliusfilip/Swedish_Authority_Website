@@ -13,8 +13,8 @@ import { Button } from "@/components/ui/button"
 import { Bar, Doughnut } from 'react-chartjs-2';
 import { Chart, ArcElement, CategoryScale, LinearScale, Title, Tooltip, Legend, BarElement } from 'chart.js';
 
-import data from '../Assets/Data/BudgetData.json';
-import option from '../Assets/Data/BudgetOptions.json';
+import data from '../../Assets/Data/BudgetData.json';
+import option from '../../Assets/Data/BudgetOptions.json';
 
 Chart.register(ArcElement, CategoryScale, LinearScale, Title, Tooltip, Legend, BarElement);
 

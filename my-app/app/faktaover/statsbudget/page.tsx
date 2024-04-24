@@ -1,8 +1,8 @@
 import React from "react";
-import CompleteMenu from '../../../components/completeMenu';
-import Logo from '../../../components/logo';
-import Footer from '../../../components/footer';
-import Budget from "../../../components/budget";
+import CompleteMenu from '../../../components/Main/completeMenu';
+import Logo from '../../../components/Main/logo';
+import Footer from '../../../components/Main/footer';
+import Budget from "../../../components/Other/budget";
 
 export default function Home() {
 

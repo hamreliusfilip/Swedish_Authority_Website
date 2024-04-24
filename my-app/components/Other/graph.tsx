@@ -13,8 +13,8 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 
-import data from '../Assets/Data/StatisticsData.json';
-import option from '../Assets/Data/StatisticsOptions.json';
+import data from '../../Assets/Data/StatisticsData.json';
+import option from '../../Assets/Data/StatisticsOptions.json';
 
 Chart.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 

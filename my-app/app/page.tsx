@@ -1,13 +1,13 @@
 import React from "react";
 
-import CompleteMenu from '../components/completeMenu';
-import Logo from '../components/logo';
-import Info from '../components/infoText';
-import NavCardsHoms from '../components/navCardsHoms';
-import Footer from '../components/footer';
-import LandingFiller from '../components/landingFiller';
-import LandingFiller2 from "@/components/landingFiller2";
-import Facts from "@/components/facts";
+import CompleteMenu from '../components/Main/completeMenu';
+import Logo from '../components/Main/logo';
+import Info from '../components/Other/infoText';
+import NavCardsHoms from '../components/LandingPage/navCardsHoms';
+import Footer from '../components/Main/footer';
+import LandingFiller from '../components/LandingPage/landingFiller';
+import LandingFiller2 from "@/components/LandingPage/landingFiller2";
+import Facts from "@/components/Other/facts";
 
 export default function Home() {
 

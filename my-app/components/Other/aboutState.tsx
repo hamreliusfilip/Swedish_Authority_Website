@@ -6,6 +6,8 @@ import {
     CardHeader,
     CardTitle,
 } from "@/components/ui/card"
+import Link from "next/link"; 
+import { Button } from "@/components/ui/button"
 
 export default function AboutState() {
     return (
@@ -86,6 +88,24 @@ export default function AboutState() {
                     </Card>
                 </div>
             </div>
+            <div className="flex justify-center pt-16">
+        <div className="w-full sm:w-3/4 lg:w-1/2">
+          <Card className="m-4 p+2 text-left">
+            <CardHeader>
+              <CardTitle>Om datan</CardTitle>
+              <CardDescription className="text-sm bg-gradient-to-r from-cyan-500 to-blue-500 inline-block text-transparent bg-clip-text">Vart kommer informationen ifrån?</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <p>Den här datan är AI genererad med hjälp av Open AI's ChatGPT-3.5. Informationen har tagits fram genom att ställa de frågor som är markerat i blått på respketive kort.</p>
+            </CardContent>
+            <CardContent>
+              <Link href="https://chat.openai.com" target="_blank">
+                <Button variant="outline" className="bg-gradient-to-r from-cyan-500 to-blue-500 text-white">ChatGPT - OpenAI</Button>
+              </Link>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
         </div>
  
     );

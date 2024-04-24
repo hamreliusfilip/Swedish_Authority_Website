@@ -29,7 +29,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 
-import data from '../Assets/Data/Ministers.json';
+import data from '../../Assets/Data/Ministers.json';
 
 
 
@@ -142,20 +142,17 @@ const App: React.FC = () => {
   return (
     <div>
       <div className='flex flex-col justify-center md:flex-row' >
-      <div className="w-full md:w-1/2 mt-10 md:ml-10 md:mr-10 flex">
+        <div className="w-full md:w-1/2 mt-10 md:ml-10 md:mr-10 flex">
           <Card className='w-full'>
             <CardHeader>
               <CardTitle>{d1 ? d1.name : 'Välj ett departement'}</CardTitle>
             </CardHeader>
             <CardContent>
               <p className=''>{d1 ? d1.info : 'Välj ett department med den blåa knappen nedanför.'}</p>
-              <Link href="https://www.riksdagen.se/sv/sa-fungerar-riksdagen/demokrati/sa-bildas-regeringen/regeringen/" target="_blank">
-              <Button variant="outline" className='mt-5 bg-black text-white'>Källa: Information & Bilder</Button>
-            </Link>
             </CardContent>
           </Card>
         </div>
-       <div className="w-full md:w-1/2 mt-10 md:ml-10 md:mr-10 flex">
+        <div className="w-full md:w-1/2 mt-10 md:ml-10 md:mr-10 flex">
           <Card className='w-full'>
             <CardHeader>
               <CardTitle>Ansvariga ministrar</CardTitle>
@@ -241,6 +238,30 @@ const App: React.FC = () => {
           </ReactFlow>
         </div>
       </Card>
+      <div className="flex justify-center pt-16">
+        <div className="w-full sm:w-3/4 lg:w-1/2">
+          <Card className="m-4 p+2 text-left">
+            <CardHeader>
+              <CardTitle>Om datan</CardTitle>
+              <CardDescription className="text-sm bg-gradient-to-r from-cyan-500 to-blue-500 inline-block text-transparent bg-clip-text">Vart kommer informationen ifrån?</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <p> Hiearkin och myndigheterna tillhörighet är baserat på statskontorets rapport: "Statsförvaltningen i korthet" - 2023. <b></b> Politkernas postitioner, bilder och information har tagits från regeringskansliets hemsida.  </p>
+            </CardContent>
+            <CardContent>
+              <Link href="https://www.statskontoret.se/publicerat/publikationer/publikationer-2023/statsforvaltningen-i-korthet-2023/" target="_blank">
+                <Button variant="outline" className="bg-gradient-to-r from-cyan-500 to-blue-500 text-white">Statskontoret - Rapport</Button>
+              </Link>
+              <Link href="https://www.statskontoret.se" target="_blank">
+                <Button variant="outline" className="bg-gradient-to-r from-cyan-500 to-blue-500 text-white ml-5">Statskontoret - Hemsida</Button>
+              </Link>
+              <Link href="https://www.riksdagen.se/sv/sa-fungerar-riksdagen/demokrati/sa-bildas-regeringen/regeringen/" target="_blank">
+                <Button variant="outline" className='bg-gradient-to-r from-cyan-500 to-blue-500 text-white ml-5'>Regeringskansliet: Information & Bilder</Button>
+              </Link>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
     </div>
   );
 }

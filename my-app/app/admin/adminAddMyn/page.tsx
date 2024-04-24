@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button"
 import Link from 'next/link';
 
 import AddFields from "@/components/adminComponents/addFields";
-import Logo from '@/components/logo';
+import Logo from '@/components/Main/logo';
 import AdminInfo from "@/components/adminComponents/adminInfo";
 import ActionButtons from "@/components/adminComponents/actionButtons";
 

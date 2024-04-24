@@ -1,8 +1,8 @@
 import React from "react";
-import CompleteMenu from '../../components/completeMenu';
-import Logo from '../../components/logo';
-import Footer from '../../components/footer';
-import AboutSite from "../../components/aboutSite";
+import CompleteMenu from '../../components/Main/completeMenu';
+import Logo from '../../components/Main/logo';
+import Footer from '../../components/Main/footer';
+import AboutSite from "../../components/Other/aboutSite";
 
 export default function Page() {
   return (
