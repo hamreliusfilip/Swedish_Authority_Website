@@ -38,15 +38,19 @@ export default function CompleteMenu() {
           </MenubarTrigger>
           <MenubarContent className="bg-white p-2 rounded-md">
             <Link href="/faktaover/statistik">
-              <MenubarItem>Statistik</MenubarItem>
+              <MenubarItem>Statistik - Myndigheter</MenubarItem>
             </Link>
             <MenubarSeparator />
             <Link href="/faktaover/statsbudget">
               <MenubarItem>Statsbudgeten</MenubarItem>
             </Link>
             <MenubarSeparator />
+            <Link href="/faktaover/riksdagen">
+              <MenubarItem>Riksdagen & Regeringen</MenubarItem>
+            </Link>
+            <MenubarSeparator />
             <Link href="/faktaover/staten">
-              <MenubarItem>Generell Fakta</MenubarItem>
+              <MenubarItem>Grundläggande Fakta</MenubarItem>
             </Link>
           </MenubarContent>
         </MenubarMenu>

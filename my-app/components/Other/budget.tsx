@@ -21,7 +21,15 @@ Chart.register(ArcElement, CategoryScale, LinearScale, Title, Tooltip, Legend, B
 export default function Budget() {
     return (
         <div className="flex flex-col items-center justify-center">
-            <Card className="mt-20 mx-10 mb-12 w-1/2">
+
+            <h1 className="font-bold text-4xl mt-20 bg-gradient-to-r from-cyan-500 to-blue-500 inline-block text-transparent bg-clip-text"> Utgifter i fokus </h1>
+            <p className="font-semibold text-small text-slate-300 m-4">Utgifter i procent - 2020</p>
+            <div className="pl-20 pr-20 -mt-32 w-1/2">
+                {/* @ts-ignore */}
+                <Doughnut data={data.data2} options={option.option2} />
+            </div>
+
+            <Card className=" mx-10 mb-12 w-1/2">
                 <CardHeader>
                     <CardTitle>Sveriges Statsbudget</CardTitle>
                     <CardDescription className="text-sm"><span className='bg-gradient-to-r from-cyan-500 to-blue-500 inline-block text-transparent bg-clip-text'>Ur Regeringens proposition 2023/24:1</span></CardDescription>
@@ -31,56 +39,53 @@ export default function Budget() {
                 </CardContent>
             </Card>
 
-            <div className="p-20 w-2/3">
+            <h1 className="font-bold text-4xl mt-20 bg-gradient-to-r from-cyan-500 to-blue-500 inline-block text-transparent bg-clip-text"> Kommande år </h1>
+            <p className="font-semibold text-small text-slate-300 m-4">Statens budgetsaldo 2023–2027 (miljarder kronor)</p>
+            <div className="pr-20 pl-20 w-2/3 mb-44">
                 {/* @ts-ignore */}
                 <Bar data={data.data1} options={option.option1} />
             </div>
 
-            <div className="p-20 w-1/2">
-                {/* @ts-ignore */}
-                <Doughnut data={data.data2} options={option.option2} />
-            </div>
-
             <div className="w-full sm:w-3/4 lg:w-1/2">
-            <Card className="m-4 p+2">
-                <CardHeader>
-                    <CardTitle>Budgetprocessens Händelseförlopp</CardTitle>
-                    <CardDescription className="text-sm"><span className='bg-gradient-to-r from-cyan-500 to-blue-500 inline-block text-transparent bg-clip-text'>Budgetarbetet under året inom Finansdepartementet och Riksdagen.</span></CardDescription>
-                </CardHeader>
-                <CardContent>
+                <Card className="m-4 p+2">
+                    <CardHeader>
+                        <CardTitle>Budgetprocessens Händelseförlopp</CardTitle>
+                        <CardDescription className="text-sm"><span className='bg-gradient-to-r from-cyan-500 to-blue-500 inline-block text-transparent bg-clip-text'>Budgetarbetet under året inom Finansdepartementet och Riksdagen.</span></CardDescription>
+                    </CardHeader>
+                    <CardContent>
 
-                    <ul>
-                        <li><span className='bg-gradient-to-r from-cyan-500 to-blue-500 inline-block text-transparent bg-clip-text font-bold'>December</span><br></br>Finansdepartementet redovisar prognoser för samhällsekonomin.</li>
-                        <br></br>
-                        <li><span className='bg-gradient-to-r from-cyan-500 to-blue-500 inline-block text-transparent bg-clip-text font-bold'>Januari</span><br></br>Finansdepartementet fortsätter att arbeta med prognoserna. Det gör även respektive departement för sina.</li>
-                        <br></br>
-                        <li><span className='bg-gradient-to-r from-cyan-500 to-blue-500 inline-block text-transparent bg-clip-text font-bold'>Febrauri</span><br></br>Regeringen fortsätter med det förberedande budgetarbetet. Myndigheterna lämnar in årsredovisningar och budgetunderlag till regeringen.</li>
-                        <br></br>
-                        <li><span className='bg-gradient-to-r from-cyan-500 to-blue-500 inline-block text-transparent bg-clip-text font-bold'>Mars</span><br></br>Regeringen har överläggning och enas om huvuddragen i den ekonomiska politiken och budgetpolitiken.</li>
-                        <br></br>
-                        <li><span className='bg-gradient-to-r from-cyan-500 to-blue-500 inline-block text-transparent bg-clip-text font-bold'>April</span><br></br>Regeringen lämnar över den ekonomiska vårpropositionen, VÅP:en, och årsredovisning för staten till riksdagen.</li>
-                        <br></br> 
-                        <li><span className='bg-gradient-to-r from-cyan-500 to-blue-500 inline-block text-transparent bg-clip-text font-bold'>Maj</span><br></br>Riksdagen fortsätter att behandla VÅP:en. Budgetarbetet fortsätter i de olika departementen. Oppositionen lägger fram alternativ till regeringens förslag i VÅP:en.</li>
-                        <br></br>
-                        <li><span className='bg-gradient-to-r from-cyan-500 to-blue-500 inline-block text-transparent bg-clip-text font-bold'>Juni</span><br></br>Riksdagen fattar beslut om den ekonomiska VÅP:en och årsredovisningen för staten. Regeringen håller regeringsöverläggningar.</li>
-                        <br></br>
-                        <li><span className='bg-gradient-to-r from-cyan-500 to-blue-500 inline-block text-transparent bg-clip-text font-bold'>Juli</span><br></br>Paus i budgetarbetet.</li>
-                        <br></br>
-                        <li><span className='bg-gradient-to-r from-cyan-500 to-blue-500 inline-block text-transparent bg-clip-text font-bold'>Augusti</span><br></br>Regeringen fortsätter budgetarbetet.</li>
-                        <br></br>
-                        <li><span className='bg-gradient-to-r from-cyan-500 to-blue-500 inline-block text-transparent bg-clip-text font-bold'>September</span><br></br>Regeringen lämnar budgetproposition till riksdagen.</li>
-                        <br></br>
-                        <li><span className='bg-gradient-to-r from-cyan-500 to-blue-500 inline-block text-transparent bg-clip-text font-bold'>Oktober</span><br></br>Riksdagen behandlar budgetpropositionen. Oppositionen lägger fram olika alternativ till regeringens budgetförslag.</li> 
-                        <br></br>
-                        <li><span className='bg-gradient-to-r from-cyan-500 to-blue-500 inline-block text-transparent bg-clip-text font-bold'>November</span><br></br>Riksdagen beslutar om ramar för utgiftsområden. Departementen förbereder utformningen av regleringsbreven.</li>
-                        <br></br>
-                        <li><span className='bg-gradient-to-r from-cyan-500 to-blue-500 inline-block text-transparent bg-clip-text font-bold'>December</span><br></br>Riksdagen beslutar om anslag till statsbudgeten. Regeringen ger myndigheterna i uppdrag att verkställa den beslutade budgeten.</li> 
-                    </ul>
+                        <ul>
+                            <li><span className='bg-gradient-to-r from-cyan-500 to-blue-500 inline-block text-transparent bg-clip-text font-bold'>December</span><br></br>Finansdepartementet redovisar prognoser för samhällsekonomin.</li>
+                            <br></br>
+                            <li><span className='bg-gradient-to-r from-cyan-500 to-blue-500 inline-block text-transparent bg-clip-text font-bold'>Januari</span><br></br>Finansdepartementet fortsätter att arbeta med prognoserna. Det gör även respektive departement för sina.</li>
+                            <br></br>
+                            <li><span className='bg-gradient-to-r from-cyan-500 to-blue-500 inline-block text-transparent bg-clip-text font-bold'>Febrauri</span><br></br>Regeringen fortsätter med det förberedande budgetarbetet. Myndigheterna lämnar in årsredovisningar och budgetunderlag till regeringen.</li>
+                            <br></br>
+                            <li><span className='bg-gradient-to-r from-cyan-500 to-blue-500 inline-block text-transparent bg-clip-text font-bold'>Mars</span><br></br>Regeringen har överläggning och enas om huvuddragen i den ekonomiska politiken och budgetpolitiken.</li>
+                            <br></br>
+                            <li><span className='bg-gradient-to-r from-cyan-500 to-blue-500 inline-block text-transparent bg-clip-text font-bold'>April</span><br></br>Regeringen lämnar över den ekonomiska vårpropositionen, VÅP:en, och årsredovisning för staten till riksdagen.</li>
+                            <br></br>
+                            <li><span className='bg-gradient-to-r from-cyan-500 to-blue-500 inline-block text-transparent bg-clip-text font-bold'>Maj</span><br></br>Riksdagen fortsätter att behandla VÅP:en. Budgetarbetet fortsätter i de olika departementen. Oppositionen lägger fram alternativ till regeringens förslag i VÅP:en.</li>
+                            <br></br>
+                            <li><span className='bg-gradient-to-r from-cyan-500 to-blue-500 inline-block text-transparent bg-clip-text font-bold'>Juni</span><br></br>Riksdagen fattar beslut om den ekonomiska VÅP:en och årsredovisningen för staten. Regeringen håller regeringsöverläggningar.</li>
+                            <br></br>
+                            <li><span className='bg-gradient-to-r from-cyan-500 to-blue-500 inline-block text-transparent bg-clip-text font-bold'>Juli</span><br></br>Paus i budgetarbetet.</li>
+                            <br></br>
+                            <li><span className='bg-gradient-to-r from-cyan-500 to-blue-500 inline-block text-transparent bg-clip-text font-bold'>Augusti</span><br></br>Regeringen fortsätter budgetarbetet.</li>
+                            <br></br>
+                            <li><span className='bg-gradient-to-r from-cyan-500 to-blue-500 inline-block text-transparent bg-clip-text font-bold'>September</span><br></br>Regeringen lämnar budgetproposition till riksdagen.</li>
+                            <br></br>
+                            <li><span className='bg-gradient-to-r from-cyan-500 to-blue-500 inline-block text-transparent bg-clip-text font-bold'>Oktober</span><br></br>Riksdagen behandlar budgetpropositionen. Oppositionen lägger fram olika alternativ till regeringens budgetförslag.</li>
+                            <br></br>
+                            <li><span className='bg-gradient-to-r from-cyan-500 to-blue-500 inline-block text-transparent bg-clip-text font-bold'>November</span><br></br>Riksdagen beslutar om ramar för utgiftsområden. Departementen förbereder utformningen av regleringsbreven.</li>
+                            <br></br>
+                            <li><span className='bg-gradient-to-r from-cyan-500 to-blue-500 inline-block text-transparent bg-clip-text font-bold'>December</span><br></br>Riksdagen beslutar om anslag till statsbudgeten. Regeringen ger myndigheterna i uppdrag att verkställa den beslutade budgeten.</li>
+                        </ul>
 
 
-                </CardContent>
-            </Card>
-            </div> 
+                    </CardContent>
+                </Card>
+            </div>
 
             <div className="w-full sm:w-3/4 lg:w-1/2">
                 <Card className="m-4 p+2">
@@ -89,7 +94,7 @@ export default function Budget() {
                         <CardDescription className="text-sm"><span className='bg-gradient-to-r from-cyan-500 to-blue-500 inline-block text-transparent bg-clip-text'>Vart kommer datan ifrån?</span></CardDescription>
                     </CardHeader>
                     <CardContent>
-                        <p> Data hämtas från Regeringens proposition 2023/24:1 - Budgetpropositionen för 2024, utgiven den 15 september 2023 i Stockholm. Cirkeldiagrammet och händelseförloppet baseras på information från Wikipedia - Sveriges statsbudget.</p>
+                        <p> Data hämtas från Regeringens proposition 2023/24:1 - Budgetpropositionen för 2024, utgiven den 15 september 2023 i Stockholm. Cirkeldiagrammet och händelseförloppet baseras på information från Wikipedia - Sveriges statsbudget och i sin tur Regeringskansliets årsbok 2020, s 59.</p>
                     </CardContent>
                     <CardContent>
                         <Link href="https://www.regeringen.se/contentassets/e1afccd2ec7e42f6af3b651091df139c/budgetpropositionen-for-2024-hela-dokumentet-prop.2023241.pdf" target="_blank">

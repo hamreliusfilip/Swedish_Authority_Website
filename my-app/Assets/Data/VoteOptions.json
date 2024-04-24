@@ -1,5 +1,6 @@
 {
     "option1": {
+        "title": "Antal mandat i riksdagen",
         "responsive": true,
         "scales": {
             "x": {
@@ -11,23 +12,34 @@
         },
         "plugins": {
             "legend": {
+                "display": false,
                 "position": "top"
             },
             "title": {
                 "display": false,
-                "text": "Statens budgetsaldo 2023–2027 (miljarder kronor)"
+                "text": "Antal mandat i riksdagen"
             }
         }
     },
     "option2": {
+        "title": "Fördelning i regeringen",
         "responsive": true,
+        "scales": {
+            "x": {
+                "type": "category"
+            },
+            "y": {
+                "beginAtZero": true
+            }
+        },
         "plugins": {
             "legend": {
-                "position": "left"
+                "display": false,
+                "position": "top"
             },
             "title": {
                 "display": false,
-                "text": "Utgifter - 2020, Wikipedia (procent)"
+                "text": "Fördelning i regeringen"
             }
         }
     }

@@ -6,7 +6,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Svenska Myndigheter",
-  description: "Svenska Myndigheter - En informationssida över myndigheter, departement och regeringen i Sverige",
+  description: "Svenska Myndigheter - En informationssida över myndigheter, departement och den svenska staten.",
 };
 
 import React from "react";
