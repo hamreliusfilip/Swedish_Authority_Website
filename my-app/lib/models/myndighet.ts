@@ -43,7 +43,6 @@ const Myndigheter = new mongoose.Schema<Myndigheter>({
       required: [true, "Please provide info about the myndighet"],
     },
     logo_url: {
-      /* binary */
       type: String,
     },
     epost: {
