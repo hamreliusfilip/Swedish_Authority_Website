@@ -8,19 +8,13 @@ export async function GET(req: any, { params }: any) {
         const { idOrName } = params;
 
         let myndighet;
-        if (isValidObjectId(idOrName)) {
+
+        if ((isValidObjectId(params.id)) != true) {
             // If the parameter is a valid ObjectId (i.e., ID), fetch by ID
-            myndighet = await Myndighet.findById(idOrName);
+            myndighet = await Myndighet.findById(params.id);
         } else {
             // If the parameter is not a valid ObjectId, fetch by name
-            myndighet = await Myndighet.find({ name: idOrName}, function (err:any, docs:any) { 
-              if (err){ 
-                  console.log(err); 
-              } 
-              else{ 
-                  console.log("First function call : ", docs); 
-              } 
-          }); 
+            myndighet = await Myndighet.findOne({ name: params.id });
         }
 
         if (myndighet) {
@@ -33,7 +27,7 @@ export async function GET(req: any, { params }: any) {
     }
 }
 
-// Function to check if a string is a valid ObjectId
+// Function to check if a string only contains letter
 function isValidObjectId(id: string) {
-    return /^[0-9a-fA-F]{24}$/.test(id);
+    return /^[a-zA-Z]+$/.test(id);
 }
