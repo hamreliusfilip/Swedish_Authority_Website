@@ -3,13 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { Card, CardContent, CardTitle } from '@/components/ui/card';
-import { navigationMenuTriggerStyle } from "@/components/ui/navigation-menu"
-import {
-    HoverCard,
-    HoverCardContent,
-    HoverCardTrigger,
-} from "@/components/ui/hover-card"
-
+import { navigationMenuTriggerStyle } from "@/components/ui/navigation-menu"; 
 import {
     Select,
     SelectContent,
@@ -29,7 +23,6 @@ import { Button } from '@/components/ui/button';
 import {
     NavigationMenu,
     NavigationMenuContent,
-    NavigationMenuIndicator,
     NavigationMenuItem,
     NavigationMenuLink,
     NavigationMenuList,
@@ -84,11 +77,24 @@ export default function Page() {
 
     const handleRelationFilterChange = (filters: Record<string, boolean>) => {
         setRelationFilters(filters);
+
     };
 
     const handleRuleFilterChange = (filters: Record<string, boolean>) => {
         setRuleFilters(filters);
     };
+
+    function changeSorting(value: string) {
+        if (value === 'alfa') {
+            setMyndigheter([...myndigheter].sort((a, b) => a.name.localeCompare(b.name)));
+        }
+        if (value === 'yearDec') {
+            setMyndigheter([...myndigheter].sort((a, b) => b.created.toString().localeCompare(a.created.toString())));
+        }
+        else if (value === 'yearInc') {
+            setMyndigheter([...myndigheter].sort((a, b) => a.created.toString().localeCompare(b.created.toString())));
+        }
+    }
 
     useEffect(() => {
         const filteredMyndigheter = myndigheter.filter(myndighet => {
@@ -97,8 +103,11 @@ export default function Page() {
             const minValue = parseInt(slider1Value);
             const maxValue = parseInt(slider2Value);
             const createdMatch = myndighet.created >= minValue && myndighet.created <= maxValue;
-            const relationMatch = Object.entries(relationFilters).every(([relation, checked]) => !checked || myndighet.relation === relation);
-            const ruleMatch = Object.entries(ruleFilters).every(([rule, checked]) => !checked || myndighet.rule === rule);
+
+            const relationMatch = Object.entries(relationFilters).every(([relation, checked]) => !checked || checked && relationFilters[myndighet.relation]);
+
+            const ruleMatch = Object.entries(ruleFilters).every(([rule, checked]) => !checked || checked && ruleFilters[myndighet.rule]);
+            
             return (nameMatch || orgMatch) && ruleMatch && relationMatch && createdMatch;
         });
         setFilteredMyndigheter(filteredMyndigheter);
@@ -238,7 +247,7 @@ export default function Page() {
                 </div>
                 <div className='basis-1/6 pr-10'>
                     <div className=''>
-                        <Select>
+                        <Select onValueChange={changeSorting} >
                             <SelectTrigger className="w-[180px]">
                                 <SelectValue placeholder="Sorterings alternativ" />
                             </SelectTrigger>
@@ -258,3 +267,5 @@ export default function Page() {
         </>
     );
 }
+
+
