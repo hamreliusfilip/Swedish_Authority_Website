@@ -21,11 +21,11 @@ const CheckboxFilter: React.FC<CheckboxFilterProps> = ({ options, onChange, rese
                 for (const option in resetFilters) {
                     resetFilters[option] = false;
                 }
-                onChange(resetFilters); // Reset the filters
+               
                 return resetFilters;
             });
         }
-    }, [reset, options, onChange]);
+    }, [reset, options]);
 
     const handleCheckboxChange = (option: string) => {
         const newFilters = { ...filters, [option]: !filters[option] };
