@@ -40,7 +40,6 @@ export default function Graph() {
           <Bar data={data.data10} options={option.option10} />
         </div>
       </div>
-
       <div className="mb-8">
         <h1 className="font-bold text-4xl mt-20 bg-gradient-to-r from-cyan-500 to-blue-500 inline-block text-transparent bg-clip-text"> Allmänhetens uppfattning </h1>
         <p className='text-center font-normal text-l mt-5'> Data allmänhetens uppfattning om tio myndigheter.</p>
@@ -56,7 +55,6 @@ export default function Graph() {
           <Bar data={data.data11} options={option.option11} />
         </div>
       </div>
-
       <div className="mb-8">
         <h1 className="font-bold text-4xl mt-20 bg-gradient-to-r from-cyan-500 to-blue-500 inline-block text-transparent bg-clip-text"> Jämställdhet </h1>
         <p className='text-center font-normal text-l mt-5'> Data om könsfördelningen inom den statliga sektorn, <br></br> inklusive en åldersmässig kontext.</p>
@@ -98,9 +96,7 @@ export default function Graph() {
           {/* @ts-ignore */}
           <Bar data={data.data12} options={option.option12} />
         </div>
-
       </div>
-
       <div className="flex justify-center pt-16">
         <div className="w-full sm:w-3/4 lg:w-1/2">
           <Card className="m-4 p+2 text-left">
@@ -113,16 +109,15 @@ export default function Graph() {
             </CardContent>
             <CardContent>
               <Link href="https://www.statskontoret.se/publicerat/publikationer/publikationer-2023/statsforvaltningen-i-korthet-2023/" target="_blank">
-                <Button variant="outline" className="bg-gradient-to-r from-cyan-500 to-blue-500 text-white">Statskontoret - Rapport</Button>
+                <Button variant="outline" className='m-1 bg-gradient-to-r from-cyan-500 to-blue-500 text-white'>Statskontoret - Rapport</Button>
               </Link>
               <Link href="https://www.statskontoret.se" target="_blank">
-                <Button variant="outline" className="bg-gradient-to-r from-cyan-500 to-blue-500 text-white ml-5">Statskontoret - Hemsida</Button>
+                <Button variant="outline" className='m-1 bg-gradient-to-r from-cyan-500 to-blue-500 text-white'>Statskontoret - Hemsida</Button>
               </Link>
             </CardContent>
           </Card>
         </div>
       </div>
-
     </div>
   );
 }
