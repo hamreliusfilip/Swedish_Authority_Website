@@ -24,12 +24,12 @@ export default function Budget() {
 
             <h1 className="font-bold text-4xl mt-20 bg-gradient-to-r from-cyan-500 to-blue-500 inline-block text-transparent bg-clip-text"> Utgifter i fokus </h1>
             <p className="font-semibold text-small text-slate-300 m-4">Utgifter i procent - 2020</p>
-            <div className="pl-20 pr-20 -mt-32 w-1/2">
+            <div className="pl-20 pr-20 w-1/2">
                 {/* @ts-ignore */}
                 <Doughnut data={data.data2} options={option.option2} />
             </div>
 
-            <Card className=" mx-10 mb-12 w-1/2">
+            <Card className="mx-10 mb-12 w-1/2">
                 <CardHeader>
                     <CardTitle>Sveriges Statsbudget</CardTitle>
                     <CardDescription className="text-sm"><span className='bg-gradient-to-r from-cyan-500 to-blue-500 inline-block text-transparent bg-clip-text'>Ur Regeringens proposition 2023/24:1</span></CardDescription>
@@ -81,12 +81,9 @@ export default function Budget() {
                             <br></br>
                             <li><span className='bg-gradient-to-r from-cyan-500 to-blue-500 inline-block text-transparent bg-clip-text font-bold'>December</span><br></br>Riksdagen beslutar om anslag till statsbudgeten. Regeringen ger myndigheterna i uppdrag att verkställa den beslutade budgeten.</li>
                         </ul>
-
-
                     </CardContent>
                 </Card>
             </div>
-
             <div className="w-full sm:w-3/4 lg:w-1/2">
                 <Card className="m-4 p+2">
                     <CardHeader>
@@ -98,10 +95,10 @@ export default function Budget() {
                     </CardContent>
                     <CardContent>
                         <Link href="https://www.regeringen.se/contentassets/e1afccd2ec7e42f6af3b651091df139c/budgetpropositionen-for-2024-hela-dokumentet-prop.2023241.pdf" target="_blank">
-                            <Button variant="outline" className=' bg-gradient-to-r from-cyan-500 to-blue-500 text-white'>Budget proposition</Button>
+                            <Button variant="outline" className='m-1 bg-gradient-to-r from-cyan-500 to-blue-500 text-white'>Budget proposition</Button>
                         </Link>
                         <Link href="https://sv.wikipedia.org/wiki/Sveriges_statsbudget" target="_blank">
-                            <Button variant="outline" className='ml-3 bg-gradient-to-r from-cyan-500 to-blue-500 text-white'>Wikipedia - Sveriges Statsbudget</Button>
+                            <Button variant="outline" className='m-1 bg-gradient-to-r from-cyan-500 to-blue-500 text-white'>Wikipedia - Sveriges Statsbudget</Button>
                         </Link>
                     </CardContent>
                 </Card>

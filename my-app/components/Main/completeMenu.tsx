@@ -26,6 +26,12 @@ export default function CompleteMenu() {
           </MenubarMenu>
         </Link>
 
+        <Link href="/company">
+          <MenubarMenu>
+            <MenubarTrigger>Statliga företag</MenubarTrigger>
+          </MenubarMenu>
+        </Link>
+
         <Link href="/departement">
           <MenubarMenu>
             <MenubarTrigger>Departement</MenubarTrigger>

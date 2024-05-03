@@ -9,7 +9,6 @@ import {
 
 export default function Facts() {
     return (
-
         <div className='mt-40 p-14 bg-gradient-to-r from-cyan-500 to-blue-500'>
             <div className='mb-2'>
                 <h1 className='text-center font-bold text-4xl text-white'>
