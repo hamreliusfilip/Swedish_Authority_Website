@@ -22,7 +22,7 @@ export default function Graph() {
   return (
     <div className="text-center">
       <div className="mb-8">
-        <h1 className="font-bold text-4xl mt-20 bg-gradient-to-r from-cyan-500 to-blue-500 inline-block text-transparent bg-clip-text"> Generell statistik </h1>
+        <h1 className="font-bold text-4xl mt-20 bg-gradient-to-r from-cyan-500 to-blue-500 inline-block text-transparent bg-clip-text px-1 pb-1"> Generell statistik - Myndigheter </h1>
         <p className='text-center font-normal text-l mt-5'> Data över ledningsform, verksamhetsområde <br></br> och antal myndigheter genom åren.</p>
         <hr className="w-96 h-1 mx-auto my-4 bg-gradient-to-r from-cyan-500 to-blue-500 border-0 rounded md:my-10 dark:bg-gray-700" />
       </div>
@@ -41,7 +41,7 @@ export default function Graph() {
         </div>
       </div>
       <div className="mb-8">
-        <h1 className="font-bold text-4xl mt-20 bg-gradient-to-r from-cyan-500 to-blue-500 inline-block text-transparent bg-clip-text"> Allmänhetens uppfattning </h1>
+        <h1 className="font-bold text-4xl mt-20 bg-gradient-to-r from-cyan-500 to-blue-500 inline-block text-transparent bg-clip-text px-1 pb-1"> Allmänhetens uppfattning om myndigheterna </h1>
         <p className='text-center font-normal text-l mt-5'> Data allmänhetens uppfattning om tio myndigheter.</p>
         <hr className="w-96 h-1 mx-auto my-4 bg-gradient-to-r from-cyan-500 to-blue-500 border-0 rounded md:my-10 dark:bg-gray-700" />
       </div>
@@ -56,7 +56,7 @@ export default function Graph() {
         </div>
       </div>
       <div className="mb-8">
-        <h1 className="font-bold text-4xl mt-20 bg-gradient-to-r from-cyan-500 to-blue-500 inline-block text-transparent bg-clip-text"> Jämställdhet </h1>
+        <h1 className="font-bold text-4xl mt-20 bg-gradient-to-r from-cyan-500 to-blue-500 inline-block text-transparent bg-clip-text px-1 pb-1"> Jämställdhet i myndigheterna </h1>
         <p className='text-center font-normal text-l mt-5'> Data om könsfördelningen inom den statliga sektorn, <br></br> inklusive en åldersmässig kontext.</p>
         <hr className="w-96 h-1 mx-auto my-4 bg-gradient-to-r from-cyan-500 to-blue-500 border-0 rounded md:my-10 dark:bg-gray-700" />
       </div>
@@ -75,7 +75,7 @@ export default function Graph() {
         </div>
       </div>
       <div className="mb-8">
-        <h1 className="font-bold text-4xl mt-20 bg-gradient-to-r from-cyan-500 to-blue-500 inline-block text-transparent bg-clip-text"> Anställda </h1>
+        <h1 className="font-bold text-4xl mt-20 bg-gradient-to-r from-cyan-500 to-blue-500 inline-block text-transparent bg-clip-text px-1 pb-1"> Anställda i myndigheterna </h1>
         <p className='text-center font-normal text-l mt-5'> Data över antal anställda inom olika områden.</p>
         <hr className="w-96 h-1 mx-auto my-4 bg-gradient-to-r from-cyan-500 to-blue-500 border-0 rounded md:my-10 dark:bg-gray-700" />
       </div>

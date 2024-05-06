@@ -8,7 +8,7 @@ const config: Config = {
     './components/**/*.{ts,tsx}',
     './app/**/*.{ts,tsx}',
     './src/**/*.{ts,tsx}',
-	],
+  ],
   prefix: "",
   theme: {
     container: {
@@ -79,6 +79,10 @@ const config: Config = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
+      },
+      height: {
+        '120': '48rem', // Example added height
+        // Add more as needed
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",

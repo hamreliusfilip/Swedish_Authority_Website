@@ -136,7 +136,7 @@ export default function Page() {
                 <Logo />
                 <CompleteMenu />
                 <div className="text-center">
-                    <h1 className="font-bold text-4xl bg-gradient-to-r from-cyan-500 to-blue-500 inline-block text-transparent bg-clip-text mt-10 mb-2"> Statliga företag </h1>
+                    <h1 className="font-bold text-4xl bg-gradient-to-r from-cyan-500 to-blue-500 inline-block text-transparent bg-clip-text mt-10 mb-2 px-1 pb-1"> Statliga företag </h1>
                     <p className="font-semibold text-small text-slate-300 mb-10">Alla svenska statliga eller delvis statliga företag</p>
                 </div>
             </div>
@@ -198,7 +198,7 @@ export default function Page() {
                                     <NavigationMenuTrigger>Hjälp</NavigationMenuTrigger>
                                     <NavigationMenuContent>
                                         <div className='w-96 h-68 p-7'>
-                                        Detta är en sökmotor för svenska statliga företag. Du kan söka på samtliga statliga företag i Sverige och filtrera på olika kriterier. Det finns tio datapunkter för varje statligt företag, till exempel generell fakta, mailadress och logotyp. Använd Filtreringsalternativen till vänster eller sökrutan för att hitta ett specifikt statligt företag. Klickar du på knappen högst upp i högra hörnet på varje statligt företag kommer du till den specifika sidan för just det statliga företaget.
+                                            Detta är en sökmotor för svenska statliga företag. Du kan söka på samtliga statliga företag i Sverige och filtrera på olika kriterier. Det finns tio datapunkter för varje statligt företag, till exempel generell fakta, mailadress och logotyp. Använd Filtreringsalternativen till vänster eller sökrutan för att hitta ett specifikt statligt företag. Klickar du på knappen högst upp i högra hörnet på varje statligt företag kommer du till den specifika sidan för just det statliga företaget.
                                         </div>
                                     </NavigationMenuContent>
                                 </NavigationMenuItem>
@@ -223,7 +223,7 @@ export default function Page() {
                     />
                     <p className='font-slate-300 text-sm font-light'>Antal hittade företag hittade: {filteredCompanies.length} st</p>
                     <div className='overflow-y-auto mt-4'>
-                        <Card>
+                        <Card className="h-120 overflow-y-auto">
                             {filteredCompanies.map((company: any) => (
                                 <div key={company._id}>
                                     <ListCard company={company} loading={loading} />

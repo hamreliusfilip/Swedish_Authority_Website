@@ -14,7 +14,7 @@ export default function Facts() {
                 <h1 className='text-center font-bold text-4xl text-white'>
                     Statistik
                 </h1>
-                <p className='text-center font-nornal text-l mt-5 text-white'> Hur mycket kan du om statens anställda och dess arbetsgivare? <br></br> Vi har samlat data i enkla intuitva grafer. Se våran Statistik sida genom att klicka nedanför. </p>
+                <p className='text-center font-nornal text-l mt-5 text-white'> Hur mycket kan du om statens anställda och dess arbetsgivare? <br></br> Vi har samlat data i enkla intuitva grafer - allt från jämställdhet till roller inom statens myndigheter.</p>
             </div>
 
             <div className="flex flex-wrap justify-center mt-5">

@@ -140,7 +140,7 @@ export default function Page() {
                 <Logo />
                 <CompleteMenu />
                 <div className="text-center">
-                    <h1 className="font-bold text-4xl bg-gradient-to-r from-cyan-500 to-blue-500 inline-block text-transparent bg-clip-text mt-10 mb-2"> Myndigheter </h1>
+                    <h1 className="font-bold text-4xl bg-gradient-to-r from-cyan-500 to-blue-500 inline-block text-transparent bg-clip-text mt-10 mb-2 px-1 pb-1"> Myndigheter </h1>
                     <p className="font-semibold text-small text-slate-300 mb-10">Alla svenska myndigheter</p>
                 </div>
             </div>
@@ -166,7 +166,7 @@ export default function Page() {
                                     <AccordionTrigger>Styre</AccordionTrigger>
                                     <AccordionContent>
                                         <CheckboxFilter
-                                            options={['Styrelse', 'Enrådighet', 'SBA', 'Nämnd', 'Kommitté', 'Universitet eller högskola', 'Regeringskansliet', 'Övrigt']}
+                                            options={['Styrelse', 'Enrådighet', 'SBA', 'Nämnd', 'Kommitté', 'Universitet eller högskola', 'Regeringskansliet', 'Arbetsgivarkollegium', 'Övrigt']}
                                             onChange={handleRuleFilterChange}
                                             reset={filterReset}
                                         />
@@ -239,7 +239,7 @@ export default function Page() {
                     />
                     <p className='font-slate-300 text-sm font-light'>Antal hittade myndigheter: {filteredMyndigheter.length} st</p>
                     <div className='overflow-y-auto mt-4'>
-                        <Card>
+                        <Card className="h-120 overflow-y-auto">
                             {filteredMyndigheter.map((myndighet: any) => (
                                 <div key={myndighet._id}>
                                     <ListCard myndighet={myndighet} loading={loading} />

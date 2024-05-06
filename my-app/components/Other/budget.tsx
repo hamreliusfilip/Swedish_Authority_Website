@@ -22,7 +22,7 @@ export default function Budget() {
     return (
         <div className="flex flex-col items-center justify-center">
 
-            <h1 className="font-bold text-4xl mt-20 bg-gradient-to-r from-cyan-500 to-blue-500 inline-block text-transparent bg-clip-text"> Utgifter i fokus </h1>
+            <h1 className="font-bold text-4xl mt-20 bg-gradient-to-r from-cyan-500 to-blue-500 inline-block text-transparent bg-clip-text px-1 pb-1"> Utgifter i fokus </h1>
             <p className="font-semibold text-small text-slate-300 m-4">Utgifter i procent - 2020</p>
             <div className="pl-20 pr-20 w-1/2">
                 {/* @ts-ignore */}

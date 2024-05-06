@@ -8,8 +8,10 @@ import {
   MenubarItem,
   MenubarMenu,
   MenubarSeparator,
-  MenubarShortcut,
   MenubarTrigger,
+  MenubarSub,
+  MenubarSubContent,
+  MenubarSubTrigger
 } from "@/components/ui/menubar";
 
 export default function CompleteMenu() {
@@ -32,7 +34,6 @@ export default function CompleteMenu() {
             </div>}
           </MenubarMenu>
         </Link>
-
         <Link href="/myndighet">
           <MenubarMenu>
             <MenubarTrigger>Myndigheter</MenubarTrigger>
@@ -41,7 +42,6 @@ export default function CompleteMenu() {
             </div>}
           </MenubarMenu>
         </Link>
-
         <Link href="/company">
           <MenubarMenu>
             <MenubarTrigger>Statliga företag</MenubarTrigger>
@@ -50,7 +50,6 @@ export default function CompleteMenu() {
             </div>}
           </MenubarMenu>
         </Link>
-
         <Link href="/departement">
           <MenubarMenu>
             <MenubarTrigger>Departement</MenubarTrigger>
@@ -59,49 +58,62 @@ export default function CompleteMenu() {
             </div>}
           </MenubarMenu>
         </Link>
-
         <MenubarMenu>
-          <MenubarTrigger>
-            Fakta
-          </MenubarTrigger>
-          <MenubarContent className="bg-white p-2 rounded-md">
-            <Link href="/faktaover/statistik">
-              <MenubarItem>Statistik - Myndigheter</MenubarItem>
-              {isCurrentPath("/faktaover/statistik") && <div className="flex justify-start">
-              <div className="bg-slate-300 h-1 w-5 mb-1 ml-2 rounded rounded-corners"></div>
-            </div>}
-            </Link>
+          <MenubarTrigger>Fakta & Statistik</MenubarTrigger>
+          <MenubarContent>
+            <MenubarSub>
+              <MenubarSubTrigger>Statistik</MenubarSubTrigger>
+              <MenubarSubContent>
+                <Link href="/faktaover/statistik">
+                  <MenubarItem>Myndighetsstatistik</MenubarItem>
+                  {isCurrentPath("/faktaover/statistik") && <div className="flex justify-start">
+                    <div className="bg-slate-300 h-1 w-5 mb-1 ml-2 rounded rounded-corners"></div>
+                  </div>}
+                </Link>
+                <MenubarSeparator />
+                <Link href="/faktaover/statistikForetag">
+                  <MenubarItem>Statens bolagsportfölj</MenubarItem>
+                  {isCurrentPath("/faktaover/statistikForetag") && <div className="flex justify-start">
+                    <div className="bg-slate-300 h-1 w-5 mb-1 ml-2 rounded rounded-corners"></div>
+                  </div>}
+                </Link>
+                <MenubarSeparator />
+                <Link href="/faktaover/statsbudget">
+                  <MenubarItem>Statsbudgeten</MenubarItem>
+                  {isCurrentPath("/faktaover/statsbudget") && <div className="flex justify-start">
+                    <div className="bg-slate-300 h-1 w-5 mb-1 ml-2 rounded rounded-corners"></div>
+                  </div>}
+                </Link>
+              </MenubarSubContent>
+            </MenubarSub>
             <MenubarSeparator />
-            <Link href="/faktaover/statsbudget">
-              <MenubarItem>Statsbudgeten</MenubarItem>
-              {isCurrentPath("/faktaover/statsbudget") && <div className="flex justify-start">
-              <div className="bg-slate-300 h-1 w-5 mb-1 ml-2 rounded rounded-corners"></div>
-            </div>}
-            </Link>
-            <MenubarSeparator />
-            <Link href="/faktaover/foretagMyndigheter">
-              <MenubarItem>Myndigheter & Företag</MenubarItem>
-              {isCurrentPath("/faktaover/foretagMyndigheter") && <div className="flex justify-start">
-              <div className="bg-slate-300 h-1 w-5 mb-1 ml-2 rounded rounded-corners"></div>
-            </div>}
-            </Link>
-            <MenubarSeparator />
-            <Link href="/faktaover/riksdagen">
-              <MenubarItem>Riksdagen & Regeringen</MenubarItem>
-              {isCurrentPath("/faktaover/riksdagen") && <div className="flex justify-start">
-              <div className="bg-slate-300 h-1 w-5 mb-1 ml-2 rounded rounded-corners"></div>
-            </div>}
-            </Link>
-            <MenubarSeparator />
-            <Link href="/faktaover/staten">
-              <MenubarItem>Grundläggande Fakta</MenubarItem>
-              {isCurrentPath("/faktaover/staten") && <div className="flex justify-start">
-              <div className="bg-slate-300 h-1 w-5 mb-1 ml-2 rounded rounded-corners"></div>
-            </div>}
-            </Link>
+            <MenubarSub>
+              <MenubarSubTrigger>Fakta</MenubarSubTrigger>
+              <MenubarSubContent>
+                <Link href="/faktaover/foretagMyndigheter">
+                  <MenubarItem>Myndigheter & Företag</MenubarItem>
+                  {isCurrentPath("/faktaover/foretagMyndigheter") && <div className="flex justify-start">
+                    <div className="bg-slate-300 h-1 w-5 mb-1 ml-2 rounded rounded-corners"></div>
+                  </div>}
+                </Link>
+                <MenubarSeparator />
+                <Link href="/faktaover/riksdagen">
+                  <MenubarItem>Riksdagen & Regeringen</MenubarItem>
+                  {isCurrentPath("/faktaover/riksdagen") && <div className="flex justify-start">
+                    <div className="bg-slate-300 h-1 w-5 mb-1 ml-2 rounded rounded-corners"></div>
+                  </div>}
+                </Link>
+                <MenubarSeparator />
+                <Link href="/faktaover/staten">
+                  <MenubarItem>Grundläggande Fakta</MenubarItem>
+                  {isCurrentPath("/faktaover/staten") && <div className="flex justify-start">
+                    <div className="bg-slate-300 h-1 w-5 mb-1 ml-2 rounded rounded-corners"></div>
+                  </div>}
+                </Link>
+              </MenubarSubContent>
+            </MenubarSub>
           </MenubarContent>
         </MenubarMenu>
-
         <Link href="/om">
           <MenubarMenu>
             <MenubarTrigger>Om hemsidan</MenubarTrigger>

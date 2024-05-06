@@ -36,7 +36,7 @@ import data from '../../Assets/Data/Ministers.json';
 const App: React.FC = () => {
 
   const nodeClasses = "";
-  const firstNodeClass = "bg-gradient-to-r from-cyan-500 to-blue-500";
+  const firstNodeClass = "bg-gradient-to-r from-cyan-500 to-blue-500 font-extrabold text-4xl text-white";
 
   const [myndigheter, setMyndigheter] = useState<any[]>([]);
   const [d1, setD1] = useState<any>(null);
@@ -63,10 +63,12 @@ const App: React.FC = () => {
 
     const labelWidth = value.length * 10;
 
+    const maxLabelWidth = Math.max(...myndigheter.map(myndighet => myndighet.name.length));
+
     const initialNodes = [
       {
         id: '1',
-        position: { x: 700, y: 300 },
+        position: { x: 900, y: 30 },
         data: { label: value },
         style: { width: `${labelWidth}px` },
         className: firstNodeClass
@@ -76,16 +78,15 @@ const App: React.FC = () => {
         .map((myndighet, index) => {
 
           const label = myndighet.name;
-          const labelWidth = label.length * 10;
 
           return {
             id: (index + 2).toString(),
             position: {
-              x: 100 + (index % 7 * 290),
+              x: ((label.length) + 300 * (index % 7)),
               y: index < 7 ? 150 : 450,
             },
             data: { label: label },
-            style: { width: `${labelWidth}px` },
+            style: { width: `${(labelWidth)}px` },
             className: nodeClasses,
           };
         }),
@@ -181,7 +182,6 @@ const App: React.FC = () => {
         </div>
       </div>
 
-
       <Card className='m-10'>
         <div className='flex justify-between'>
           <div className='mr-auto ml-3 mt-3 mb-3'>
@@ -206,11 +206,6 @@ const App: React.FC = () => {
                 </SelectGroup>
               </SelectContent>
             </Select>
-          </div>
-          <div>
-            <Link href="/om">
-              <Button variant="outline" className='ml-3 mt-3 mb-3 mr-3'>Källa: Statsförvaltning i korthet 2023 - Läs mer</Button>
-            </Link>
           </div>
         </div>
         <div style={{ height: "700px" }} className="w-auto border-solid">
