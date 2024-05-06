@@ -84,6 +84,5 @@ export default function AboutRiks() {
                 </div>
             </div>
         </div>
-
     );
 }

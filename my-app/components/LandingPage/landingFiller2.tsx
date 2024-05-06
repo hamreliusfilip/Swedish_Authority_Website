@@ -18,8 +18,8 @@ export default function LandingFiller2() {
                         <Link href="/faktaover/riksdagen">
                             <div className="flex flex-col items-center">
                                 <div className="flex justify-center items-center w-32 h-32 rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 mb-2 transition-all duration-300 hover:scale-110">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="white" className="w-16 h-16">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 5.25a3 3 0 0 1 3 3m3 0a6 6 0 0 1-7.029 5.912c-.563-.097-1.159.026-1.563.43L10.5 17.25H8.25v2.25H6v2.25H2.25v-2.818c0-.597.237-1.17.659-1.591l6.499-6.499c.404-.404.527-1 .43-1.563A6 6 0 1 1 21.75 8.25Z" />
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="white" className="w-16 h-16">
+                                        <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 5.25a3 3 0 0 1 3 3m3 0a6 6 0 0 1-7.029 5.912c-.563-.097-1.159.026-1.563.43L10.5 17.25H8.25v2.25H6v2.25H2.25v-2.818c0-.597.237-1.17.659-1.591l6.499-6.499c.404-.404.527-1 .43-1.563A6 6 0 1 1 21.75 8.25Z" />
                                     </svg>
 
                                 </div>
@@ -36,7 +36,7 @@ export default function LandingFiller2() {
                                     </svg>
                                 </div>
                                 <p className="text-xl text-center font-bold m-3">Myndighet eller statligt bolag?</p>
-                                <p className="text-sm text-center font-regular text-slate-500 m-3">Enkela förklaringar, vad är vad i den svenska byråkratin. <br></br>Hur fungerar och skiljer dem sig åt?</p>
+                                <p className="text-sm text-center font-regular text-slate-500 m-3">Enkla förklaringar, vad är vad i den svenska byråkratin. <br></br>Hur fungerar och skiljer dem sig åt?</p>
                             </div>
                         </Link>
 
@@ -48,7 +48,7 @@ export default function LandingFiller2() {
                                     </svg>
                                 </div>
                                 <p className="text-xl text-center font-bold m-3">Grundläggande fakta</p>
-                                <p className="text-sm text-center font-regular text-slate-500 m-3">Har du dålig koll på grunderna? <br></br>Låt oss hjälpa dig med enkel och snabb information.</p>
+                                <p className="text-sm text-center font-regular text-slate-500 m-3">Har du dålig koll på grunderna? <br></br>Låt oss hjälpa dig med snabb och enkel information.</p>
                             </div>
                         </Link>
 

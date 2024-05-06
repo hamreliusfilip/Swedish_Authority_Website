@@ -5,12 +5,16 @@
         {
           "label": "Män",
           "data": [5000, 27000, 31000, 33000, 26000, 6000],
-          "backgroundColor": "rgb(14 165 233)"
+          "backgroundColor": "rgb(14 165 233)",
+          "borderWidth": 1,
+          "borderRadius": 15
         },
         {
           "label": "Kvinnor",
           "data": [4000, 31000, 37000, 37000, 29000, 4900],
-          "backgroundColor": "rgb(212 212 212)"
+          "backgroundColor": "rgb(212 212 212)",
+          "borderWidth": 1,
+          "borderRadius": 15
         }
       ]
     },
@@ -20,12 +24,16 @@
         {
           "label": "Män",
           "data": [52, 49, 48, 47, 47],
-          "backgroundColor": "rgb(14 165 233)"
+          "backgroundColor": "rgb(14 165 233)",
+          "borderWidth": 1,
+          "borderRadius": 15
         },
         {
           "label": "Kvinnor",
           "data": [48, 51, 52, 53, 53],
-          "backgroundColor": "rgb(212 212 212)"
+          "backgroundColor": "rgb(212 212 212)",
+          "borderWidth": 1,
+          "borderRadius": 15
         }
       ]
     },
@@ -35,7 +43,9 @@
         {
           "label": "Anställda - Båda kvinnor och män",
           "data": [6, 4, 2, 6, 16, 2, 21, 18, 6, 2, 17, 1],
-          "backgroundColor": "rgb(14 165 233)"
+          "backgroundColor": "rgb(14 165 233)",
+          "borderWidth": 1,
+          "borderRadius": 15
         }
       ]
     },
@@ -45,7 +55,9 @@
         {
           "label": "Andel anställda",
           "data": [5, 5, 17, 4, 68],
-          "backgroundColor": "rgb(14 165 233)"
+          "backgroundColor": "rgb(14 165 233)",
+          "borderWidth": 1,
+          "borderRadius": 15
         }
       ]
     },
@@ -55,12 +67,16 @@
         {
           "label": "Andel män",
           "data": [86, 74, 66, 55, 54, 47, 41, 37, 36, 32, 26],
-          "backgroundColor": "rgb(14 165 233)"
+          "backgroundColor": "rgb(14 165 233)",
+          "borderWidth": 1,
+          "borderRadius": 15
         },
         {
           "label": "Andel kvinnor",
           "data": [14, 26, 34, 45, 46, 53, 59, 63, 64, 68, 74],
-          "backgroundColor": "rgb(212 212 212)"
+          "backgroundColor": "rgb(212 212 212)",
+          "borderWidth": 1,
+          "borderRadius": 15
         }
       ]
     },
@@ -70,22 +86,30 @@
         {
           "label": "Instämmer helt",
           "data": [38, 57, 45],
-          "backgroundColor": "rgb(14 165 233)"
+          "backgroundColor": "rgb(14 165 233)",
+          "borderWidth": 1,
+          "borderRadius": 15
         },
         {
           "label": "Instämmer delvis",
           "data": [32, 25, 35],
-          "backgroundColor": "rgb(212 212 212)"
+          "backgroundColor": "rgb(212 212 212)",
+          "borderWidth": 1,
+          "borderRadius": 15
         },
         {
           "label": "Instämmer knappast",
           "data": [16, 10, 10],
-          "backgroundColor": "rgb(201 36 201)"
+          "backgroundColor": "rgb(201 36 201)",
+          "borderWidth": 1,
+          "borderRadius": 15
         },
         {
           "label": "Instämmer inte alls",
           "data": [14, 8, 10],
-          "backgroundColor": "rgb(52 201 36)"
+          "backgroundColor": "rgb(52 201 36)",
+          "borderWidth": 1,
+          "borderRadius": 15
         }
       ]
     },
@@ -95,7 +119,9 @@
         {
           "label": "Antal myndigheter",
           "data": [63, 20, 98, 64, 6, 2, 9, 24, 45, 13],
-          "backgroundColor": "rgb(14 165 233)"
+          "backgroundColor": "rgb(14 165 233)",
+          "borderWidth": 1,
+          "borderRadius": 15
         }
       ]
     },
@@ -105,7 +131,9 @@
         {
           "label": "Antal myndigheter",
           "data": [131, 40, 47, 31, 6, 6, 1, 82],
-          "backgroundColor": "rgb(14 165 233)"
+          "backgroundColor": "rgb(14 165 233)",
+          "borderWidth": 1,
+          "borderRadius": 15
         }
       ]
     },
@@ -159,7 +187,9 @@
             3343,
             2370
           ],
-          "backgroundColor": "rgb(14, 165, 233)"
+          "backgroundColor": "rgb(14, 165, 233)",
+          "borderWidth": 1,
+          "borderRadius": 15
         }
       ]
     },
@@ -185,7 +215,9 @@
         {
           "label": "Antal myndigheter",
           "data": [643, 542, 377, 376, 373, 371, 350, 348, 344, 345, 340, 341, 341, 343, 344],
-          "backgroundColor": "rgb(14 165 233)"
+          "backgroundColor": "rgb(14 165 233)",
+          "borderWidth": 1,
+          "borderRadius": 15
         }
       ]
     },
@@ -202,52 +234,72 @@
         {
           "label": "Folkhälsomyndigheten",
           "data": [29, 39, 15, 7, 5, 5],
-          "backgroundColor": "rgb(14 165 233)"
+          "backgroundColor": "rgb(14 165 233)",
+          "borderWidth": 1,
+          "borderRadius": 15
         },
         {
           "label": "Skatteverket",
           "data": [24, 36, 21, 3, 2, 14],
-          "backgroundColor": "rgb(52 201 36)"
+          "backgroundColor": "rgb(52 201 36)",
+          "borderWidth": 1,
+          "borderRadius": 15
         },
         {
           "label": "Polisen",
           "data": [23, 44, 15, 10, 3, 5],
-          "backgroundColor": "rgb(244 156 15)"
+          "backgroundColor": "rgb(244 156 15)",
+          "borderWidth": 1,
+          "borderRadius": 15
         },
         {
           "label": "Socialstyrelsen",
           "data": [8, 25, 27, 8, 4, 28],
-          "backgroundColor": "rgb(201 52 52)"
+          "backgroundColor": "rgb(201 52 52)",
+          "borderWidth": 1,
+          "borderRadius": 15
         },
         {
           "label": "MSB",
           "data": [8, 23, 22, 7, 5, 35],
-          "backgroundColor": "rgb(52 52 201)"
+          "backgroundColor": "rgb(52 52 201)",
+          "borderWidth": 1,
+          "borderRadius": 15
         },
         {
           "label": "Spelinspektionen",
           "data": [4, 10, 19, 6, 5, 56],
-          "backgroundColor": "rgb(201 36 201)"
+          "backgroundColor": "rgb(201 36 201)",
+          "borderWidth": 1,
+          "borderRadius": 15
         },
         {
           "label": "Skolverket",
           "data": [4, 20, 29, 20, 7, 20],
-          "backgroundColor": "rgb(36 201 201)"
+          "backgroundColor": "rgb(36 201 201)",
+          "borderWidth": 1,
+          "borderRadius": 15
         },
         {
           "label": "Försäkringskassan",
           "data": [5, 17, 22, 22, 17, 17],
-          "backgroundColor": "rgb(150 50 150)"
+          "backgroundColor": "rgb(150 50 150)",
+          "borderWidth": 1,
+          "borderRadius": 15
         },
         {
           "label": "Arbetsförmedlingen",
           "data": [1, 8, 19, 23, 19, 30],
-          "backgroundColor": "rgb(201 150 50)"
+          "backgroundColor": "rgb(201 150 50)",
+          "borderWidth": 1,
+          "borderRadius": 15
         },
         {
           "label": "Migrationsverket",
           "data": [2, 8, 24, 25, 22, 19],
-          "backgroundColor": "rgb(100 100 100)"
+          "backgroundColor": "rgb(100 100 100)",
+          "borderWidth": 1,
+          "borderRadius": 15
         }
       ]
     },
@@ -281,7 +333,9 @@
             265911,
             270671
           ],
-          "backgroundColor": "rgb(14 165 233)"
+          "backgroundColor": "rgb(14 165 233)",
+          "borderWidth": 1,
+          "borderRadius": 15
         }
       ]
     }    

@@ -43,7 +43,9 @@
             "data": [15.1,5.5,2.1,2.0,2.0,-3.3,23.3],
             "backgroundColor": [
               "rgb(14 165 233)"
-            ]
+            ],
+            "borderWidth": 1,
+            "borderRadius": 15
           }
         ]
       },
@@ -63,7 +65,9 @@
             "data": [239644, 46543, 40212, 37182, 90827, 21293, 11293],
             "backgroundColor": [
               "rgb(14 165 233)"
-            ]
+            ],
+            "borderWidth": 1,
+            "borderRadius": 15
           }
         ]
       }
