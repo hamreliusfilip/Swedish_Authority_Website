@@ -3,11 +3,11 @@
 import React, { useEffect, useState } from "react";
 import CompleteMenu from '../components/Main/completeMenu';
 import Logo from '../components/Main/logo';
-import Info from '../components/Other/infoText';
 import NavCardsHoms from '../components/LandingPage/navCardsHoms';
 import Footer from '../components/Main/footer';
 import LandingFiller from '../components/LandingPage/landingFiller';
 import LandingFiller2 from "@/components/LandingPage/landingFiller2";
+import Info from "../components/Other/infoText";
 import Facts from "@/components/LandingPage/facts";
 
 export default function Home() {
