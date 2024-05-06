@@ -3,10 +3,10 @@ import dbConnect from '../../../../lib/dbConnect';
 import Myndighet from "../../../../lib/models/myndighet";
 
 export async function GET(req: any, { params }: any) {
+
+    
     try {
         await dbConnect();
-        const { idOrName } = params;
-
         let myndighet;
 
         if ((isValidObjectId(params.id)) != true) {
@@ -23,11 +23,11 @@ export async function GET(req: any, { params }: any) {
             return NextResponse.json({ status: 404});
         }
     } catch (error) {
-        return NextResponse.json({ status: 500, message: 'Error finding myndighet by id/name' });
+        return NextResponse.json({ status: 500, message: "problem finding" });
     }
 }
 
 // Function to check if a string only contains letter
 function isValidObjectId(id: string) {
-    return /^[a-zA-Z]+$/.test(id);
+    return /^[a-zA-ZåäöÅÄÖ]+$/.test(id);
 }

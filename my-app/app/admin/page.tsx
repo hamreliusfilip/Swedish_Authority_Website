@@ -7,6 +7,9 @@ import myndighet from "@/lib/models/myndighet";
 
 export default async function Protected() {
   const { isAuthenticated } = getKindeServerSession();
+  const emptyMyn = new myndighet();
+  const obj = emptyMyn.toObject();
+  obj._id = "new";
 
   return (await isAuthenticated()) ? (
     <div className="flex flex-col items-center justify-center min-h-screen">
@@ -15,7 +18,7 @@ export default async function Protected() {
         <Link href="/admin/adminListPage" className="flex justify-center m-3">
           <Button variant="outline" className="bg-black text-white ml-5">Alla Myndigheter</Button>
         </Link>
-        <Link href="/admin/adminAddMyn" className="flex justify-center m-3">
+        <Link href="/admin/adminAddMyn/new" className="flex justify-center m-3">
           <Button variant="outline" className="bg-black text-white ml-5">Lägg till myndighet</Button>
         </Link>
         <Link href="/" className="flex justify-center m-3">

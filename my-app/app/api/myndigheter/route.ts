@@ -21,7 +21,6 @@ export async function POST( req : any ) { //create myndighet
     return NextResponse.json({status:200, message: 'Myndighet created'});
 
   } catch (error) {
-    console.log(error);
     return NextResponse.json({status:500, message: error});
   }
 }
