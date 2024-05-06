@@ -27,7 +27,7 @@ export default function LandingFiller() {
                     <div className='transition-all duration-300 hover:scale-105'>
                         <Card className="w-96 h-48 flex flex-col justify-center items-center bg-white">
                             <CardHeader>
-                                <CardTitle className='text-center text-darkGreyBackgroundCustomColor'>Unik utförlig databas</CardTitle>
+                                <CardTitle className='text-center text-darkGreyBackgroundCustomColor'>Unik utförlig databas över myndigheterna</CardTitle>
                             </CardHeader>
                         </Card>
                         </div> 
@@ -53,11 +53,11 @@ export default function LandingFiller() {
                         </div> 
                     </Link>
 
-                    <Link href="/faktaover/statistik">
+                    <Link href="/company">
                     <div className='transition-all duration-300 hover:scale-105'>
                         <Card className="w-96 h-48 flex flex-col justify-center items-center bg-white">
                             <CardHeader>
-                                <CardTitle className='text-center text-darkGreyBackgroundCustomColor'>Interaktiv statistik</CardTitle>
+                                <CardTitle className='text-center text-darkGreyBackgroundCustomColor'>Databas över statliga företag</CardTitle>
                             </CardHeader>
                         </Card>
                         </div> 
