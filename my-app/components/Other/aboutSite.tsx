@@ -34,10 +34,10 @@ export default function AboutSite() {
                 <Card className="m-4 p+2">
                     <CardHeader>
                         <CardTitle>Om databasen</CardTitle>
-                        <CardDescription className="text-sm"><span className='bg-gradient-to-r from-cyan-500 to-blue-500 inline-block text-transparent bg-clip-text'>Vart databasen om myndigheter ifrån?</span></CardDescription>
+                        <CardDescription className="text-sm"><span className='bg-gradient-to-r from-cyan-500 to-blue-500 inline-block text-transparent bg-clip-text'>Vart databaserna om myndigheter och statliga företag ifrån?</span></CardDescription>
                     </CardHeader>
                     <CardContent>
-                        <p>Databasen har konstruerats av oss själva och består av 342 myndigheter med 10 datapunkter för varje myndighet. Databasen saknar motstycke och har konstruerats med information från Riksarkivet, SCB:s myndighetsregister, Regeringskansliets hemsida, Statskontorets rapport 'Statsförvaltningen i korthet' - 2023 och Wikipedia. Logotyperna har hämtats från respektive myndighets hemsida. </p>
+                        <p>Denna hemsida arbetar med två olika databaser, en för myndigheter och en för statliga företag. Båda databaserna har konstruerats av oss själva. Databasen med myndigheter består av 342 myndigheter med 10 datapunkter för varje myndighet. Databasen saknar motstycke och har konstruerats med information från Riksarkivet, SCB:s myndighetsregister, Regeringskansliets hemsida, Statskontorets rapport 'Statsförvaltningen i korthet' - 2023 och Wikipedia. Logotyperna har hämtats från respektive myndighets hemsida. Databasen över statliga företag är till största del baserad på information från Wikipedia och Alla bolag.</p>
                     </CardContent>
                     <CardContent>
                         <Link href="https://riksarkivet.se/start" target="_blank">
@@ -54,6 +54,9 @@ export default function AboutSite() {
                         </Link>
                         <Link href="https://sv.wikipedia.org/wiki/Portal:Huvudsida" target="_blank">
                             <Button variant="outline" className='m-1 bg-gradient-to-r from-cyan-500 to-blue-500 text-white'>Wikipedia</Button>
+                        </Link>
+                        <Link href="https://www.allabolag.se" target="_blank">
+                            <Button variant="outline" className="m-1 bg-gradient-to-r from-cyan-500 to-blue-500 text-white">Alla Bolag</Button>
                         </Link>
                     </CardContent>
                 </Card>
@@ -82,7 +85,7 @@ export default function AboutSite() {
                             <Button variant="outline" className='m-1 bg-gradient-to-r from-cyan-500 to-blue-500 text-white'>SCB - Myndighetsregistret</Button>
                         </Link>
                         <Link href="https://chat.openai.com" target="_blank">
-                            <Button variant="outline" className="bg-gradient-to-r from-cyan-500 to-blue-500 text-white">ChatGPT - OpenAI</Button>
+                            <Button variant="outline" className="m-1 bg-gradient-to-r from-cyan-500 to-blue-500 text-white">ChatGPT - OpenAI</Button>
                         </Link>
                     </CardContent>
                 </Card>

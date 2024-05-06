@@ -49,15 +49,15 @@ export default function NavCardsHoms() {
                     </div>
                 </Link>
 
-                <Link href="/faktaover/statistik">
+                <Link href="/company">
                     <div className='transition-all duration-300 hover:scale-105'>
                         <Card className="m-4 p+2 w-64 h-64">
                             <CardHeader>
-                                <CardTitle>Statistik</CardTitle>
-                                <CardDescription> <span className='bg-gradient-to-r from-cyan-500 to-blue-500 inline-block text-transparent bg-clip-text'>Gå till statistiksida</span></CardDescription>
+                                <CardTitle>Statliga företag</CardTitle>
+                                <CardDescription> <span className='bg-gradient-to-r from-cyan-500 to-blue-500 inline-block text-transparent bg-clip-text'>Gå till företagssida</span></CardDescription>
                             </CardHeader>
                             <CardContent>
-                                <p>Utforska grafer och siffror för att undersöka jämställdhet, anställningar och tillfredsställelse.</p>
+                                <p>Filterera, sök och forska bland de statliga företagen</p>
                             </CardContent>
                         </Card>
                     </div>

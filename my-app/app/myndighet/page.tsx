@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { Card, CardContent, CardTitle } from '@/components/ui/card';
-import { navigationMenuTriggerStyle } from "@/components/ui/navigation-menu"; 
+import { navigationMenuTriggerStyle } from "@/components/ui/navigation-menu";
 import {
     Select,
     SelectContent,
@@ -107,7 +107,7 @@ export default function Page() {
             const relationMatch = Object.entries(relationFilters).every(([relation, checked]) => !checked || checked && relationFilters[myndighet.relation]);
 
             const ruleMatch = Object.entries(ruleFilters).every(([rule, checked]) => !checked || checked && ruleFilters[myndighet.rule]);
-            
+
             return (nameMatch || orgMatch) && ruleMatch && relationMatch && createdMatch;
         });
         setFilteredMyndigheter(filteredMyndigheter);
@@ -139,10 +139,13 @@ export default function Page() {
             <div>
                 <Logo />
                 <CompleteMenu />
+                <div className="text-center">
+                    <h1 className="font-bold text-4xl bg-gradient-to-r from-cyan-500 to-blue-500 inline-block text-transparent bg-clip-text mt-10 mb-2"> Myndigheter </h1>
+                    <p className="font-semibold text-small text-slate-300 mb-10">Alla svenska myndigheter</p>
+                </div>
             </div>
             <div className='flex flex-column m-4 gap-5 justify-items-center h-30'>
                 <div className='basis-1/3 ml-10'>
-
                     <Card className='p-5'>
                         <CardTitle className='mb-5'>Filtreringsalternativ</CardTitle>
                         <CardContent className='grid grid-cols-1'>
