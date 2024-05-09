@@ -102,7 +102,7 @@ export default function AddFields({ myndighet }: any) {
 
     return (
         <div className="w-full sm:w-2/3 ml-auto mr-auto">
-            <Card className='p-5'>
+            <Card className='p-5 shadow-md'>
                 <CardTitle className="text-center mb-10">{EDITMODE ? "Updatera " + defaultData.name : "Lägg till en ny myndighet"}</CardTitle>
 
                 <form
@@ -121,7 +121,7 @@ export default function AddFields({ myndighet }: any) {
                             required={true}
                             value={formData.name}
                             placeholder="Myndighetens namn"
-                            className="border-solid border-2 border-slate-300 rounded-sm p-1 mt-1"
+                            className="border-solid border-2 border-slate-300 rounded-sm p-1 pl-2 mt-1"
                         />
                     </div>
 
@@ -136,7 +136,7 @@ export default function AddFields({ myndighet }: any) {
                             required={true}
                             value={formData.created}
                             placeholder="xxxx"
-                            className="border-solid border-2 border-slate-300 rounded-sm p-1 mt-1"
+                            className="border-solid border-2 border-slate-300 rounded-sm p-1 pl-2 mt-1"
                         />
                     </div>
 
@@ -149,7 +149,7 @@ export default function AddFields({ myndighet }: any) {
                             onChange={handleChange}
                             required={true}
                             value={formData.relation}
-                            className="p-10"
+                            className="p-10 pl-2"
                         >
                             <option value="Arbetsmarknadsdepartementet">Arbetsmarknadsdepartementet</option>
                             <option value="Finansdepartementet">Finansdepartementet</option>
@@ -174,6 +174,7 @@ export default function AddFields({ myndighet }: any) {
                             onChange={handleChange}
                             required={true}
                             value={formData.rule}
+                            className = "pl-2"
                         >
                             <option value="Styrelse">Styrelse</option>
                             <option value="Enrådighet">Enrådighet</option>
@@ -197,7 +198,7 @@ export default function AddFields({ myndighet }: any) {
                             required={true}
                             value={formData.epost}
                             placeholder="myndighet@domain.se"
-                            className="border-solid border-2 border-slate-300 rounded-sm p-1 mt-1"
+                            className="border-solid border-2 border-slate-300 rounded-sm p-1 pl-2 mt-1"
                         />
                     </div>
 
@@ -212,7 +213,7 @@ export default function AddFields({ myndighet }: any) {
                             required={true}
                             value={formData.org}
                             placeholder="xxxxxx-xxxx"
-                            className="border-solid border-2 border-slate-300 rounded-sm p-1 mt-1"
+                            className="border-solid border-2 border-slate-300 rounded-sm p-1 pl-2 mt-1"
                         />
                     </div>
 
@@ -227,7 +228,7 @@ export default function AddFields({ myndighet }: any) {
                             required={true}
                             value={formData.tele}
                             placeholder="xxx-xxx xx xx"
-                            className="border-solid border-2 border-slate-300 rounded-sm p-1 mt-1"
+                            className="border-solid border-2 border-slate-300 rounded-sm p-1 pl-2 mt-1"
                         />
                     </div>
 
@@ -242,7 +243,7 @@ export default function AddFields({ myndighet }: any) {
                             required={true}
                             value={formData.web}
                             placeholder="myndighet.se"
-                            className="border-solid border-2 border-slate-300 rounded-sm p-1 mt-1"
+                            className="border-solid border-2 border-slate-300 rounded-sm p-1 pl-2 mt-1"
                         />
                     </div>
 
@@ -250,7 +251,7 @@ export default function AddFields({ myndighet }: any) {
                     <div className="col-span-1 sm:col-span-2 m-5 ">
                         <CardDescription>Information</CardDescription>
                         <textarea
-                            className="w-full border-solid border-2 border-slate-300 rounded-sm p-1 mt-1"
+                            className="w-full border-solid border-2 border-slate-300 rounded-sm p-1 pl-2 mt-1"
                             id="info"
                             name="info"
                             onChange={handleChange}
@@ -262,14 +263,18 @@ export default function AddFields({ myndighet }: any) {
                     </div>
                     {/* logo_url */}
                     <div className="col-span-1 sm:col-span-2 m-5 justify-center">
-                        <CardDescription>Ladda upp logotyp</CardDescription>
-                        <div className="flex items-center mt-1">
-                        <label htmlFor="logoInput" className="border-solid border-2 border-slate-300 rounded-sm p-1 mr-2 cursor-pointer">
-                            {formData.logo_url ? (
-                                    <p >Byt logotyp</p>
+                        {formData.logo_url ? (
+                                    <CardDescription>Uppdatera logotyp</CardDescription>
                                 ) : (
-                                    <p >Ladda upp logotyp</p>
+                                    <CardDescription>Lägg till logotyp</CardDescription>
                             )}
+                        
+                        <div className="flex items-center mt-1">
+
+                        <label htmlFor="logoInput" className="border-solid border-1 border-slate-300 rounded-sm p-2 mr-5 cursor-pointer shadow-md">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M9 8.25H7.5a2.25 2.25 0 0 0-2.25 2.25v9a2.25 2.25 0 0 0 2.25 2.25h9a2.25 2.25 0 0 0 2.25-2.25v-9a2.25 2.25 0 0 0-2.25-2.25H15m0-3-3-3m0 0-3 3m3-3V15" />
+                            </svg>
                         </label>
                             <input
                                 id="logoInput"
@@ -281,9 +286,9 @@ export default function AddFields({ myndighet }: any) {
                                 style = {{display: 'none'}}
                             />
                             {formData.logo_url ? (
-                                    <p className="text-green-600">Logotyp uppladdad</p>
+                                    <p className="text-green-600">Logotyp tillagd</p>
                                 ) : (
-                                    <p className="text-red-600">Ingen logotyp uppladdad</p>
+                                    <p className="text-red-600">Ingen logotyp tillagd</p>
                             )}
                         </div>
                     </div>
