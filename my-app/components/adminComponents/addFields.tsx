@@ -62,6 +62,28 @@ export default function AddFields({ myndighet }: any) { // Correct function name
         return true;
     }
 
+    const handleLogoUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const file = e.target.files?.[0];
+        if (!file) return;
+    
+        const reader = new FileReader();
+    
+        reader.onload = () => {
+            const base64String = reader.result?.toString().replace(/^data:.+;base64,/, '');
+            if (!base64String) return;
+
+            console.log(base64String)
+            // Now you can use this base64String as the logo data
+            // For example, you can set it as the value of formData.logo_url
+            setFormData((prevData: any) => ({
+                ...prevData,
+                logo_url: `data:${file.type};base64,${base64String}`,
+            }));
+        };
+    
+        reader.readAsDataURL(file);
+    };
+
 
     const handleSubmit = async (e: any) => {
         e.preventDefault();
@@ -250,6 +272,18 @@ export default function AddFields({ myndighet }: any) { // Correct function name
                             value={formData.info}
                             rows={5}
                             placeholder="Information om myndigheten"
+                        />
+                    </div>
+                    {/* logo_url */}
+                    <div className="col-span-1 sm:col-span-2 m-5 justify-center">
+                        <CardDescription>Ladda upp logotyp</CardDescription>
+                        <input
+                            id="logo_url"
+                            name="logo_url"
+                            type="file"
+                            className="border-solid border-2 border-slate-300 rounded-sm p-1 mt-1"
+                            accept="image/png, image/jpeg"
+                            onChange={handleLogoUpload}
                         />
                     </div>
                 </form>
