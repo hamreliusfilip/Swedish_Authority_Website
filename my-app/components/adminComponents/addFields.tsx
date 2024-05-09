@@ -151,6 +151,7 @@ export default function AddFields({ myndighet }: any) {
                             value={formData.relation}
                             className="p-10 pl-2"
                         >
+                            <option value="" disabled selected>Välj departement:</option>
                             <option value="Arbetsmarknadsdepartementet">Arbetsmarknadsdepartementet</option>
                             <option value="Finansdepartementet">Finansdepartementet</option>
                             <option value="Försvarsdepartementet">Försvarsdepartementet</option>
@@ -176,6 +177,7 @@ export default function AddFields({ myndighet }: any) {
                             value={formData.rule}
                             className = "pl-2"
                         >
+                            <option value="" disabled selected>Välj ledningsform:</option>
                             <option value="Styrelse">Styrelse</option>
                             <option value="Enrådighet">Enrådighet</option>
                             <option value="SBA">SBA</option>
