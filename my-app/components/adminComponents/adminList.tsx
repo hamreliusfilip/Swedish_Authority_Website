@@ -8,14 +8,15 @@ import {
 } from "@/components/ui/card"
 import Link from 'next/link';
 
-export default function AdminList() {
-    const fetchMyndigheter = async () => {
+export default function AdminList({ prop }: { prop: string }) {
+
+    const fetchData = async (type: String) => {
         try {
-            const res = await fetch("http://localhost:3000/api/myndigheter");
+            const res = await fetch(`http://localhost:3000/api/${type}`);
             const data = await res.json();
-            return data.myndighet;
+            return data;
         } catch (error) {
-            console.error("Error fetching myndigheter:", error);
+            console.error("Error fetching data:", error);
             return [];
         }
     }
@@ -23,11 +24,21 @@ export default function AdminList() {
     const [myndigheter, setMyndigheter] = useState<any[]>([]);
     
     useEffect(() => {
-        fetchMyndigheter().then((myndigheter) => {
-            setMyndigheter(myndigheter);
-        }).catch((error) => {
-            console.error("Error setting myndigheter:", error);
-        });
+        if(prop == "myndigheter"){
+            fetchData(prop).then((myndigheter) => {
+                setMyndigheter(myndigheter.myndighet);
+            }).catch((error) => {
+                console.error("Error setting myndigheter:", error);
+            });
+        }
+        else if (prop == "companies"){
+            fetchData(prop).then((myndigheter) => {
+                setMyndigheter(myndigheter.company);
+            }).catch((error) => {
+                console.error("Error setting companies:", error);
+            });
+        };
+        
     }, []);
 
     const groupedMyndigheter: { [key: string]: any[] } = myndigheter.reduce((acc: any, myndighet: any) => {
@@ -52,8 +63,8 @@ export default function AdminList() {
                             <div key={letter}>
                                 <h2 className='font-bold'>{letter}</h2>
                                 {groupedMyndigheter[letter].map((myndighet: any, index: any) => (
-                                    <div className='grid grid-cols-2 space-y-10' style={{ gridTemplateColumns: '4fr 1fr' }}>
-                                        <p key={index}>{myndighet.name}</p>
+                                    <div className='grid grid-cols-2' style={{ gridTemplateColumns: '4fr 1fr' }}>
+                                        <p className = "mb-10 " key={index}>{myndighet.name}</p>
                                         <div className='grid grid-cols-1 content-start justify-self-end flex-none'>
                                         <Link href={`/admin/adminAddMyn/${myndighet.id}`}>
                                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-6 h-6">

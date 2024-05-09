@@ -17,7 +17,7 @@ export default async function Protected() {
             <Link href="/admin" className=" m-10">
                 <Button variant="outline" className="bg-black text-white ml-5">Tillbaka</Button>
             </Link>
-            <AdminList />
+            <AdminList prop="companies" />
         </div>
     ) : (
         <div className="flex flex-col items-center justify-center h-screen">
