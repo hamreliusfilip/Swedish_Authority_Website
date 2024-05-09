@@ -1,23 +1,10 @@
 "use client";
-
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { Button } from "../ui/button";
 import { Card, CardDescription, CardTitle } from "../ui/card";
-import { Form, FormControl, FormField, FormItem, FormLabel } from "../ui/form";
-import { Input } from "../ui/input";
-import {
-    Select,
-    SelectContent,
-    SelectGroup,
-    SelectItem,
-    SelectLabel,
-    SelectTrigger,
-    SelectValue,
-} from "@/components/ui/select"
 
-
-export default function AddFields({ myndighet }: any) { // Correct function name and export¨
+export default function AddFields({ myndighet }: any) { 
     const EDITMODE = myndighet.myndighet._id === "new" ? false : true;
     const router = useRouter();
     let defaultData = {
@@ -31,7 +18,7 @@ export default function AddFields({ myndighet }: any) { // Correct function name
         org: "",
         tele: "",
         web: "",
-    }; // Default data for form
+    }; 
 
     if (EDITMODE) {
         defaultData = myndighet.myndighet;
@@ -72,7 +59,6 @@ export default function AddFields({ myndighet }: any) { // Correct function name
             const base64String = reader.result?.toString().replace(/^data:.+;base64,/, '');
             if (!base64String) return;
 
-            console.log(base64String)
             // Now you can use this base64String as the logo data
             // For example, you can set it as the value of formData.logo_url
             setFormData((prevData: any) => ({

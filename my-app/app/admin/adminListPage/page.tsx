@@ -1,11 +1,9 @@
 import { LoginLink } from "@kinde-oss/kinde-auth-nextjs/components";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { Button } from "@/components/ui/button"
-import Link from 'next/link';
-
 import AdminList from "@/components/adminComponents/adminList";
 import Logo from '@/components/Main/logo';
-import AdminInfo from "@/components/adminComponents/adminInfo";
+import AdminMenu from "@/components/adminComponents/adminMenu";
 
 export default async function Protected() {
     const { isAuthenticated } = getKindeServerSession();
@@ -13,11 +11,8 @@ export default async function Protected() {
     return (await isAuthenticated()) ? (
         <div className="mb-40">
             <Logo />
-            <AdminInfo />
-            <Link href="/admin" className=" m-10">
-                <Button variant="outline" className="bg-black text-white ml-5">Tillbaka</Button>
-            </Link>
-            <AdminList prop="companies" />
+            <AdminMenu />
+            <AdminList prop="myndigheter"/>
         </div>
     ) : (
         <div className="flex flex-col items-center justify-center h-screen">

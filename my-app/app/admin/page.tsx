@@ -1,27 +1,24 @@
 import { LoginLink } from "@kinde-oss/kinde-auth-nextjs/components";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { Button } from "@/components/ui/button"
-import Link from 'next/link';
-import AdminInfo from "@/components/adminComponents/adminInfo";
-import myndighet from "@/lib/models/myndighet";
+import AdminMenu from "@/components/adminComponents/adminMenu";
+import Logo from "@/components/Main/logo";
 
 export default async function Protected() {
   const { isAuthenticated } = getKindeServerSession();
 
   return (await isAuthenticated()) ? (
-    <div className="flex flex-col items-center justify-center min-h-screen">
-      <AdminInfo />
-      <div className="flex justify-center">
-        <Link href="/admin/adminListPage" className="flex justify-center m-3">
-          <Button variant="outline" className="bg-black text-white ml-5">Alla Myndigheter</Button>
-        </Link>
-        <Link href="/admin/adminAddMyn/new" className="flex justify-center m-3">
-          <Button variant="outline" className="bg-black text-white ml-5">Lägg till myndighet</Button>
-        </Link>
-        <Link href="/" className="flex justify-center m-3">
-          <Button variant="outline" className="bg-black text-white ml-5">Tillbaka till startsidan</Button>
-        </Link>
+
+    <div>
+      <Logo />
+      <AdminMenu />
+      <div className="flex justify-center items-center mt-40">
+        <p className="text-5xl font-bold text-center"> Välkommen till Adminsidan </p>
       </div>
+      <div className="flex justify-center items-center mt-10">
+      <p className="text-xl font-normal text-center"> Här kan du hantera myndigheter och statliga företag. <br></br> Välj i menyn ovan för att börja. </p>
+      </div> 
+
     </div>
   ) : (
     <div className="flex flex-col items-center justify-center h-screen">
