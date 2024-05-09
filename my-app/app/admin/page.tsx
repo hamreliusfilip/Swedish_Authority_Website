@@ -7,9 +7,6 @@ import myndighet from "@/lib/models/myndighet";
 
 export default async function Protected() {
   const { isAuthenticated } = getKindeServerSession();
-  const emptyMyn = new myndighet();
-  const obj = emptyMyn.toObject();
-  obj._id = "new";
 
   return (await isAuthenticated()) ? (
     <div className="flex flex-col items-center justify-center min-h-screen">
