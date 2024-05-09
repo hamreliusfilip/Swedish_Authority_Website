@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { Button } from "../ui/button";
 import { Card, CardDescription, CardTitle } from "../ui/card";
 
-export default function AddFields({ myndighet }: any) { 
+export default function AddFields({ myndighet }: any) {
     const EDITMODE = myndighet.myndighet._id === "new" ? false : true;
     const router = useRouter();
     let defaultData = {
@@ -18,7 +18,7 @@ export default function AddFields({ myndighet }: any) {
         org: "",
         tele: "",
         web: "",
-    }; 
+    };
 
     if (EDITMODE) {
         defaultData = myndighet.myndighet;
@@ -52,9 +52,9 @@ export default function AddFields({ myndighet }: any) {
     const handleLogoUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
         const file = e.target.files?.[0];
         if (!file) return;
-    
+
         const reader = new FileReader();
-    
+
         reader.onload = () => {
             const base64String = reader.result?.toString().replace(/^data:.+;base64,/, '');
             if (!base64String) return;
@@ -66,7 +66,7 @@ export default function AddFields({ myndighet }: any) {
                 logo_url: `data:${file.type};base64,${base64String}`,
             }));
         };
-    
+
         reader.readAsDataURL(file);
     };
 
@@ -263,14 +263,29 @@ export default function AddFields({ myndighet }: any) {
                     {/* logo_url */}
                     <div className="col-span-1 sm:col-span-2 m-5 justify-center">
                         <CardDescription>Ladda upp logotyp</CardDescription>
-                        <input
-                            id="logo_url"
-                            name="logo_url"
-                            type="file"
-                            className="border-solid border-2 border-slate-300 rounded-sm p-1 mt-1"
-                            accept="image/png, image/jpeg"
-                            onChange={handleLogoUpload}
-                        />
+                        <div className="flex items-center mt-1">
+                        <label htmlFor="logoInput" className="border-solid border-2 border-slate-300 rounded-sm p-1 mr-2 cursor-pointer">
+                            {formData.logo_url ? (
+                                    <p >Byt logotyp</p>
+                                ) : (
+                                    <p >Ladda upp logotyp</p>
+                            )}
+                        </label>
+                            <input
+                                id="logoInput"
+                                name="logo_url"
+                                type="file"
+                                className="border-solid border-2 border-slate-300 rounded-sm p-1 mr-2"
+                                accept="image/png, image/jpeg"
+                                onChange={handleLogoUpload}
+                                style = {{display: 'none'}}
+                            />
+                            {formData.logo_url ? (
+                                    <p className="text-green-600">Logotyp uppladdad</p>
+                                ) : (
+                                    <p className="text-red-600">Ingen logotyp uppladdad</p>
+                            )}
+                        </div>
                     </div>
                 </form>
             </Card>
