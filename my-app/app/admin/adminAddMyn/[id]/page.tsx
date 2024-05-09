@@ -1,8 +1,6 @@
-import ActionButtons from "@/components/adminComponents/actionButtons";
-import AddFields from "@/components/adminComponents/addFields"; // Ensure correct import
+import AddFields from "@/components/adminComponents/addFields";
 import Logo from "@/components/Main/logo";
-import { Button } from "@/components/ui/button";
-import Link from 'next/link';
+import AdminMenu from "@/components/adminComponents/adminMenu";
 
 const getTicketById = async (id: string) => {
 
@@ -24,20 +22,20 @@ const AdminMyndighet = async ({ params }: any) => {
         updateData = await getTicketById(decodedId);
     } else {
         updateData = {
-            myndighet:{
+            myndighet: {
                 _id: "new",
             }
         };
     }
 
     return (
-        <div className="mb-40">
-        <Logo />
-        <Link href="/admin" className=" m-10">
-          <Button variant="outline" className="bg-black text-white ml-5">Tillbaka</Button>
-        </Link>
-        <AddFields myndighet={updateData} />
-      </div>
+        <div>
+            <Logo />
+            <AdminMenu />
+            <div className="mb-40 mt-20">
+                <AddFields myndighet={updateData} />
+            </div>
+        </div>
     );
 }
 
