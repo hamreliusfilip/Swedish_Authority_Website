@@ -14,13 +14,7 @@ export default function ListCard({ company, loading }: { company: any, loading: 
 
     return (
         <Card className='m-4 p-5'>
-            {loading == true ? (
-                <div className="animate-pulse">
-                    <div className="h-6 bg-gray-200 rounded mb-2"></div>
-                    <div className="h-4 bg-gray-200 rounded mb-2"></div>
-                    <div className="h-4 bg-gray-200 rounded mb-2"></div>
-                </div>
-            ) : (
+          
                 <Collapsible open={isOpen} onOpenChange={setIsOpen}>
                     <div className='grid grid-cols-2' style={{ gridTemplateColumns: '3fr 1fr' }}>
                         <div className='flex-1'>
@@ -55,7 +49,6 @@ export default function ListCard({ company, loading }: { company: any, loading: 
                         )}
                     </CollapsibleTrigger>
                 </Collapsible>
-            )}
         </Card>
     );
 }
