@@ -68,7 +68,7 @@ const App: React.FC = () => {
     const initialNodes = [
       {
         id: '1',
-        position: { x: 900, y: 30 },
+        position: { x: 900, y: -100 },
         data: { label: value },
         style: { width: `${labelWidth}px` },
         className: firstNodeClass
@@ -83,12 +83,13 @@ const App: React.FC = () => {
             id: (index + 2).toString(),
             position: {
               x: ((label.length) + 300 * (index % 7)),
-              y: index < 7 ? 150 : 450,
+              y: Math.floor(index / 7) * 300,
             },
             data: { label: label },
-            style: { width: `${(labelWidth)}px` },
+            style: { width: `${labelWidth}px` },
             className: nodeClasses,
           };
+
         }),
     ];
     setNodes(initialNodes);
@@ -194,7 +195,7 @@ const App: React.FC = () => {
                   <SelectLabel>Departementkarta som visas</SelectLabel>
                   <SelectItem value="Arbetsmarknadsdepartementet">Arbetsmarknadsdepartementet</SelectItem>
                   <SelectItem value="Finansdepartementet">Finansdepartementet</SelectItem>
-                  <SelectItem value="Försvars­­departementet">Försvarsdepartementet</SelectItem>
+                  <SelectItem value="Försvarsdepartementet">Försvarsdepartementet</SelectItem>
                   <SelectItem value="Justitiedepartementet">Justitiedepartementet</SelectItem>
                   <SelectItem value="Klimat- och näringslivsdepartementet">Klimat- och näringslivsdepartementet</SelectItem>
                   <SelectItem value="Kulturdepartementet">Kulturdepartementet</SelectItem>

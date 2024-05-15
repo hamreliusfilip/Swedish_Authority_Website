@@ -166,7 +166,7 @@ export default function Page() {
                                     <AccordionTrigger>Styre</AccordionTrigger>
                                     <AccordionContent>
                                         <CheckboxFilter
-                                            options={['Styrelse', 'Enrådighet', 'SBA', 'Nämnd', 'Kommitté', 'Universitet eller högskola', 'Regeringskansliet', 'Arbetsgivarkollegium', 'Övrigt']}
+                                            options={['Styrelse', 'Enrådighet', 'SBA', 'Nämnd', 'Kommitté', 'Universitet eller högskola', 'Regeringskansliet', 'Arbetsgivarkollegium', 'Domstol', 'AP-Fond','Hyresnämnd', 'Lagråd', 'Övrigt']}
                                             onChange={handleRuleFilterChange}
                                             reset={filterReset}
                                         />

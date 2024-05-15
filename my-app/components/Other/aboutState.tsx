@@ -37,7 +37,7 @@ export default function AboutMynVsCom() {
                 <div className="w-full sm:w-2/3 sm:-ml-36">
                     <div className="flex justify-center">
                         <div className="flex flex-wrap justify-center">
-                            <Card key={texts.texts[selectedIndex].id} className="m-4 p+2 w-full sm:w-1/2 md:w-1/2 lg:w-1/2 xl:w-1/2">
+                            <Card key={texts.texts[selectedIndex].id} className="m-4 p+2 w-full sm:w-1/2 md:w-1/2 lg:w-1/2 xl:w-1/2 h-auto">
                                 <CardHeader>
                                     <CardTitle>{texts.texts[selectedIndex].title}</CardTitle>
                                     <CardDescription className="text-sm"><span className='bg-gradient-to-r from-cyan-500 to-blue-500 inline-block text-transparent bg-clip-text'>{texts.texts[selectedIndex].subtitle}</span></CardDescription>

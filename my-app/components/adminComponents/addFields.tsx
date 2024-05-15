@@ -2,7 +2,7 @@
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { Button } from "../ui/button";
-import { Card, CardDescription, CardTitle } from "../ui/card";
+import { Card, CardDescription, CardTitle } from "../ui/card"; 
 
 export default function AddFields({ myndighet }: any) {
     const EDITMODE = myndighet.myndighet._id === "new" ? false : true;
@@ -185,6 +185,10 @@ export default function AddFields({ myndighet }: any) {
                             <option value="Kommitté">Kommitté</option>v
                             <option value="Universitet eller högskola">Universitet eller högskola</option>
                             <option value="Regeringskansliet">Regeringskansliet</option>
+                            <option value="Domstol">Domstol</option>
+                            <option value="AP-Fond">AP-Fond</option>
+                            <option value="Hyresnämnd">Hyresnämnd</option>
+                            <option value="Lagråd">Lagråd</option>
                             <option value="Övrigt">Övrigt</option>
                         </select>
                     </div>
