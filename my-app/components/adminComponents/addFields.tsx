@@ -1,8 +1,9 @@
 "use client";
 import { useRouter } from "next/navigation";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Button } from "../ui/button";
-import { Card, CardDescription, CardTitle } from "../ui/card";
+import { Card, CardDescription, CardTitle } from "../ui/card"; 
+import { AlertCard } from "./alert";
 
 export default function AddFields({ myndighet }: any) {
     const EDITMODE = myndighet.myndighet._id === "new" ? false : true;
@@ -25,6 +26,32 @@ export default function AddFields({ myndighet }: any) {
     }
 
     const [formData, setFormData] = useState(defaultData);
+    const [showAlert, setShowAlert] = useState(false);
+    const [showAlertFalse, setShowAlertFalse] = useState(false);
+
+    useEffect(() => {
+        let timerShowAlert: NodeJS.Timeout;
+        
+        if (showAlert) {
+          timerShowAlert = setTimeout(() => {
+            setShowAlert(false);
+          }, 5000);
+        }
+    
+        let timerShowAlertFalse: NodeJS.Timeout;
+        
+        if (showAlertFalse) {
+          timerShowAlertFalse = setTimeout(() => {
+            setShowAlertFalse(false);
+          }, 5000);
+        }
+    
+        return () => {
+          clearTimeout(timerShowAlert);
+          clearTimeout(timerShowAlertFalse);
+        };
+      }, [showAlert, showAlertFalse]);
+    
 
     const handleChange = (e: any) => {
         const { name, value } = e.target;
@@ -59,8 +86,6 @@ export default function AddFields({ myndighet }: any) {
             const base64String = reader.result?.toString().replace(/^data:.+;base64,/, '');
             if (!base64String) return;
 
-            // Now you can use this base64String as the logo data
-            // For example, you can set it as the value of formData.logo_url
             setFormData((prevData: any) => ({
                 ...prevData,
                 logo_url: `data:${file.type};base64,${base64String}`,
@@ -75,9 +100,10 @@ export default function AddFields({ myndighet }: any) {
         e.preventDefault();
 
         if (!validateFormData(formData)) {
-            alert('Fel formatering i formuläret.');
+            setShowAlertFalse(true);
             return;
         } else {
+            setShowAlert(true);
             setFormData(defaultData);
         }
 
@@ -189,6 +215,10 @@ export default function AddFields({ myndighet }: any) {
                             <option value="Kommitté">Kommitté</option>v
                             <option value="Universitet eller högskola">Universitet eller högskola</option>
                             <option value="Regeringskansliet">Regeringskansliet</option>
+                            <option value="Domstol">Domstol</option>
+                            <option value="AP-Fond">AP-Fond</option>
+                            <option value="Hyresnämnd">Hyresnämnd</option>
+                            <option value="Lagråd">Lagråd</option>
                             <option value="Övrigt">Övrigt</option>
                         </select>
                     </div>
@@ -304,6 +334,8 @@ export default function AddFields({ myndighet }: any) {
             <div className="flex justify-center mt-20 mb-20">
                 <Button variant="outline" className="bg-green-500 text-white ml-5" onClick={handleSubmit}>
                     {EDITMODE ? "Updatera" : "Lägg till"}
+                    {showAlertFalse && <AlertCard isSuccess={false} /> }
+                    {showAlert && <AlertCard isSuccess={true} /> }
                 </Button>
             </div>
         </div>

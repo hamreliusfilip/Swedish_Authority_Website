@@ -26,14 +26,15 @@ export default function GraphForetag() {
                 <p className='text-center font-normal text-l mt-5'> Statens bolagsportfölj bestod av 43 bolag vid årsskiftet 2022/23 <br></br>och har sin tyngdpunkt inom basindustri och energi.</p>
                 <hr className="w-96 h-1 mx-auto my-4 bg-gradient-to-r from-cyan-500 to-blue-500 border-0 rounded md:my-10 dark:bg-gray-700" />
             </div>
-            <div className="flex justify-center">
+            <div className="flex justify-center grid gap-8 p-10 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+
                 <div className="flex justify-center">
                     <div className="grid gap-8 p-10 sm:grid-cols-1">
                         <Card className='w-96 h-auto'>
                             <CardContent>
                                 <div className='m-10'>
 
-                                    <p className='font-bold text-sm text-left'>Utdelning</p>
+                                    <p className='font-bold text-sm text-left mb-2'>Utdelning</p>
                                     <div className='flex justify-left items-end'>
                                         <p className='font-extrabold text-5xl bg-gradient-to-r from-cyan-500 to-blue-500 inline-block text-transparent bg-clip-text'>23,0</p>
                                         <p className='font-regular text-sm'>mdkr</p>
@@ -42,7 +43,7 @@ export default function GraphForetag() {
                                 </div>
                                 <div className='m-10'>
 
-                                    <p className='font-bold text-sm text-left'>Direktavkastning</p>
+                                    <p className='font-bold text-sm text-left mb-2'>Direktavkastning</p>
                                     <div className='flex justify-left items-end'>
                                         <p className='font-extrabold text-5xl bg-gradient-to-r from-cyan-500 to-blue-500 inline-block text-transparent bg-clip-text'>2,7</p>
                                         <p className='font-regular text-sm'>%</p>
@@ -50,7 +51,7 @@ export default function GraphForetag() {
 
                                 </div>
                                 <div className='m-10'>
-                                    <p className='font-bold text-sm text-left'>Antal anställda</p>
+                                    <p className='font-bold text-sm text-left mb-2'>Antal anställda</p>
                                     <div className='flex justify-left items-end'>
                                         <p className='font-extrabold text-5xl bg-gradient-to-r from-cyan-500 to-blue-500 inline-block text-transparent bg-clip-text'>134 000</p>
                                         <p className='font-regular text-sm'>st</p>
@@ -65,21 +66,21 @@ export default function GraphForetag() {
                         <Card className='w-96 h-auto'>
                             <CardContent className=''>
                                 <div className='m-10'>
-                                    <p className='font-bold text-sm text-left'>Styrelseordförande och ledamöter</p>
+                                    <p className='font-bold text-sm text-left mb-2'>Styrelseordförande och ledamöter</p>
                                     <div className='flex justify-left items-end'>
                                         <p className='font-extrabold text-5xl bg-gradient-to-r from-cyan-500 to-blue-500 inline-block text-transparent bg-clip-text'>50/50</p>
                                         <p className='font-regular text-sm'>Kvinnor/Män,%</p>
                                     </div>
                                 </div>
                                 <div className='m-10'>
-                                    <p className='font-bold text-sm text-left'>Styrelseordförande</p>
+                                    <p className='font-bold text-sm text-left mb-2'>Styrelseordförande</p>
                                     <div className='flex justify-left items-end'>
                                         <p className='font-extrabold text-5xl bg-gradient-to-r from-cyan-500 to-blue-500 inline-block text-transparent bg-clip-text'>45/55</p>
                                         <p className='font-regular text-sm'>Kvinnor/Män,%</p>
                                     </div>
                                 </div>
                                 <div className='m-10'>
-                                    <p className='font-bold text-sm text-left'>Antal ordförande & ledamöter</p>
+                                    <p className='font-bold text-sm text-left mb-2'>Antal ordförande & ledamöter</p>
                                     <div className='flex justify-left items-end'>
                                         <p className='font-extrabold text-5xl bg-gradient-to-r from-cyan-500 to-blue-500 inline-block text-transparent bg-clip-text'>285</p>
                                         <p className='font-regular text-sm'>st</p>
@@ -95,18 +96,22 @@ export default function GraphForetag() {
                         <Card className='w-96 h-auto'>
                             <CardContent>
                                 <div className='m-10'>
-                                    <p className='font-bold text-sm text-left'>Nettoomstättning Exkl. IB</p>
+                                    <p className='font-bold text-sm text-left mb-2'>Nettoomstättning Exkl. IB</p>
                                     <div className='flex justify-left items-end'>
                                         <p className='font-extrabold text-5xl bg-gradient-to-r from-cyan-500 to-blue-500 inline-block text-transparent bg-clip-text'>476</p>
                                         <p className='font-regular text-sm'>Mdkr</p>
                                     </div>
                                 </div>
                                 <div className='m-10'>
-                                    <p className='font-bold text-sm text-left'>Nettoomstättning Inkl IB</p>
+                                    <p className='font-bold text-sm text-left mb-2'>Nettoomstättning Inkl IB</p>
                                     <div className='flex justify-left items-end'>
                                         <p className='font-extrabold text-5xl bg-gradient-to-r from-cyan-500 to-blue-500 inline-block text-transparent bg-clip-text'>520</p>
                                         <p className='font-regular text-sm'>Mdkr</p>
                                     </div>
+                                </div>
+                                <div className='m-10'>
+                                    <p className='font-bold text-sm text-left mb-2'>IB = Intressebolag</p>
+                                    
                                 </div>
                             </CardContent>
                         </Card>

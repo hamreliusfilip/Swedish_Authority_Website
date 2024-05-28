@@ -137,6 +137,20 @@ export default function Page() {
         setSlider2Value(event.target.value);
     };
 
+    const cards = [];
+
+    for (let i = 0; i < 7; i++) {
+        cards.push(
+            <Card key={i} className='m-4 p-5'>
+                <div className="animate-pulse">
+                    <div className="h-6 bg-gray-200 rounded mb-2 h-16 mt-1"></div>
+                    <div className="h-4 bg-gray-200 rounded mb-2 h-12 mt-5"></div>
+                    <div className="h-4 bg-gray-200 rounded mb-2 h-12 mt-5"></div>
+                </div>
+            </Card>
+        );
+    }
+
     return (
         <>
             <div>
@@ -169,7 +183,7 @@ export default function Page() {
                                     <AccordionTrigger>Styre</AccordionTrigger>
                                     <AccordionContent>
                                         <CheckboxFilter
-                                            options={['Styrelse', 'Enrådighet', 'SBA', 'Nämnd', 'Kommitté', 'Universitet eller högskola', 'Regeringskansliet', 'Arbetsgivarkollegium', 'Övrigt']}
+                                            options={['Styrelse', 'Enrådighet', 'SBA', 'Nämnd', 'Kommitté', 'Universitet eller högskola', 'Regeringskansliet', 'Arbetsgivarkollegium', 'Domstol', 'AP-Fond', 'Hyresnämnd', 'Lagråd', 'Övrigt']}
                                             onChange={handleRuleFilterChange}
                                             reset={filterReset}
                                         />
@@ -241,15 +255,21 @@ export default function Page() {
                         className="border border-gray-200 rounded-md p-2 w-full mb-4 font-light font-sans text-sm"
                     />
                     <p className='font-slate-300 text-sm font-light'>Antal hittade myndigheter: {filteredMyndigheter.length} st</p>
-                    <div className='overflow-y-auto mt-4'>
-                        <Card className="h-120 overflow-y-auto">
-                            {filteredMyndigheter.map((myndighet: any) => (
-                                <div key={myndighet._id}>
-                                    <ListCard myndighet={myndighet} loading={loading} />
-                                </div>
-                            ))}
+
+                    {loading == true ? (
+                        <Card className="h-120 overflow-y-auto mt-4">
+                            <>{cards}</>
                         </Card>
-                    </div>
+                    ) : (
+                        <div className='overflow-y-auto mt-4'>
+                            <Card className="h-120 overflow-y-auto">
+                                {filteredMyndigheter.map((myndighet: any) => (
+                                    <div key={myndighet._id}>
+                                        <ListCard myndighet={myndighet} loading={loading} />
+                                    </div>
+                                ))}
+                            </Card>
+                        </div>)}
                 </div>
                 <div className='basis-1/6 pr-10'>
                     <div className=''>
