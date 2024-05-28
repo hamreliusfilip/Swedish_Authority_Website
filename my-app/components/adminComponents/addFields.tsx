@@ -82,13 +82,17 @@ export default function AddFields({ myndighet }: any) {
         }
 
         if (EDITMODE) {
-            await fetch(`/api/myndigheter/${myndighet.id}`, {
+            const res = await fetch(`/api/myndigheter/${myndighet.myndighet._id}`, {
                 method: "PUT",
-                body: JSON.stringify(formData),
                 headers: {
-                    "Content-Type": "application/json",
+                    "Content-type": "application/json",
                 },
+                body: JSON.stringify({ formData }),
             });
+            if (!res.ok) {
+                throw new Error("Failed to update ticket");
+            }
+            router.push("/admin/adminListPage")
         } else {
             await fetch(`/api/myndigheter`, {
                 method: "POST",
@@ -175,7 +179,7 @@ export default function AddFields({ myndighet }: any) {
                             onChange={handleChange}
                             required={true}
                             value={formData.rule}
-                            className = "pl-2"
+                            className="pl-2"
                         >
                             <option value="" disabled selected>Välj ledningsform:</option>
                             <option value="Styrelse">Styrelse</option>
@@ -266,18 +270,18 @@ export default function AddFields({ myndighet }: any) {
                     {/* logo_url */}
                     <div className="col-span-1 sm:col-span-2 m-5 justify-center">
                         {formData.logo_url ? (
-                                    <CardDescription>Uppdatera logotyp</CardDescription>
-                                ) : (
-                                    <CardDescription>Lägg till logotyp</CardDescription>
-                            )}
-                        
+                            <CardDescription>Uppdatera logotyp</CardDescription>
+                        ) : (
+                            <CardDescription>Lägg till logotyp</CardDescription>
+                        )}
+
                         <div className="flex items-center mt-1">
 
-                        <label htmlFor="logoInput" className="border-solid border-1 border-slate-300 rounded-sm p-2 mr-5 cursor-pointer shadow-md">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
-                                <path strokeLinecap="round" strokeLinejoin="round" d="M9 8.25H7.5a2.25 2.25 0 0 0-2.25 2.25v9a2.25 2.25 0 0 0 2.25 2.25h9a2.25 2.25 0 0 0 2.25-2.25v-9a2.25 2.25 0 0 0-2.25-2.25H15m0-3-3-3m0 0-3 3m3-3V15" />
-                            </svg>
-                        </label>
+                            <label htmlFor="logoInput" className="border-solid border-1 border-slate-300 rounded-sm p-2 mr-5 cursor-pointer shadow-md">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 8.25H7.5a2.25 2.25 0 0 0-2.25 2.25v9a2.25 2.25 0 0 0 2.25 2.25h9a2.25 2.25 0 0 0 2.25-2.25v-9a2.25 2.25 0 0 0-2.25-2.25H15m0-3-3-3m0 0-3 3m3-3V15" />
+                                </svg>
+                            </label>
                             <input
                                 id="logoInput"
                                 name="logo_url"
@@ -285,12 +289,12 @@ export default function AddFields({ myndighet }: any) {
                                 className="border-solid border-2 border-slate-300 rounded-sm p-1 mr-2"
                                 accept="image/png, image/jpeg"
                                 onChange={handleLogoUpload}
-                                style = {{display: 'none'}}
+                                style={{ display: 'none' }}
                             />
                             {formData.logo_url ? (
-                                    <p className="text-green-600">Logotyp tillagd</p>
-                                ) : (
-                                    <p className="text-red-600">Ingen logotyp tillagd</p>
+                                <p className="text-green-600">Logotyp tillagd</p>
+                            ) : (
+                                <p className="text-red-600">Ingen logotyp tillagd</p>
                             )}
                         </div>
                     </div>

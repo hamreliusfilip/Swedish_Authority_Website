@@ -51,7 +51,10 @@ export default function Page() {
 
     const fetchMyndigheter = async () => {
         try {
-            const res = await fetch("http://localhost:3000/api/myndigheter");
+            const res = await fetch("http://localhost:3000/api/myndigheter",{
+                method: "GET",
+                cache: "no-cache",
+            });
             const data = await res.json();
             return data.myndighet;
         } catch (error) {
