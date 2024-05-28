@@ -27,7 +27,6 @@ import {
     NavigationMenuLink,
     NavigationMenuList,
     NavigationMenuTrigger,
-    NavigationMenuViewport,
 } from "@/components/ui/navigation-menu"
 
 import CompleteMenu from '../../components/Main/completeMenu';
@@ -35,22 +34,82 @@ import Logo from '../../components/Main/logo';
 import Footer from '../../components/Main/footer';
 
 import ListCard from '@/components/CompaniesSida/listCard';
-import CheckboxFilter from '@/components/MyndigheterSida/CheckBoxFilter';
+import CheckboxFilter from '@/components/CompaniesSida/CheckBoxFilter2';
 
-import company, { companies } from "@/lib/models/company";
+import { companies } from "@/lib/models/company";
 
 export default function Page() {
 
     const [loading, setLoading] = useState(true);
     const [companies, setCompanies] = useState<companies[]>([]);
-
-    const [searchQuery, setSearchQuery] = useState('');
-    const [ruleFilters, setRuleFilters] = useState<Record<string, boolean>>({});
-    const [relationFilters, setRelationFilters] = useState<Record<string, boolean>>({});
-    const [filterReset, setFilterReset] = useState(false);
     const [filteredCompanies, setFilteredCompanies] = useState<companies[]>([]);
-    const [slider1Value, setSlider1Value] = useState('1623');
-    const [slider2Value, setSlider2Value] = useState('2024');
+    const [filterReset, setFilterReset] = useState(false);
+
+    const [searchQuery, setSearchQuery] = useState(() => {
+        if (typeof window !== 'undefined') {
+            const storedFilters = localStorage.getItem('compFilters');
+            if (storedFilters) {
+                return JSON.parse(storedFilters).searchQuery;
+            }
+            return '';
+        }
+    }); 
+
+    const [ruleFilters, setRuleFilters] = useState(() => {
+        if (typeof window !== 'undefined') {
+            const storedFilters = localStorage.getItem('compFilters');
+            if (storedFilters) {
+                return JSON.parse(storedFilters).ruleFilters;
+            }
+            return {};
+        }
+    });
+
+    const [slider1Value, setSlider1Value] = useState(() => {
+        if (typeof window !== 'undefined') {
+            const storedFilters = localStorage.getItem('compFilters');
+            if (storedFilters) {
+                return JSON.parse(storedFilters).slider1Value;
+            }
+            return '1477';
+        }
+    });
+
+    const [slider2Value, setSlider2Value] = useState(() => {
+        if (typeof window !== 'undefined') {
+            const storedFilters = localStorage.getItem('compFilters');
+            if (storedFilters) {
+                return JSON.parse(storedFilters).slider2Value;
+            }
+            return '2024';
+        }
+    });
+
+    if (typeof window !== 'undefined') {
+
+        useEffect(() => {
+
+            const storedFilters = localStorage.getItem('compFilters');
+            if (storedFilters) {
+                const parsedFilters = JSON.parse(storedFilters);
+                setRuleFilters(parsedFilters.ruleFilters);
+                setSearchQuery(parsedFilters.searchQuery);
+                setSlider1Value(parsedFilters.slider1Value);
+                setSlider2Value(parsedFilters.slider2Value);
+            }
+
+        }, []);
+
+        useEffect(() => {
+            const filtersToStore = JSON.stringify({
+                ruleFilters,
+                searchQuery,
+                slider1Value,
+                slider2Value
+            });
+            localStorage.setItem('compFilters', filtersToStore);
+        }, [ruleFilters, searchQuery, slider1Value, slider2Value]);
+    }
 
     const fetchCompanies = async () => {
         try {
@@ -66,13 +125,15 @@ export default function Page() {
     useEffect(() => {
         fetchCompanies().then((companies) => {
             setCompanies(companies);
-            setTimeout(() => {
-                setLoading(false);
-            }, 500);
+            setLoading(false);
+   
         }).catch((error) => {
             console.error("Error setting companies:", error);
         });
     }, []);
+
+
+
 
     const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setSearchQuery(event.target.value);
@@ -111,10 +172,9 @@ export default function Page() {
 
     const handleClearFilters = () => {
         setRuleFilters({});
-        setRelationFilters({});
         setSearchQuery('');
         setFilterReset(true);
-        setSlider1Value('1623');
+        setSlider1Value('1400');
         setSlider2Value('2024');
 
         setTimeout(() => {
@@ -150,7 +210,7 @@ export default function Page() {
                 <Logo />
                 <CompleteMenu />
                 <div className="text-center">
-                    <h1 className="font-bold text-4xl bg-gradient-to-r from-cyan-500 to-blue-500 inline-block text-transparent bg-clip-text mt-10 mb-2 px-1 pb-1"> Statliga företag </h1>
+                    <h1 className="font-bold text-4xl bg-gradient-to-r from-cyan-500 to-blue-500 inline-block text-transparent bg-clip-text mt-10 mb-1 px-1 pb-1"> Statliga företag </h1>
                     <p className="font-semibold text-small text-slate-300 mb-10">Alla svenska statliga eller delvis statliga företag</p>
                 </div>
             </div>
@@ -230,7 +290,7 @@ export default function Page() {
                 <div className='basis-1/2'>
                     <input
                         type="text"
-                        placeholder="Hitta med namn eller organisationsnummer..."
+                        placeholder="Sök med namn eller organisationsnummer..."
                         value={searchQuery}
                         onChange={handleSearchChange}
                         className="border border-gray-200 rounded-md p-2 w-full mb-4 font-light font-sans text-sm"

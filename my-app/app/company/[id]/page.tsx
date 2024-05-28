@@ -39,7 +39,7 @@ export default async function Page({ params }: any) {
                         <p className="2xl:text-4xl xl:text-3xl lg:text-2xl md:text-xl font-bold text-center">{data.name}</p>
                         {base64String ? (
                             <div className="flex justify-center">
-                                <img className="h-20" src={base64String} alt="Base64 Encoded" />
+                                 <img className="h-auto max-h-40 w-auto max-w-md" src={base64String} alt="Base64 Encoded" />
                             </div>
                         ) : null}
                     </div>

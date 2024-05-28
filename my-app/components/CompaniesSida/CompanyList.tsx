@@ -10,6 +10,10 @@ import {
 import { Button } from "@/components/ui/button"
 
 export default function CoList() {
+
+    const [loading, setLoading] = useState(true);
+    const [companies, setCompanies] = useState<any[]>([]);
+
     const fetchCompanies = async () => {
         try {
             const res = await fetch("http://localhost:3000/api/companies");
@@ -21,11 +25,10 @@ export default function CoList() {
         }
     }
 
-    const [companies, setCompanies] = useState<any[]>([]);
-
     useEffect(() => {
         fetchCompanies().then((companies) => {
             setCompanies(companies);
+            setLoading(false);
         }).catch((error) => {
             console.error("Error setting companies:", error);
         });
@@ -40,6 +43,18 @@ export default function CoList() {
 
     const sortedKeys = Object.keys(groupedCompanies).sort();
 
+    const cards = [];
+
+    for (let i = 0; i < 30; i++) {
+        cards.push(
+            <div key={i}>
+                <div className="animate-pulse">
+                    <div className="h-6 bg-gray-200 rounded mb-3 h-16 mt-1"></div>
+                </div>
+            </div>
+        );
+    }
+
     return (
         <div>
             <Link href="/company">
@@ -49,6 +64,11 @@ export default function CoList() {
             <Card className=" h-5/6 w-2/4 mx-auto">
                 <CardContent className="m-1 my-10">
                     <CardTitle className="my-10">Statliga företag i alfabetisk ordning.</CardTitle>
+                    {loading == true ? (
+                        <div>
+                            {cards}
+                        </div>
+                    ) : (
                     <div>
                         {sortedKeys.map((letter) => (
                             <div key={letter}>
@@ -58,7 +78,7 @@ export default function CoList() {
                                 ))}
                             </div>
                         ))}
-                    </div>
+                    </div>)}
                 </CardContent>
             </Card>
         </div>

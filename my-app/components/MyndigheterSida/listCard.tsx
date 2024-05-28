@@ -8,7 +8,7 @@ import {
 } from "@/components/ui/collapsible"
 import Link from 'next/link';
 
-export default function ListCard({ myndighet, loading }: { myndighet: any, loading: boolean }) {
+export default function ListCard({ myndighet }: { myndighet: any, loading: boolean }) {
 
     const [isOpen, setIsOpen] = React.useState(false);
 
