@@ -2,32 +2,68 @@ import { NextResponse } from 'next/server';
 import dbConnect from '../../../../lib/dbConnect';
 import Company from "../../../../lib/models/company";
 
+let connected = false;
+
+export async function checkDB() {
+
+    if (connected) {
+        return true;
+    } else {
+        try {
+            await dbConnect();
+            connected = true;
+        } catch (error) {
+            connected = false;
+        }
+    }
+    return connected;
+}
+
+
 export async function GET(req: any, { params }: any) {
+    
     try {
         await dbConnect();
-        const { idOrName } = params;
-
-        let company;
-
-        if ((isValidObjectId(params.id)) != true) {
-            // If the parameter is a valid ObjectId (i.e., ID), fetch by ID
-            company = await Company.findById(params.id);
-        } else {
-            // If the parameter is not a valid ObjectId, fetch by name
-            company = await Company.findOne({ name: params.id });
-        }
-
-        if (company) {
-            return NextResponse.json({ company }, { status: 200 });
-        } else {
-            return NextResponse.json({ status: 404});
-        }
+        const { id } = params.id;
+    
+        const company = await Company.findById(params.id);
+        return NextResponse.json({ company }, { status: 200 });
     } catch (error) {
-        return NextResponse.json({ status: 500, message: 'Error finding company by id/name' });
+        return NextResponse.json({ status: 500, message: "problem finding data" });
+    }
+
+}
+
+export async function PUT(req: any, { params }: any) {
+
+    try {
+        const { id } = params.id;
+
+        const body = await req.json();
+
+        const upatedData = body.formData;
+
+        const updateTicketData = await Company.findByIdAndUpdate(upatedData._id, {
+            ...upatedData,
+        });
+
+        return NextResponse.json({ message: "Data updated" }, { status: 200 });
+    } catch (error) {
+        console.log(error);
+        return NextResponse.json({ message: "Error", error }, { status: 500 });
     }
 }
 
-// Function to check if a string only contains letter
-function isValidObjectId(id: string) {
-    return /^[a-zA-Z]+$/.test(id);
+export async function DELETE(req: any, { params }: any) {
+    try {
+        const company = await Company.findByIdAndDelete(params.id);
+        
+        if (!company) {
+            return NextResponse.json({ message: "Företag not found" }, { status: 404 });
+        }
+        return NextResponse.json({ message: "Företag deleted successfully", company }, { status: 200 });
+    } catch (error) {
+        console.log(error);
+        return NextResponse.json({ message: "Problem deleting data", error: error }, { status: 500 });
+    }
 }

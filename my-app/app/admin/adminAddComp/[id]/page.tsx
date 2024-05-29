@@ -1,4 +1,4 @@
-import AddFieldsComp from "@/components/adminComponents/addFiledsComp";
+import Form from '@/components/adminComponents/Form'
 import Logo from "@/components/Main/logo";
 import AdminMenu from "@/components/adminComponents/adminMenu";
 
@@ -17,7 +17,7 @@ let updateData = {};
 const AdminCompany = async ({ params }: any) => {
     const EDITMODE = params.id === "new" ? false : true;
 
-    if (EDITMODE) { //fetch data if editmode
+    if (EDITMODE) { 
         const decodedId = decodeURIComponent(params.id);
         updateData = await getTicketById(decodedId);
     } else {
@@ -33,7 +33,7 @@ const AdminCompany = async ({ params }: any) => {
             <Logo />
             <AdminMenu />
             <div className="mb-40 mt-20">
-                <AddFieldsComp company={updateData} />
+                <Form data={updateData} type="company" />
             </div>
         </div>
     );

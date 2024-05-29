@@ -33,10 +33,10 @@ import CompleteMenu from '../../components/Main/completeMenu';
 import Logo from '../../components/Main/logo';
 import Footer from '../../components/Main/footer';
 
-import ListCard from '@/components/CompaniesSida/listCard';
-import CheckboxFilter from '@/components/CompaniesSida/CheckBoxFilter2';
-
+import ListCard from '@/components/DatabaseComponents/listCard';
 import { companies } from "@/lib/models/company";
+
+import CheckFilter from '@/components/DatabaseComponents/CheckFilter';
 
 export default function Page() {
 
@@ -222,10 +222,11 @@ export default function Page() {
                                 <AccordionItem value="item-1">
                                     <AccordionTrigger>Statligt ägande</AccordionTrigger>
                                     <AccordionContent>
-                                        <CheckboxFilter
+                                        <CheckFilter
                                             options={['Helt statligt ägt', 'Delvis statligt ägt']}
                                             onChange={handleRuleFilterChange}
                                             reset={filterReset}
+                                            storageKey="compFilters"
                                         />
                                     </AccordionContent>
                                 </AccordionItem>
@@ -305,7 +306,7 @@ export default function Page() {
                         <Card className="h-120 overflow-y-auto">
                             {filteredCompanies.map((company: any) => (
                                 <div key={company._id}>
-                                    <ListCard company={company} loading={loading} />
+                                    <ListCard company={company} />
                                 </div>
                             ))}
                         </Card>

@@ -20,6 +20,7 @@ export async function GET(req: any) {
     const company = await companies.find({}, projection);
 
     return NextResponse.json({ company }, { status: 200 });
+    
   } catch (error) {
     return NextResponse.json({ status: 500, message: 'Error finding companies' });
   }

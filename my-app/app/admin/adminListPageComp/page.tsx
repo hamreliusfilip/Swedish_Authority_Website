@@ -1,7 +1,7 @@
 import { LoginLink } from "@kinde-oss/kinde-auth-nextjs/components";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { Button } from "@/components/ui/button"
-import AdminListComp from "@/components/adminComponents/adminListComp";
+import AdminList from "@/components/adminComponents/adminList";
 import Logo from '@/components/Main/logo';
 import AdminMenu from "@/components/adminComponents/adminMenu";
 
@@ -12,7 +12,7 @@ export default async function Protected() {
         <div className="mb-40">
             <Logo />
             <AdminMenu />
-            <AdminListComp prop="companies"/>
+            <AdminList prop="companies"/>
         </div>
     ) : (
         <div className="flex flex-col items-center justify-center h-screen">

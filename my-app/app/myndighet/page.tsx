@@ -33,8 +33,11 @@ import { Myndigheter } from '@/lib/models/myndighet';
 import CompleteMenu from '../../components/Main/completeMenu';
 import Logo from '../../components/Main/logo';
 import Footer from '../../components/Main/footer';
-import ListCard from '@/components/MyndigheterSida/listCard';
-import CheckboxFilter from '@/components/MyndigheterSida/CheckBoxFilter';
+import ListCard from '@/components/DatabaseComponents/listCard';
+
+import CheckFilter from '@/components/DatabaseComponents/CheckFilter';
+
+
 
 export default function Page() {
 
@@ -237,10 +240,11 @@ export default function Page() {
                                 <AccordionItem value="item-1">
                                     <AccordionTrigger>Departement</AccordionTrigger>
                                     <AccordionContent>
-                                        <CheckboxFilter
+                                        <CheckFilter
                                             options={['Arbetsmarknadsdepartementet', 'Finansdepartementet', 'Försvarsdepartementet', 'Justitiedepartementet', 'Klimat- och näringslivsdepartementet', 'Kulturdepartementet', 'Landsbygds- och infrastrukturdepartementet', 'Socialdepartementet', 'Statsrådsberedningen', 'Utbildningsdepartementet', 'Utrikesdepartementet']}
                                             onChange={handleRelationFilterChange}
                                             reset={filterReset}
+                                            storageKey="myndighetFilters"
                                         />
                                     </AccordionContent>
                                 </AccordionItem>
@@ -249,10 +253,11 @@ export default function Page() {
                                 <AccordionItem value="item-1">
                                     <AccordionTrigger>Styre</AccordionTrigger>
                                     <AccordionContent>
-                                        <CheckboxFilter
+                                        <CheckFilter
                                             options={['Styrelse', 'Enrådighet', 'SBA', 'Nämnd', 'Kommitté', 'Universitet eller högskola', 'Regeringskansliet', 'Arbetsgivarkollegium', 'Domstol', 'AP-Fond', 'Hyresnämnd', 'Lagråd', 'Övrigt']}
                                             onChange={handleRuleFilterChange}
                                             reset={filterReset}
+                                            storageKey="myndighetFilters"
                                         />
                                     </AccordionContent>
                                 </AccordionItem>
@@ -332,7 +337,7 @@ export default function Page() {
                             <Card className="h-120 overflow-y-auto">
                                 {filteredMyndigheter.map((myndighet: any) => (
                                     <div key={myndighet._id}>
-                                        <ListCard myndighet={myndighet} loading={loading} />
+                                       <ListCard myndighet={myndighet} />
                                     </div>
                                 ))}
                             </Card>

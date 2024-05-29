@@ -4,19 +4,25 @@ interface CheckboxFilterProps {
     options: string[];
     onChange: (filters: Record<string, boolean>) => void;
     reset: boolean;
+    storageKey: 'myndighetFilters' | 'compFilters';
 }
 
-const CheckboxFilter2: React.FC<CheckboxFilterProps> = ({ options, onChange, reset }) => {
+const CheckFilter: React.FC<CheckboxFilterProps> = ({ options, onChange, reset, storageKey }) => {
     const [filters, setFilters] = useState<Record<string, boolean>>({});
 
     useEffect(() => {
-        const storedFilters = localStorage.getItem('compFilters');
+        const storedFilters = localStorage.getItem(storageKey);
 
         if (storedFilters) {
             const parsedFilters = JSON.parse(storedFilters);
-            const combinedFilters = {
-                ...parsedFilters.ruleFilters
-            };
+            const combinedFilters = storageKey === 'myndighetFilters'
+                ? {
+                    ...parsedFilters.ruleFilters,
+                    ...parsedFilters.relationFilters
+                }
+                : {
+                    ...parsedFilters.ruleFilters
+                };
             setFilters(combinedFilters);
         } else {
             setFilters(options.reduce((acc, option) => {
@@ -24,13 +30,16 @@ const CheckboxFilter2: React.FC<CheckboxFilterProps> = ({ options, onChange, res
                 return acc;
             }, {} as Record<string, boolean>));
         }
-    }, [options]);
+    }, [options, storageKey]);
 
     useEffect(() => {
         if (reset) {
-            setFilters({});
+            setFilters(options.reduce((acc, option) => {
+                acc[option] = false;
+                return acc;
+            }, {} as Record<string, boolean>));
         }
-    }, [reset]);
+    }, [reset, options]);
 
     const handleCheckboxChange = (option: string) => {
         const newFilters = { ...filters, [option]: !filters[option] };
@@ -58,4 +67,4 @@ const CheckboxFilter2: React.FC<CheckboxFilterProps> = ({ options, onChange, res
     );
 };
 
-export default CheckboxFilter2;
+export default CheckFilter;

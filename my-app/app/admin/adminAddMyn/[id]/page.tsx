@@ -1,6 +1,6 @@
-import AddFields from "@/components/adminComponents/addFields";
 import Logo from "@/components/Main/logo";
 import AdminMenu from "@/components/adminComponents/adminMenu";
+import Form from '@/components/adminComponents/Form'
 
 const getTicketById = async (id: string) => {
 
@@ -17,7 +17,7 @@ let updateData = {};
 const AdminMyndighet = async ({ params }: any) => {
     const EDITMODE = params.id === "new" ? false : true;
 
-    if (EDITMODE) { //fetch data if editmode
+    if (EDITMODE) { 
         const decodedId = decodeURIComponent(params.id);
         updateData = await getTicketById(decodedId);
     } else {
@@ -33,7 +33,7 @@ const AdminMyndighet = async ({ params }: any) => {
             <Logo />
             <AdminMenu />
             <div className="mb-40 mt-20">
-                <AddFields myndighet={updateData} />
+                <Form data={updateData} type="myndighet"/>
             </div>
         </div>
     );
