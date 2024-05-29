@@ -122,12 +122,9 @@ export default function Page() {
 
     const fetchMyndigheter = async () => {
         try {
-            const res = await fetch("http://localhost:3000/api/myndigheter",{
-                method: 'GET',
-                cache: "force-cache"
-            });
+            const res = await fetch("http://localhost:3000/api/myndigheter");
             const data = await res.json();
-            console.log(res)
+            console.log(data)
             return data.myndighet;
         } catch (error) {
             console.error("Error fetching myndigheter:", error);
@@ -137,6 +134,7 @@ export default function Page() {
 
     useEffect(() => {
         fetchMyndigheter().then((myndigheter) => {
+            console.log('heeeeeej')
             setMyndigheter(myndigheter);
             setLoading(false);
 
