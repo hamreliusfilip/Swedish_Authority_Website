@@ -16,7 +16,7 @@ export default function CoList() {
 
     const fetchCompanies = async () => {
         try {
-            const res = await fetch("http://localhost:3000/api/companies");
+            const res = await fetch("http://localhost:3000/api/companies?fields=name,_id");
             const data = await res.json();
             return data.company;
         } catch (error) {

@@ -44,7 +44,7 @@ const App: React.FC = () => {
 
   const fetchMyndigheter = async () => {
     try {
-      const res = await fetch("http://localhost:3000/api/myndigheter");
+      const res = await fetch("http://localhost:3000/api/myndigheter?fields=name,relation");
       const data = await res.json();
       setMyndigheter(data.myndighet);
     } catch (error) {

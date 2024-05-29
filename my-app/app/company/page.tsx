@@ -113,7 +113,7 @@ export default function Page() {
 
     const fetchCompanies = async () => {
         try {
-            const res = await fetch("http://localhost:3000/api/companies");
+            const res = await fetch("http://localhost:3000/api/companies?fields=name,_id,owner,created,org,info");
             const data = await res.json();
             return data.company;
         } catch (error) {
@@ -271,7 +271,7 @@ export default function Page() {
                                     <NavigationMenuTrigger>Hjälp</NavigationMenuTrigger>
                                     <NavigationMenuContent>
                                         <div className='w-96 h-68 p-7'>
-                                            Detta är en sökmotor för svenska statliga företag. Du kan söka på samtliga statliga företag i Sverige och filtrera på olika kriterier. Det finns tio datapunkter för varje statligt företag, till exempel generell fakta, mailadress och logotyp. Använd Filtreringsalternativen till vänster eller sökrutan för att hitta ett specifikt statligt företag. Klickar du på knappen högst upp i högra hörnet på varje statligt företag kommer du till den specifika sidan för just det statliga företaget.
+                                            Detta är en sökmotor för svenska statliga företag. Du kan söka på samtliga statliga företag i Sverige och filtrera på olika kriterier. Det finns sex datapunkter för varje statligt företag, till exempel generell fakta, mailadress och logotyp. Använd Filtreringsalternativen till vänster eller sökrutan för att hitta ett specifikt statligt företag. Klickar du på knappen högst upp i högra hörnet på varje statligt företag kommer du till den specifika sidan för just det statliga företaget.
                                         </div>
                                     </NavigationMenuContent>
                                 </NavigationMenuItem>

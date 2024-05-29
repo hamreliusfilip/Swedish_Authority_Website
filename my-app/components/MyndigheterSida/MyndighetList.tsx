@@ -16,7 +16,7 @@ export default function MynList() {
 
     const fetchMyndigheter = async () => {
         try {
-            const res = await fetch("http://localhost:3000/api/myndigheter");
+            const res = await fetch("http://localhost:3000/api/myndigheter?fields=name,_id");
             const data = await res.json();
             return data.myndighet;
         } catch (error) {

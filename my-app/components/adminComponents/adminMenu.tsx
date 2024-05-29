@@ -8,10 +8,7 @@ import {
     MenubarItem,
     MenubarMenu,
     MenubarSeparator,
-    MenubarTrigger,
-    MenubarSub,
-    MenubarSubContent,
-    MenubarSubTrigger
+    MenubarTrigger
 } from "@/components/ui/menubar";
 
 export default function AdminMenu() {
@@ -61,18 +58,18 @@ export default function AdminMenu() {
                     <MenubarTrigger>Statliga företag</MenubarTrigger>
                     <MenubarContent>
 
-                        <Link href="/admin/adminAddMyn/new">
+                        <Link href="/admin/adminAddComp/new">
                             <MenubarItem>Lägg till företag</MenubarItem>
-                            {isCurrentPath("/admin/adminAddMyn/new") && <div className="flex justify-start">
+                            {isCurrentPath("/admin/adminAddComp/new") && <div className="flex justify-start">
                                 <div className="bg-slate-300 h-1 w-5 mb-1 ml-2 rounded rounded-corners"></div>
                             </div>}
                         </Link>
 
                         <MenubarSeparator />
 
-                        <Link href="/admin/adminListPage">
+                        <Link href="/admin/adminListPageComp">
                             <MenubarItem>Alla företag - Redigera</MenubarItem>
-                            {isCurrentPath("/admin/adminListPage") && <div className="flex justify-start">
+                            {isCurrentPath("/admin/adminListPageComp") && <div className="flex justify-start">
                                 <div className="bg-slate-300 h-1 w-5 mb-1 ml-2 rounded rounded-corners"></div>
                             </div>}
                         </Link>
