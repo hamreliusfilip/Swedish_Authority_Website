@@ -32,7 +32,7 @@ export async function GET(req: any, { params }: any) {
         return NextResponse.json({ status: 500, message: "problem finding data" });
     }
 
-  }
+}
 
 export async function PUT(req: any, { params }: any) {
 
@@ -51,6 +51,22 @@ export async function PUT(req: any, { params }: any) {
     } catch (error) {
         console.log(error);
         return NextResponse.json({ message: "Error", error }, { status: 500 });
+    }
+}
+
+export async function DELETE(req: any, { params }: any) {
+    try {
+        const myndighet = await Myndighet.findByIdAndDelete(params.id);
+        
+        if (!myndighet) {
+            console.log("hej den hittas ej??");
+            return NextResponse.json({ message: "Myndighet not found" }, { status: 404 });
+        }
+        console.log("hej den är raderad");
+        return NextResponse.json({ message: "Myndighet deleted successfully", myndighet }, { status: 200 });
+    } catch (error) {
+        console.log(error);
+        return NextResponse.json({ message: "Problem deleting data", error: error }, { status: 500 });
     }
 }
 

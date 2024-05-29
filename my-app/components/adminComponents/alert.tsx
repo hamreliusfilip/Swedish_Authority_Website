@@ -1,10 +1,26 @@
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 
-export function AlertCard({ isSuccess }: { isSuccess: boolean }) {
+export function AlertCard({ isSuccess, type }: { isSuccess: boolean , type: string}) {
     const iconColor = isSuccess ? "green" : "red";
-    const titleText = isSuccess ? "Objektet tillagt." : "Något gick fel.";
-    const descriptionText = isSuccess ? "Objektet har nu lagts till i databasen." : "Formuläret är inte korrekt formaterat.";
-    
+
+    // Determine the title and description based on isSuccess and type
+    let titleText = ""; 
+    let descriptionText = "";
+
+    switch (type) {
+        case "form":
+            descriptionText = isSuccess
+                ? "Objektet har lagts till/uppdaterats framgångsrikt."
+                : "Det uppstod ett fel vid tillägningen/uppateringen av objektet. Försök igen.";
+            titleText = isSuccess ? "Objektet tillagt/uppdaterat." : "Något gick fel.";
+            break;
+        case "delete":
+            descriptionText = isSuccess
+                ? "Objektet har tagits bort framgångsrikt."
+                : "Det uppstod ett fel vid borttagningen. Försök igen.";
+            titleText = isSuccess ? "Objektet bortaget ." : "Något gick fel.";
+            break;
+    }
     return (
         <div className="fixed bottom-0 right-0 m-10 w-96">
             <Alert className="shadow-lg">
