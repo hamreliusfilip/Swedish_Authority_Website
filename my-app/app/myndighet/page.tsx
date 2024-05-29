@@ -52,10 +52,11 @@ export default function Page() {
     const fetchMyndigheter = async () => {
         try {
             const res = await fetch("http://localhost:3000/api/myndigheter",{
-                method: "GET",
-                cache: "no-cache",
+                method: 'GET',
+                cache: "force-cache"
             });
             const data = await res.json();
+            console.log(res)
             return data.myndighet;
         } catch (error) {
             console.error("Error fetching myndigheter:", error);
@@ -150,7 +151,7 @@ export default function Page() {
             </Card>
         );
     }
-
+    
     return (
         <>
             <div>

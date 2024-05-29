@@ -24,7 +24,7 @@ export default async function Page({ params }: any) {
 
   const data = await fetchMyndigheter();
   const base64String = data.logo_url;
-  const web = data.web.replace('www.', '');
+ // const web = data.web.replace('www.', '');
 
   return (
     <>

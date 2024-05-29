@@ -10,7 +10,8 @@ export default async function Page({ params }: any) {
     const fetchCompanies = async () => {
         try {
             const res = await fetch(`http://localhost:3000/api/companies/${params.id}`, {
-                method: "GET"
+                method: "GET",
+                cache: "no-cache"
             });
             const data = await res.json();
             return data.company;

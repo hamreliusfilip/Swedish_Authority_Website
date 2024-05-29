@@ -9,7 +9,7 @@ const getTicketById = async (id: string) => {
         const data = await res.json();
         return data;
     } catch (error) {
-        return error
+        return error;
     }
 }
 let updateData = {};
@@ -27,7 +27,7 @@ const AdminMyndighet = async ({ params }: any) => {
             }
         };
     }
-
+    
     return (
         <div>
             <Logo />

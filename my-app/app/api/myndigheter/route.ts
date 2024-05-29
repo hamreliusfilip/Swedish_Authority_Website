@@ -2,17 +2,23 @@ import { NextResponse } from 'next/server';
 import dbConnect from "../../../lib/dbConnect";
 import Myndigheter from "../../../lib/models/myndighet";
 
-export async function GET() { //get all myndigheter
+export async function GET() {
+  const start = Date.now(); // Start timer
+  console.log('Timer started')
   try {
-      await dbConnect();
-      const myndighet = await Myndigheter.find();
-      return NextResponse.json({myndighet},{status:200});
+    await dbConnect();
+    const myndigheter = await Myndigheter.find().lean(); // Use lean for faster performance
+    const duration = Date.now() - start; // End timer
+    console.log(`GET request processed in ${duration}ms`);
+    return NextResponse.json({ myndigheter }, { status: 200 });
   } catch (error) {
-      return NextResponse.json({status:500, message: 'Error finding myndigheter'});
+    console.error('Error finding myndigheter:', error);
+    return NextResponse.json({ status: 500, message: 'Error finding myndigheter' });
   }
-}  
+}
 
 export async function POST( req : any ) { //create myndighet
+  
   try {
     const body = await req.json(); 
 
@@ -21,7 +27,7 @@ export async function POST( req : any ) { //create myndighet
     return NextResponse.json({status:200, message: 'Myndighet created'});
 
   } catch (error) {
-    console.log(error)
+
     return NextResponse.json({status:500, message: error});
   }
 }
