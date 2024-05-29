@@ -27,7 +27,6 @@ import {
     NavigationMenuLink,
     NavigationMenuList,
     NavigationMenuTrigger,
-    NavigationMenuViewport,
 } from "@/components/ui/navigation-menu"
 
 import { Myndigheter } from '@/lib/models/myndighet';
@@ -41,13 +40,85 @@ export default function Page() {
 
     const [loading, setLoading] = useState(true);
     const [myndigheter, setMyndigheter] = useState<Myndigheter[]>([]);
-    const [searchQuery, setSearchQuery] = useState('');
-    const [ruleFilters, setRuleFilters] = useState<Record<string, boolean>>({});
-    const [relationFilters, setRelationFilters] = useState<Record<string, boolean>>({});
     const [filterReset, setFilterReset] = useState(false);
     const [filteredMyndigheter, setFilteredMyndigheter] = useState<Myndigheter[]>([]);
-    const [slider1Value, setSlider1Value] = useState('1623');
-    const [slider2Value, setSlider2Value] = useState('2024');
+
+    const [searchQuery, setSearchQuery] = useState(() => {
+        if (typeof window !== 'undefined') {
+            const storedFilters = localStorage.getItem('myndighetFilters');
+            if (storedFilters) {
+                return JSON.parse(storedFilters).searchQuery;
+            }
+            return '';
+        }
+    }); 
+
+    const [ruleFilters, setRuleFilters] = useState(() => {
+        if (typeof window !== 'undefined') {
+            const storedFilters = localStorage.getItem('myndighetFilters');
+            if (storedFilters) {
+                return JSON.parse(storedFilters).ruleFilters;
+            }
+            return {};
+        }
+    });
+
+    const [relationFilters, setRelationFilters] = useState(() => {
+        if (typeof window !== 'undefined') {
+            const storedFilters = localStorage.getItem('myndighetFilters');
+            if (storedFilters) {
+                return JSON.parse(storedFilters).relationFilters;
+            }
+            return {};
+        }
+    });
+
+    const [slider1Value, setSlider1Value] = useState(() => {
+        if (typeof window !== 'undefined') {
+            const storedFilters = localStorage.getItem('myndighetFilters');
+            if (storedFilters) {
+                return JSON.parse(storedFilters).slider1Value;
+            }
+            return '1477';
+        }
+    });
+
+    const [slider2Value, setSlider2Value] = useState(() => {
+        if (typeof window !== 'undefined') {
+            const storedFilters = localStorage.getItem('myndighetFilters');
+            if (storedFilters) {
+                return JSON.parse(storedFilters).slider2Value;
+            }
+            return '2024';
+        }
+    });
+
+    if (typeof window !== 'undefined') {
+
+        useEffect(() => {
+            const storedFilters = localStorage.getItem('myndighetFilters');
+            if (storedFilters) {
+                const parsedFilters = JSON.parse(storedFilters);
+                setRuleFilters(parsedFilters.ruleFilters);
+                setRelationFilters(parsedFilters.relationFilters);
+                setSearchQuery(parsedFilters.searchQuery);
+                setSlider1Value(parsedFilters.slider1Value);
+                setSlider2Value(parsedFilters.slider2Value);
+            }
+        }, []);
+
+        useEffect(() => {
+            const filtersToStore = JSON.stringify({
+                ruleFilters,
+                relationFilters,
+                searchQuery,
+                slider1Value,
+                slider2Value
+            });
+            localStorage.setItem('myndighetFilters', filtersToStore);
+        }, [ruleFilters, relationFilters, searchQuery, slider1Value, slider2Value]);
+
+    }
 
     const fetchMyndigheter = async () => {
         try {
@@ -67,9 +138,8 @@ export default function Page() {
     useEffect(() => {
         fetchMyndigheter().then((myndigheter) => {
             setMyndigheter(myndigheter);
-            setTimeout(() => {
-                setLoading(false);
-            }, 500);
+            setLoading(false);
+
         }).catch((error) => {
             console.error("Error setting myndigheter:", error);
         });
@@ -122,7 +192,7 @@ export default function Page() {
         setRelationFilters({});
         setSearchQuery('');
         setFilterReset(true);
-        setSlider1Value('1623');
+        setSlider1Value('1477');
         setSlider2Value('2024');
 
         setTimeout(() => {
@@ -158,7 +228,7 @@ export default function Page() {
                 <Logo />
                 <CompleteMenu />
                 <div className="text-center">
-                    <h1 className="font-bold text-4xl bg-gradient-to-r from-cyan-500 to-blue-500 inline-block text-transparent bg-clip-text mt-10 mb-2 px-1 pb-1"> Myndigheter </h1>
+                    <h1 className="font-bold text-4xl bg-gradient-to-r from-cyan-500 to-blue-500 inline-block text-transparent bg-clip-text mt-10 mb-1 px-1 pb-1"> Myndigheter </h1>
                     <p className="font-semibold text-small text-slate-300 mb-10">Alla svenska myndigheter</p>
                 </div>
             </div>
@@ -200,8 +270,8 @@ export default function Page() {
                                                 <p className='mr-4'>Från</p>
                                                 <input
                                                     type="number"
-                                                    min="1623"
-                                                    max="1851"
+                                                    min="1477"
+                                                    max="2024"
                                                     value={slider1Value}
                                                     onChange={handleInput1Change}
                                                     className=' border border-bg-slate-300 rounded p-1'
@@ -211,7 +281,7 @@ export default function Page() {
                                                 <p className='mr-4 font-semibold text-sm'>Till&nbsp;&nbsp;</p>
                                                 <input
                                                     type="number"
-                                                    min="1851"
+                                                    min="1477"
                                                     max="2024"
                                                     value={slider2Value}
                                                     onChange={handleInput2Change}
@@ -250,7 +320,7 @@ export default function Page() {
                 <div className='basis-1/2'>
                     <input
                         type="text"
-                        placeholder="Hitta med namn eller organisationsnummer..."
+                        placeholder="Sök med namn eller organisationsnummer..."
                         value={searchQuery}
                         onChange={handleSearchChange}
                         className="border border-gray-200 rounded-md p-2 w-full mb-4 font-light font-sans text-sm"

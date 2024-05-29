@@ -2,7 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { LoginLink } from "@kinde-oss/kinde-auth-nextjs/components";
-import { Button } from "@/components/ui/button"; 
+import { Button } from "@/components/ui/button";
 import logo from '@/Assets/Icons/logga_vit.svg';
 
 export default function Footer() {
@@ -28,8 +28,15 @@ export default function Footer() {
                             </svg>
                         </a>
                     </div>
+
                 </div>
+            
             </div>
+            <div className="flex items-center justify-center bg-gradient-to-r from-cyan-500 to-blue-500 pb-10">
+            <div className="flex items-center text-white font-regular">
+                    <p>© 2024 Myndighetshandboken</p>
+                </div>
+                </div> 
             <div className='m-5 flex items-center justify-end'>
                 <p className='text-black font-semibold mr-5'>Är du en administratör?</p>
                 <LoginLink>

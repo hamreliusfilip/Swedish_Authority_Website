@@ -6,18 +6,16 @@ interface CheckboxFilterProps {
     reset: boolean;
 }
 
-const CheckboxFilter: React.FC<CheckboxFilterProps> = ({ options, onChange, reset }) => {
-    
+const CheckboxFilter2: React.FC<CheckboxFilterProps> = ({ options, onChange, reset }) => {
     const [filters, setFilters] = useState<Record<string, boolean>>({});
 
     useEffect(() => {
-        const storedFilters = localStorage.getItem('myndighetFilters');
+        const storedFilters = localStorage.getItem('compFilters');
 
         if (storedFilters) {
             const parsedFilters = JSON.parse(storedFilters);
             const combinedFilters = {
-                ...parsedFilters.ruleFilters,
-                ...parsedFilters.relationFilters
+                ...parsedFilters.ruleFilters
             };
             setFilters(combinedFilters);
         } else {
@@ -30,12 +28,9 @@ const CheckboxFilter: React.FC<CheckboxFilterProps> = ({ options, onChange, rese
 
     useEffect(() => {
         if (reset) {
-            setFilters(options.reduce((acc, option) => {
-                acc[option] = false;
-                return acc;
-            }, {} as Record<string, boolean>));
+            setFilters({});
         }
-    }, [reset, options]);
+    }, [reset]);
 
     const handleCheckboxChange = (option: string) => {
         const newFilters = { ...filters, [option]: !filters[option] };
@@ -63,4 +58,4 @@ const CheckboxFilter: React.FC<CheckboxFilterProps> = ({ options, onChange, rese
     );
 };
 
-export default CheckboxFilter;
+export default CheckboxFilter2;

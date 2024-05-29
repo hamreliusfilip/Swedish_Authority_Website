@@ -12,6 +12,7 @@ export default async function Page({ params }: any) {
     try {
       const res = await fetch(`http://localhost:3000/api/myndigheter/${params.id}`, {
         method: "GET",
+        cache: "no-cache",
       });
       const data = await res.json();
       
@@ -41,10 +42,9 @@ export default async function Page({ params }: any) {
             <p className="2xl:text-4xl xl:text-3xl lg:text-2xl md:text-xl font-bold text-center">{data.name}</p>
             {base64String ? (
               <div className="flex justify-center">
-                <img className="h-40" src={base64String} alt="Base64 Encoded" />
+                <img className="h-auto max-h-40 w-auto max-w-md" src={base64String} alt="Base64 Encoded" />
               </div>
             ) : null}
-
           </div>
         </div>
 
