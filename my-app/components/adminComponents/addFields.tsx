@@ -334,8 +334,8 @@ export default function AddFields({ myndighet }: any) {
             <div className="flex justify-center mt-20 mb-20">
                 <Button variant="outline" className="bg-green-500 text-white ml-5" onClick={handleSubmit}>
                     {EDITMODE ? "Updatera" : "Lägg till"}
-                    {showAlertFalse && <AlertCard isSuccess={false} /> }
-                    {showAlert && <AlertCard isSuccess={true} /> }
+                    {showAlertFalse && <AlertCard isSuccess={false} type={'form'} /> }
+                    {showAlert && <AlertCard isSuccess={true} type={'form'} /> }
                 </Button>
             </div>
         </div>

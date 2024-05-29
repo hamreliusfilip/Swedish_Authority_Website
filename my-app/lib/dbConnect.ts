@@ -36,7 +36,6 @@ declare global {
       cached.promise = null;
       throw e;
     }
-
     return cached.conn;
   }
   
