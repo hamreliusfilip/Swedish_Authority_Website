@@ -1,4 +1,5 @@
 "use client";
+
 import React, { useCallback, useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button"
 import Link from 'next/link';
@@ -31,8 +32,6 @@ import {
 
 import data from '../../Assets/Data/Ministers.json';
 
-
-
 const App: React.FC = () => {
 
   const nodeClasses = "";
@@ -40,19 +39,22 @@ const App: React.FC = () => {
 
   const [myndigheter, setMyndigheter] = useState<any[]>([]);
   const [d1, setD1] = useState<any>(null);
-
-
-  const fetchMyndigheter = async () => {
-    try {
-      const res = await fetch("http://localhost:3000/api/myndigheter?fields=name,relation");
-      const data = await res.json();
-      setMyndigheter(data.myndighet);
-    } catch (error) {
-      console.error("Error fetching myndigheter:", error);
-    }
-  }
+  const [nodes, setNodes, onNodesChange] = useNodesState([
+    { id: '1', position: { x: 750, y: 300 }, data: { label: 'Välj ett departement att visualisera' } },
+  ]);
+  const [edges, setEdges, onEdgesChange] = useEdgesState([{ id: 'e1-2', source: '1', target: '2' }]);
 
   useEffect(() => {
+    const fetchMyndigheter = async () => {
+      try {
+        const res = await fetch("http://localhost:3000/api/myndigheter?fields=name,relation");
+        const data = await res.json();
+        setMyndigheter(data.myndighet);
+      } catch (error) {
+        console.error("Error fetching myndigheter:", error);
+      }
+    };
+
     fetchMyndigheter().catch((error) => {
       console.error("Error setting myndigheter:", error);
     });
@@ -61,9 +63,9 @@ const App: React.FC = () => {
   const changeSorting = useCallback((value: string) => {
     if (!value) return;
 
-    const labelWidth = value.length * 10;
+    console.log("Selected value in changeSorting:", value);
 
-    const maxLabelWidth = Math.max(...myndigheter.map(myndighet => myndighet.name.length));
+    const labelWidth = value.length * 10;
 
     const initialNodes = [
       {
@@ -76,9 +78,8 @@ const App: React.FC = () => {
       ...myndigheter
         .filter(myndighet => myndighet.relation === value)
         .map((myndighet, index) => {
-
+          console.log("Filtered myndighet:", myndighet);
           const label = myndighet.name;
-
           return {
             id: (index + 2).toString(),
             position: {
@@ -89,17 +90,28 @@ const App: React.FC = () => {
             style: { width: `${labelWidth}px` },
             className: nodeClasses,
           };
-
         }),
     ];
     setNodes(initialNodes);
   }, [myndigheter]);
 
-  const [nodes, setNodes, onNodesChange] = useNodesState([
-    { id: '1', position: { x: 750, y: 300 }, data: { label: 'Välj ett departement att visualisera' } },
-  ]);
+  const changeSorting2 = useCallback((value: string) => {
+    if (!value) return;
 
-  let [edges, setEdges, onEdgesChange] = useEdgesState([{ id: 'e1-2', source: '1', target: '2' }]);
+    console.log("Selected value in changeSorting2:", value);
+
+    const selectedData = data[value as keyof typeof data];
+    console.log("Selected data in changeSorting2:", selectedData);
+
+    if (selectedData) {
+      setD1(selectedData[0]);
+    }
+  }, []);
+
+  const handleValueChange = (value: string) => {
+    changeSorting(value);
+    changeSorting2(value);
+  };
 
   const generateEdges = useCallback(() => {
     const newEdges = myndigheter.map((myndighet, index) => ({
@@ -119,38 +131,16 @@ const App: React.FC = () => {
     type: 'smoothstep',
   };
 
-
-  const changeSorting2 = useCallback((value: string) => {
-    if (!value) return;
-
-    const selectedData = data[value as keyof typeof data];
-
-    if (selectedData) {
-      setD1(selectedData[0]);
-    }
-  }, [data]);
-
-  const handleValueChange = (value: string) => {
-    changeSorting(value);
-    changeSorting2(value);
-
-    const selectedData = data[value as keyof typeof data];
-
-    if (selectedData) {
-      setD1(selectedData[0]);
-    }
-  };
-
   return (
     <div>
-      <div className='flex flex-col justify-center md:flex-row' >
+      <div className='flex flex-col justify-center md:flex-row'>
         <div className="w-full md:w-1/2 mt-10 md:ml-10 md:mr-10 flex">
           <Card className='w-full'>
             <CardHeader>
               <CardTitle>{d1 ? d1.name : 'Välj ett departement'}</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className=''>{d1 ? d1.info : 'Välj ett department med den blåa knappen nedanför.'}</p>
+              <p>{d1 ? d1.info : 'Välj ett department med den blåa knappen nedanför.'}</p>
             </CardContent>
           </Card>
         </div>
@@ -160,21 +150,43 @@ const App: React.FC = () => {
               <CardTitle>Ansvariga ministrar</CardTitle>
             </CardHeader>
             <CardContent>
-              <div className='flex justify-left'>
-                {d1 && Object.keys(d1).map((key, index) => (
-                  <div key={index} className={index > 2 ? 'ml-5' : ''}>
+              <div className='flex flex-wrap justify-left'>
+                {d1 && Object.keys(d1).filter(key => key !== 'info').map((key, index) => (
+                  <div key={index} className={`p-2 ${index > 2 ? 'ml-5' : ''}`}>
                     {d1[key] && (
-                      <>
+                      <div className="image-container">
                         <h2 className="font-bold">{d1[key].name} </h2>
                         <p className="font-regular mt-1">{d1[key].role}</p>
                         {d1[key].image && (
-                          <Image src={d1[key].image} width={190} height={108} alt={d1[key].name} className="rounded-md mt-3" />
+                          <Image
+                            src={d1[key].image}
+                            width={190}
+                            height={108}
+                            alt={d1[key].name}
+                            className="large-image rounded-md mt-3"
+                          />
                         )}
                         {d1[key].p && (
-                          <Image src={d1[key].p} width={30} height={30} alt={d1[key].name} className="rounded-md mt-3" />
+                          <Image
+                            src={d1[key].p}
+                            width={30}
+                            height={30}
+                            alt={d1[key].name}
+                            className="small-image rounded-md mt-3"
+                          />
                         )}
-                      </>
+                        <div>
+                          {d1[key].image && (
+                            <div>
+                              <p className='text-black text-sm text-light mt-5'> Foto: Kristian Pohl/Regeringskansliet </p>
+                            </div>
+                          )}
+                        </div>
+
+                      </div>
+
                     )}
+
                   </div>
                 ))}
               </div>
@@ -258,7 +270,7 @@ const App: React.FC = () => {
           </Card>
         </div>
       </div>
-    </div>
+    </div >
   );
 }
 

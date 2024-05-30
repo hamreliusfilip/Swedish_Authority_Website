@@ -132,9 +132,6 @@ export default function Page() {
         });
     }, []);
 
-
-
-
     const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setSearchQuery(event.target.value);
     }
@@ -218,7 +215,7 @@ export default function Page() {
                     <Card className='p-5'>
                         <CardTitle className='mb-5'>Filtreringsalternativ</CardTitle>
                         <CardContent className='grid grid-cols-1'>
-                            <Accordion type="single" collapsible>
+                            <Accordion type="single" defaultValue="item-1" collapsible>
                                 <AccordionItem value="item-1">
                                     <AccordionTrigger>Statligt ägande</AccordionTrigger>
                                     <AccordionContent>
@@ -231,8 +228,8 @@ export default function Page() {
                                     </AccordionContent>
                                 </AccordionItem>
                             </Accordion>
-                            <Accordion type="single" collapsible>
-                                <AccordionItem value="item-1">
+                            <Accordion type="single"  defaultValue="item-2" collapsible>
+                                <AccordionItem value="item-2">
                                     <AccordionTrigger>Årtal</AccordionTrigger>
                                     <AccordionContent>
                                         <div className='flex items-center mt-3'>

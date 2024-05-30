@@ -48,6 +48,7 @@ export async function PUT(req: any, { params }: any) {
         });
 
         return NextResponse.json({ message: "Data updated" }, { status: 200 });
+    
     } catch (error) {
         console.log(error);
         return NextResponse.json({ message: "Error", error }, { status: 500 });

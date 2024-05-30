@@ -10,7 +10,6 @@ type ListProps = {
 };
 
 export default function List({ type }: ListProps) {
-    
     const [loading, setLoading] = useState(true);
     const [items, setItems] = useState<any[]>([]);
 
@@ -35,17 +34,33 @@ export default function List({ type }: ListProps) {
         });
     }, [type]);
 
-    const groupedItems: { [key: string]: any[] } = items.reduce((acc: any, item: any) => {
-        const firstLetter = item.name.charAt(0).toUpperCase();
-        acc[firstLetter] = acc[firstLetter] || [];
-        acc[firstLetter].push(item);
-        return acc;
-    }, {});
+    const groupAndSortItems = (items: any[]) => {
+        const grouped = items.reduce((acc: any, item: any) => {
+            const firstLetter = item.name.charAt(0).toUpperCase();
+            acc[firstLetter] = acc[firstLetter] || [];
+            acc[firstLetter].push({
+                id: item._id,
+                name: item.name
+            });
+            return acc;
+        }, {});
+    
+        Object.keys(grouped).forEach((key) => {
+            grouped[key].sort((a: any, b: any) => {
+                const normalize = (str: string) => str.replace(/[^a-zA-Z0-9]/g, '').toUpperCase();
+                const aName = normalize(a.name);
+                const bName = normalize(b.name);
+                return aName.localeCompare(bName);
+            });
+        });
+    
+        return grouped;
+    };
 
-    const sortedKeys = Object.keys(groupedItems).sort();
+    const grouped = groupAndSortItems(items);
+    const sortedKeys = Object.keys(grouped).sort();
 
     const cards = [];
-
     for (let i = 0; i < 30; i++) {
         cards.push(
             <div key={i}>
@@ -77,8 +92,8 @@ export default function List({ type }: ListProps) {
                             {sortedKeys.map((letter) => (
                                 <div key={letter}>
                                     <h2 className='font-bold'>{letter}</h2>
-                                    {groupedItems[letter].map((item: any, index: any) => (
-                                        <p key={index}>{item.name}</p>
+                                    {grouped[letter].map((item: any) => (
+                                        <p key={item.id}>{item.name}</p>
                                     ))}
                                 </div>
                             ))}

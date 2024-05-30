@@ -5,8 +5,8 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Svenska Myndigheter",
-  description: "Svenska Myndigheter - En informationssida över myndigheter, departement och den svenska staten.",
+  title: "Myndighetshandboken",
+  description: "Myndighetshandboken - En informationssida över den svenska staten.",
 };
 
 import React from "react";

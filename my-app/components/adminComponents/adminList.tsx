@@ -25,8 +25,10 @@ export default function AdminList({ prop }: { prop: string }) {
 
     const fetchData = async (type: string) => {
         try {
-            const res = await fetch(`http://localhost:3000/api/${type}`);
+            const res = await fetch(`http://localhost:3000/api/${type}?fields=name,_id`);
+
             const data = await res.json();
+
             return data;
         } catch (error) {
             console.error("Error fetching data:", error);
@@ -75,15 +77,28 @@ export default function AdminList({ prop }: { prop: string }) {
         };
     }, [showAlert, showAlertFalse]);
 
-    const groupedItems = (items: any[]) => items.reduce((acc: any, item: any) => {
-        const firstLetter = item.name.charAt(0).toUpperCase();
-        acc[firstLetter] = acc[firstLetter] || [];
-        acc[firstLetter].push({
-            id: item._id,
-            name: item.name
+    const groupedItems = (items: any[]) => {
+        const grouped = items.reduce((acc: any, item: any) => {
+            const firstLetter = item.name.charAt(0).toUpperCase();
+            acc[firstLetter] = acc[firstLetter] || [];
+            acc[firstLetter].push({
+                id: item._id,
+                name: item.name
+            });
+            return acc;
+        }, {});
+
+        Object.keys(grouped).forEach((key) => {
+            grouped[key].sort((a: any, b: any) => {
+                const normalize = (str: string) => str.replace(/[^a-zA-Z0-9]/g, '').toUpperCase();
+                const aName = normalize(a.name);
+                const bName = normalize(b.name);
+                return aName.localeCompare(bName);
+            });
         });
-        return acc;
-    }, {});
+
+        return grouped;
+    };
 
     const sortedKeys = (grouped: { [key: string]: any[] }) => Object.keys(grouped).sort();
 

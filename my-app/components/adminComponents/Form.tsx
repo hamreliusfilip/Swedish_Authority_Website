@@ -85,7 +85,7 @@ export default function Form({ data, type }: any) {
 
     const validateFormData = (formData: any) => {
 
-        const requiredFields = ["name", "created", "info", "org"];
+        const requiredFields = ["name", "created", "info"];
 
         if (type === "myndighet") {
             requiredFields.push("relation", "rule", "tele");
@@ -100,7 +100,7 @@ export default function Form({ data, type }: any) {
             }
         }
 
-        return !isNaN(formData.created) && !isNaN(formData.org) && (type !== "myndighet" || !isNaN(formData.tele));
+        return !isNaN(formData.created) && (type !== "myndighet" || !isNaN(formData.tele));
     }
 
     const handleLogoUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
