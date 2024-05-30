@@ -144,11 +144,17 @@ export default function Page() {
                 localStorage.setItem('compSort', 'yearInc');
                 setSortingPlaceholder("Äldst till nyast");
             } else {
-                setCompanies([...companies].sort((a, b) => a.name.localeCompare(b.name)));
+                const normalize = (str: string) => str.replace(/[^a-zA-Z0-9]/g, '').toUpperCase();
+                const sortedCompanies = [...companies].sort((a, b) => {
+                    const aName = normalize(a.name);
+                    const bName = normalize(b.name);
+                    return aName.localeCompare(bName);
+                });
+                
+                setCompanies(sortedCompanies);
                 localStorage.setItem('compSort', 'alfa');
                 setSortingPlaceholder("Alfabetisk ordning");
             }
-
         }).catch((error) => {
             console.error("Error setting companies:", error);
         });
@@ -217,10 +223,17 @@ export default function Page() {
     function changeSorting(value: string) {
 
         if (value === 'alfa') {
-            setCompanies([...companies].sort((a, b) => a.name.localeCompare(b.name)));
+            const normalize = (str: string) => str.replace(/[^a-zA-Z0-9]/g, '').toUpperCase();
+            const sortedCompanies = [...companies].sort((a, b) => {
+                const aName = normalize(a.name);
+                const bName = normalize(b.name);
+                return aName.localeCompare(bName);
+            });
+            
+            setCompanies(sortedCompanies);
             localStorage.setItem('compSort', 'alfa');
             setSortingPlaceholder("Alfabetisk ordning");
-        }
+        }        
         if (value === 'yearDec') {
             setCompanies([...companies].sort((a, b) => b.created.toString().localeCompare(a.created.toString())));
             localStorage.setItem('compSort', 'yearDec');

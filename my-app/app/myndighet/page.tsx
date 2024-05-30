@@ -157,8 +157,15 @@ export default function Page() {
                 localStorage.setItem('mynSort', 'yearInc');
                 setSortingPlaceholder("Äldst till nyast");
             } else {
-                setMyndigheter([...myndigheter].sort((a, b) => a.name.localeCompare(b.name)));
-                localStorage.setItem('mynSort', 'alfa');
+                const normalize = (str: string) => str.replace(/[^a-zA-Z0-9]/g, '').toUpperCase();
+                const sortedMyndigheter = [...myndigheter].sort((a, b) => {
+                    const aName = normalize(a.name);
+                    const bName = normalize(b.name);
+                    return aName.localeCompare(bName);
+                });
+                
+                setMyndigheter(sortedMyndigheter);
+                localStorage.setItem('compSort', 'alfa');
                 setSortingPlaceholder("Alfabetisk ordning");
             }
 
@@ -238,9 +245,16 @@ export default function Page() {
     function changeSorting(value: string) {
 
         if (value === 'alfa') {
-            setMyndigheter([...myndigheter].sort((a, b) => a.name.localeCompare(b.name)));
-            localStorage.setItem('mynSort', 'alfa');
-            setSortingPlaceholder("Alfabetisk ordning");
+            const normalize = (str: string) => str.replace(/[^a-zA-Z0-9]/g, '').toUpperCase();
+                const sortedMyndigheter = [...myndigheter].sort((a, b) => {
+                    const aName = normalize(a.name);
+                    const bName = normalize(b.name);
+                    return aName.localeCompare(bName);
+                });
+                
+                setMyndigheter(sortedMyndigheter);
+                localStorage.setItem('compSort', 'alfa');
+                setSortingPlaceholder("Alfabetisk ordning");
         }
         if (value === 'yearDec') {
             setMyndigheter([...myndigheter].sort((a, b) => b.created.toString().localeCompare(a.created.toString())));
