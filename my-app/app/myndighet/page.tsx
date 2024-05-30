@@ -36,6 +36,7 @@ import Footer from '../../components/Main/footer';
 import ListCard from '@/components/DatabaseComponents/listCard';
 
 import CheckFilter from '@/components/DatabaseComponents/CheckFilter';
+import { set } from 'mongoose';
 
 
 
@@ -45,6 +46,7 @@ export default function Page() {
     const [myndigheter, setMyndigheter] = useState<Myndigheter[]>([]);
     const [filterReset, setFilterReset] = useState(false);
     const [filteredMyndigheter, setFilteredMyndigheter] = useState<Myndigheter[]>([]);
+    const [sortingPlaceholder, setSortingPlaceholder] = useState("Alfabetisk ordning");
 
     const [searchQuery, setSearchQuery] = useState(() => {
         if (typeof window !== 'undefined') {
@@ -54,7 +56,7 @@ export default function Page() {
             }
             return '';
         }
-    }); 
+    });
 
     const [ruleFilters, setRuleFilters] = useState(() => {
         if (typeof window !== 'undefined') {
@@ -135,9 +137,30 @@ export default function Page() {
     }
 
     useEffect(() => {
+
+        let storedSort: string | null;
+
+        if (typeof window !== 'undefined') {
+            storedSort = localStorage.getItem('mynSort');
+        }
+
         fetchMyndigheter().then((myndigheter) => {
-            setMyndigheter(myndigheter);
             setLoading(false);
+
+            if (storedSort === 'yearDec') {
+                setMyndigheter([...myndigheter].sort((a, b) => b.created.toString().localeCompare(a.created.toString())));
+                localStorage.setItem('mynSort', 'yearDec');
+                setSortingPlaceholder("Nyast till äldst");
+            }
+            else if (storedSort === 'yearInc') {
+                setMyndigheter([...myndigheter].sort((a, b) => a.created.toString().localeCompare(b.created.toString())));
+                localStorage.setItem('mynSort', 'yearInc');
+                setSortingPlaceholder("Äldst till nyast");
+            } else {
+                setMyndigheter([...myndigheter].sort((a, b) => a.name.localeCompare(b.name)));
+                localStorage.setItem('mynSort', 'alfa');
+                setSortingPlaceholder("Alfabetisk ordning");
+            }
 
         }).catch((error) => {
             console.error("Error setting myndigheter:", error);
@@ -156,18 +179,6 @@ export default function Page() {
     const handleRuleFilterChange = (filters: Record<string, boolean>) => {
         setRuleFilters(filters);
     };
-
-    function changeSorting(value: string) {
-        if (value === 'alfa') {
-            setMyndigheter([...myndigheter].sort((a, b) => a.name.localeCompare(b.name)));
-        }
-        if (value === 'yearDec') {
-            setMyndigheter([...myndigheter].sort((a, b) => b.created.toString().localeCompare(a.created.toString())));
-        }
-        else if (value === 'yearInc') {
-            setMyndigheter([...myndigheter].sort((a, b) => a.created.toString().localeCompare(b.created.toString())));
-        }
-    }
 
     useEffect(() => {
         const filteredMyndigheter = myndigheter.filter(myndighet => {
@@ -193,6 +204,9 @@ export default function Page() {
         setFilterReset(true);
         setSlider1Value('1477');
         setSlider2Value('2024');
+        localStorage.setItem('mynSort', 'alfa');
+        setMyndigheter([...myndigheter].sort((a, b) => a.name.localeCompare(b.name)));
+        setSortingPlaceholder("Alfabetisk ordning");
 
         setTimeout(() => {
             setFilterReset(false);
@@ -220,7 +234,26 @@ export default function Page() {
             </Card>
         );
     }
-    
+
+    function changeSorting(value: string) {
+
+        if (value === 'alfa') {
+            setMyndigheter([...myndigheter].sort((a, b) => a.name.localeCompare(b.name)));
+            localStorage.setItem('mynSort', 'alfa');
+            setSortingPlaceholder("Alfabetisk ordning");
+        }
+        if (value === 'yearDec') {
+            setMyndigheter([...myndigheter].sort((a, b) => b.created.toString().localeCompare(a.created.toString())));
+            localStorage.setItem('mynSort', 'yearDec');
+            setSortingPlaceholder("Nyast till äldst");
+        }
+        else if (value === 'yearInc') {
+            setMyndigheter([...myndigheter].sort((a, b) => a.created.toString().localeCompare(b.created.toString())));
+            localStorage.setItem('mynSort', 'yearInc');
+            setSortingPlaceholder("Äldst till nyast");
+        }
+    }
+
     return (
         <>
             <div>
@@ -337,7 +370,7 @@ export default function Page() {
                             <Card className="h-120 overflow-y-auto">
                                 {filteredMyndigheter.map((myndighet: any) => (
                                     <div key={myndighet._id}>
-                                       <ListCard myndighet={myndighet} />
+                                        <ListCard myndighet={myndighet} />
                                     </div>
                                 ))}
                             </Card>
@@ -347,7 +380,7 @@ export default function Page() {
                     <div className=''>
                         <Select onValueChange={changeSorting} >
                             <SelectTrigger className="w-[180px]">
-                                <SelectValue placeholder="Sorterings alternativ" />
+                                <p>{sortingPlaceholder}</p>
                             </SelectTrigger>
                             <SelectContent>
                                 <SelectGroup>

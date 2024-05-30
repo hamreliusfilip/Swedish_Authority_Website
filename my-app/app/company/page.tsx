@@ -44,6 +44,7 @@ export default function Page() {
     const [companies, setCompanies] = useState<companies[]>([]);
     const [filteredCompanies, setFilteredCompanies] = useState<companies[]>([]);
     const [filterReset, setFilterReset] = useState(false);
+    const [sortingPlaceholder, setSortingPlaceholder] = useState("Alfabetisk ordning");
 
     const [searchQuery, setSearchQuery] = useState(() => {
         if (typeof window !== 'undefined') {
@@ -53,7 +54,7 @@ export default function Page() {
             }
             return '';
         }
-    }); 
+    });
 
     const [ruleFilters, setRuleFilters] = useState(() => {
         if (typeof window !== 'undefined') {
@@ -123,10 +124,31 @@ export default function Page() {
     }
 
     useEffect(() => {
+
+        let storedSort: string | null;
+
+        if (typeof window !== 'undefined') {
+            storedSort = localStorage.getItem('compSort');
+        }
+
         fetchCompanies().then((companies) => {
-            setCompanies(companies);
             setLoading(false);
-   
+
+            if (storedSort === 'yearDec') {
+                setCompanies([...companies].sort((a, b) => b.created.toString().localeCompare(a.created.toString())));
+                localStorage.setItem('compSort', 'yearDec');
+                setSortingPlaceholder("Nyast till äldst");
+            }
+            else if (storedSort === 'yearInc') {
+                setCompanies([...companies].sort((a, b) => a.created.toString().localeCompare(b.created.toString())));
+                localStorage.setItem('compSort', 'yearInc');
+                setSortingPlaceholder("Äldst till nyast");
+            } else {
+                setCompanies([...companies].sort((a, b) => a.name.localeCompare(b.name)));
+                localStorage.setItem('compSort', 'alfa');
+                setSortingPlaceholder("Alfabetisk ordning");
+            }
+
         }).catch((error) => {
             console.error("Error setting companies:", error);
         });
@@ -139,18 +161,6 @@ export default function Page() {
     const handleRuleFilterChange = (filters: Record<string, boolean>) => {
         setRuleFilters(filters);
     };
-
-    function changeSorting(value: string) {
-        if (value === 'alfa') {
-            setCompanies([...companies].sort((a, b) => a.name.localeCompare(b.name)));
-        }
-        if (value === 'yearDec') {
-            setCompanies([...companies].sort((a, b) => b.created.toString().localeCompare(a.created.toString())));
-        }
-        else if (value === 'yearInc') {
-            setCompanies([...companies].sort((a, b) => a.created.toString().localeCompare(b.created.toString())));
-        }
-    }
 
     useEffect(() => {
         const filteredCompanies = companies.filter(company => {
@@ -173,6 +183,9 @@ export default function Page() {
         setFilterReset(true);
         setSlider1Value('1400');
         setSlider2Value('2024');
+        localStorage.setItem('compSort', 'alfa');
+        setCompanies([...companies].sort((a, b) => a.name.localeCompare(b.name)));
+        setSortingPlaceholder("Alfabetisk ordning");
 
         setTimeout(() => {
             setFilterReset(false);
@@ -200,6 +213,26 @@ export default function Page() {
             </Card>
         );
     }
+
+    function changeSorting(value: string) {
+
+        if (value === 'alfa') {
+            setCompanies([...companies].sort((a, b) => a.name.localeCompare(b.name)));
+            localStorage.setItem('compSort', 'alfa');
+            setSortingPlaceholder("Alfabetisk ordning");
+        }
+        if (value === 'yearDec') {
+            setCompanies([...companies].sort((a, b) => b.created.toString().localeCompare(a.created.toString())));
+            localStorage.setItem('compSort', 'yearDec');
+            setSortingPlaceholder("Nyast till äldst");
+        }
+        else if (value === 'yearInc') {
+            setCompanies([...companies].sort((a, b) => a.created.toString().localeCompare(b.created.toString())));
+            localStorage.setItem('compSort', 'yearInc');
+            setSortingPlaceholder("Äldst till nyast");
+        }
+    }
+
     return (
         <>
             <div>
@@ -228,7 +261,7 @@ export default function Page() {
                                     </AccordionContent>
                                 </AccordionItem>
                             </Accordion>
-                            <Accordion type="single"  defaultValue="item-2" collapsible>
+                            <Accordion type="single" defaultValue="item-2" collapsible>
                                 <AccordionItem value="item-2">
                                     <AccordionTrigger>Årtal</AccordionTrigger>
                                     <AccordionContent>
@@ -293,27 +326,27 @@ export default function Page() {
                         className="border border-gray-200 rounded-md p-2 w-full mb-4 font-light font-sans text-sm"
                     />
                     <p className='font-slate-300 text-sm font-light'>Antal hittade företag hittade: {filteredCompanies.length} st</p>
-                    
+
                     {loading == true ? (
                         <Card className="h-120 overflow-y-auto mt-4">
                             <>{cards}</>
                         </Card>
                     ) : (
-                    <div className='overflow-y-auto mt-4'>
-                        <Card className="h-120 overflow-y-auto">
-                            {filteredCompanies.map((company: any) => (
-                                <div key={company._id}>
-                                    <ListCard company={company} />
-                                </div>
-                            ))}
-                        </Card>
-                    </div>)}
+                        <div className='overflow-y-auto mt-4'>
+                            <Card className="h-120 overflow-y-auto">
+                                {filteredCompanies.map((company: any) => (
+                                    <div key={company._id}>
+                                        <ListCard company={company} />
+                                    </div>
+                                ))}
+                            </Card>
+                        </div>)}
                 </div>
                 <div className='basis-1/6 pr-10'>
                     <div className=''>
                         <Select onValueChange={changeSorting} >
                             <SelectTrigger className="w-[180px]">
-                                <SelectValue placeholder="Sorterings alternativ" />
+                                <p>{sortingPlaceholder}</p>
                             </SelectTrigger>
                             <SelectContent>
                                 <SelectGroup>
