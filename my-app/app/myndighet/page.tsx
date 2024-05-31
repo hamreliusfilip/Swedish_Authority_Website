@@ -38,8 +38,6 @@ import ListCard from '@/components/DatabaseComponents/listCard';
 import CheckFilter from '@/components/DatabaseComponents/CheckFilter';
 import { set } from 'mongoose';
 
-
-
 export default function Page() {
 
     const [loading, setLoading] = useState(true);
@@ -126,8 +124,11 @@ export default function Page() {
     }
 
     const fetchMyndigheter = async () => {
+        
         try {
-            const res = await fetch("http://localhost:3000/api/myndigheter?fields=name,_id,relation,created,rule,info,org");
+            const res = await fetch("http://localhost:3000/api/myndigheter?fields=name,_id,relation,created,rule,info,org", {
+                cache: "force-cache"
+            });
             const data = await res.json();
             return data.myndighet;
         } catch (error) {

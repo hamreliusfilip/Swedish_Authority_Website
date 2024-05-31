@@ -8,14 +8,17 @@ import Footer from "@/components/Main/footer";
 export default async function Page({ params }: any) {
 
   const fetchMyndigheter = async () => {
-    
+
     try {
       const res = await fetch(`http://localhost:3000/api/myndigheter/${params.id}`, {
         method: "GET",
         cache: "no-cache",
+        headers: {
+          "Cache-Control": "max-age=3600"
+        }
       });
       const data = await res.json();
-      
+
       return data.myndighet;
     } catch (error) {
       console.error("Error fetching myndigheter:", error);

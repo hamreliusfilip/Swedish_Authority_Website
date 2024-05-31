@@ -2,24 +2,6 @@ import { NextResponse } from 'next/server';
 import dbConnect from '../../../../lib/dbConnect';
 import Myndighet from "../../../../lib/models/myndighet";
 
-let connected = false;
-
-export async function checkDB() {
-
-    if (connected) {
-        return true;
-    } else {
-        try {
-            await dbConnect();
-            connected = true;
-        } catch (error) {
-            connected = false;
-        }
-    }
-    return connected;
-}
-
-
 export async function GET(req: any, { params }: any) {
     
     try {
@@ -60,10 +42,8 @@ export async function DELETE(req: any, { params }: any) {
         const myndighet = await Myndighet.findByIdAndDelete(params.id);
         
         if (!myndighet) {
-            console.log("hej den hittas ej??");
             return NextResponse.json({ message: "Myndighet not found" }, { status: 404 });
         }
-        console.log("hej den är raderad");
         return NextResponse.json({ message: "Myndighet deleted successfully", myndighet }, { status: 200 });
     } catch (error) {
         console.log(error);

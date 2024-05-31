@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import dbConnect from "../../../lib/dbConnect";
 import Myndigheter from "../../../lib/models/myndighet";
+import { revalidatePath, revalidateTag } from 'next/cache';
 
 export async function GET(req: any) {
   try {
@@ -30,6 +31,7 @@ export async function POST(req: any) {
 
     const body = await req.json(); 
     await Myndigheter.create(body);
+    
 
     return NextResponse.json({ status: 200, message: 'Myndighet created' });
     
