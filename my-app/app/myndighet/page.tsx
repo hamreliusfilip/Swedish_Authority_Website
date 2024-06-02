@@ -11,7 +11,6 @@ import {
     SelectItem,
     SelectLabel,
     SelectTrigger,
-    SelectValue,
 } from "@/components/ui/select"
 import {
     Accordion,
@@ -36,7 +35,6 @@ import Footer from '../../components/Main/footer';
 import ListCard from '@/components/DatabaseComponents/listCard';
 
 import CheckFilter from '@/components/DatabaseComponents/CheckFilter';
-import { set } from 'mongoose';
 
 export default function Page() {
 
@@ -127,7 +125,7 @@ export default function Page() {
         
         try {
             const res = await fetch("http://localhost:3000/api/myndigheter?fields=name,_id,relation,created,rule,info,org", {
-                cache: "force-cache"
+                method: "GET",
             });
             const data = await res.json();
             return data.myndighet;
@@ -190,8 +188,10 @@ export default function Page() {
 
     useEffect(() => {
         const filteredMyndigheter = myndigheter.filter(myndighet => {
+            
             const nameMatch = myndighet.name.toLowerCase().includes(searchQuery.toLowerCase());
             const orgMatch = myndighet.org.toLowerCase().includes(searchQuery.toLowerCase());
+
             const minValue = parseInt(slider1Value);
             const maxValue = parseInt(slider2Value);
             const createdMatch = myndighet.created >= minValue && myndighet.created <= maxValue;

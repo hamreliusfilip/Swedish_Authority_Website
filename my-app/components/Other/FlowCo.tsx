@@ -98,10 +98,7 @@ const App: React.FC = () => {
   const changeSorting2 = useCallback((value: string) => {
     if (!value) return;
 
-    console.log("Selected value in changeSorting2:", value);
-
     const selectedData = data[value as keyof typeof data];
-    console.log("Selected data in changeSorting2:", selectedData);
 
     if (selectedData) {
       setD1(selectedData[0]);
