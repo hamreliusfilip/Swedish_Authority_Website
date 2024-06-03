@@ -10,6 +10,8 @@ import {
     CardTitle,
 } from "@/components/ui/card";
 
+// Om hemsidan
+
 export default function AboutSite() {
     return (
         <div className="flex justify-center pt-16">
