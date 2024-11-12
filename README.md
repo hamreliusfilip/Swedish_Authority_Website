@@ -39,27 +39,6 @@ Database backend: MongoDB <br>
 
 The data will be collected by ourselfs from "Regerings Kansliet" and "statskontoret". We are aware that the extra work on the data does not affect the project scope. 
 
-## Project idea - Design mockup
-
-![Landing page](Design Mockups/startsida.png)
-
-![Search and filter page](Design Mockups/Myndighter.png)
-
-![Info page](Design Mockups/myndighet.png)
-
-![Info page 2](Design Mockups/Myndigheter2.png)
-
-![Departement page](Design Mockups/Departement.png)
-
-![Info 4](Design Mockups/Info2.png)
-
-![Info 4](Design Mockups/Info.png)
-
-![Admin log in page](Design Mockups/Admin_login.png)
-
-![Admin edit page](Design Mockups/Edit_.png)
-
-
 
 
 
